@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="espresso_pistol" data-name="espresso pistol" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <circle cx="50.25" cy="21.75" r="11.25" style="fill: #ed2024;"/>
+    <path d="M30.09,32.36l9.55,9.55-19.09,19.09c-2.64,2.64-6.91,2.64-9.55,0h0c-2.64-2.64-2.64-6.91,0-9.55l19.09-19.09Z" style="fill: #ed2024;"/>
+    <polyline points="44.14 34.23 38.05 40.31 31.69 33.95 37.77 27.86" style="fill: #ed2024;"/>
+    <polyline points="43.88 9.03 43.88 9.03 37.52 15.39 37.52 15.39" style="fill: #ed2024;"/>
+    <polyline points="56.61 34.48 56.61 34.48 62.97 28.12 62.97 28.12" style="fill: #ed2024;"/>
+  </g>
+  <g>
+    <circle cx="50.25" cy="21.75" r="11.25" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <path d="M30.09,32.36l9.55,9.55-19.09,19.09c-2.64,2.64-6.91,2.64-9.55,0h0c-2.64-2.64-2.64-6.91,0-9.55l19.09-19.09Z" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <polyline points="44.14 34.23 38.05 40.31 31.69 33.95 37.77 27.86" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <polyline points="43.88 9.03 43.88 9.03 37.52 15.39 37.52 15.39" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <polyline points="56.61 34.48 56.61 34.48 62.97 28.12 62.97 28.12" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

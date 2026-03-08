@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="plug-type-b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g>
+    <line x1="29.25" y1="9" x2="29.25" y2="22.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="42.75" y1="9" x2="42.75" y2="22.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+  <line x1="36" y1="9" x2="36" y2="22.5" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M27,22.5c0,9.64,4.5,8.36,4.5,18l2.25,9h4.5l2.25-9c0-9.64,4.5-8.36,4.5-18h-18Z" style="fill: #ed1c24; opacity: .5;"/>
+  <path d="M27,22.5c0,9.64,4.5,8.36,4.5,18l2.25,9h4.5l2.25-9c0-9.64,4.5-8.36,4.5-18h-18Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="27" y1="40.5" x2="45" y2="40.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="21.38" y1="22.5" x2="49.5" y2="22.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="36" y1="63" x2="36" y2="49.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

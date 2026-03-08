@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g id="arrow-up-down">
+    <polyline points="49.5 36.12 58.62 45 67.5 35.88" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+  <g id="chevron-disconnect_2" data-name="chevron-disconnect 2">
+    <circle cx="36" cy="49.5" r="4.5" style="fill: #ed1c24; opacity: .5;"/>
+    <circle cx="13.5" cy="49.5" r="4.5" style="fill: #ed1c24; opacity: .5;"/>
+    <circle cx="36" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="13.5" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="36" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="13.5" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <path d="M13.95,36.02c2.08-10.28,11.16-18.02,22.05-18.02,12.43,0,22.5,10.07,22.5,22.5v4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+</svg>

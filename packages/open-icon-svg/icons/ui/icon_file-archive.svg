@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="file-archive" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="9" y="13.5" width="54" height="13.5" rx="1" ry="1" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M13.5,27v30.5c0,.55.45,1,1,1h43c.55,0,1-.45,1-1v-30.5" style="fill: #ed2024; opacity: .5;"/>
+  <rect x="9" y="13.5" width="54" height="13.5" rx="1" ry="1" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M13.5,27v30.5c0,.55.45,1,1,1h43c.55,0,1-.45,1-1v-30.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="27" y1="36" x2="45" y2="36" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

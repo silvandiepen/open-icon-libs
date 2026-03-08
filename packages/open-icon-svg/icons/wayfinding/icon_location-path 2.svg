@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="location-path_2" data-name="location-path 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g>
+    <path d="M60.75,16.39c0,6.75-6.75,10.61-6.75,10.61,0,0-6.75-3.86-6.75-10.61,0-3.73,3.02-6.75,6.75-6.75s6.75,3.02,6.75,6.75Z" style="fill: none; stroke: #000; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="54" y1="16.34" x2="54" y2="16.34" style="fill: none; stroke: #000; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+  <g>
+    <line x1="36" y1="54" x2="36" y2="54" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+    <path d="M41.57,53.12c6.35-2.06,11.15-7.56,12.21-14.31" style="fill: none; stroke: #ed2024; stroke-dasharray: 0 0 0 5.65; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+    <line x1="54" y1="36" x2="54" y2="36" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+  <path d="M22.5,31.5c-6.21,0-11.25,5.04-11.25,11.25,0,9,11.25,15.75,11.25,15.75,0,0,11.25-6.75,11.25-15.75,0-6.21-5.04-11.25-11.25-11.25ZM22.5,47.25c-2.49,0-4.5-2.01-4.5-4.5s2.01-4.5,4.5-4.5,4.5,2.01,4.5,4.5-2.01,4.5-4.5,4.5Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M33.75,42.75c0,9-11.25,15.75-11.25,15.75,0,0-11.25-6.75-11.25-15.75,0-6.21,5.04-11.25,11.25-11.25s11.25,5.04,11.25,11.25Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <circle cx="22.5" cy="42.75" r="4.5" style="fill: none; stroke: #ed1f24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

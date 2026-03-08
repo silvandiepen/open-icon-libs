@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="arrow-out-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <polygon points="36 48.73 48.73 61.46 61.46 48.73 48.73 36 58.27 26.45 16.91 16.91 26.45 58.27 36 48.73" style="fill: #ed2024; opacity: .5;"/>
+  <polygon points="36 48.73 48.73 61.46 61.46 48.73 48.73 36 58.27 26.45 16.91 16.91 26.45 58.27 36 48.73" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

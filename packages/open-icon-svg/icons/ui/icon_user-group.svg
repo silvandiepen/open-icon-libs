@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="user-group" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M26.89,13.75c-.68-.16-1.38-.25-2.11-.25-5.08,0-9.2,4.12-9.2,9.2s4.12,9.2,9.2,9.2c2.13,0,4.08-.73,5.64-1.94" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M41.7,29.97c1.56,1.21,3.51,1.94,5.64,1.94,5.08,0,9.2-4.12,9.2-9.2s-4.12-9.2-9.2-9.2c-.73,0-1.43.09-2.11.25" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M29.55,32.65c-1.51-.48-3.11-.74-4.77-.74-8.71,0-15.78,7.06-15.78,15.78,0,3.35,4.44,4.92,8.61,5.66" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M54.5,53.35c4.17-.74,8.61-2.31,8.61-5.66,0-8.71-7.06-15.78-15.78-15.78-1.66,0-3.27.26-4.77.74" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <circle cx="36.06" cy="20.25" r="11.25" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M55.34,50.79c0,7.71-19.29,7.71-19.29,7.71,0,0-19.29,0-19.29-7.71,0-10.65,8.63-19.29,19.29-19.29s19.29,8.63,19.29,19.29Z" style="fill: #ed2024; opacity: .5;"/>
+  <circle cx="36.06" cy="20.25" r="11.25" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M55.34,50.79c0,7.71-19.29,7.71-19.29,7.71,0,0-19.29,0-19.29-7.71,0-10.65,8.63-19.29,19.29-19.29s19.29,8.63,19.29,19.29Z" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

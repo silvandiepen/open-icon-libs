@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="text-order-asc-2" data-name="text-order-asc" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <line x1="18" y1="13.5" x2="18" y2="54" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="13.5 54 18 58.5 22.5 54" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="31.5" y1="18" x2="54" y2="18" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="31.5" y1="54" x2="40.5" y2="54" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="49.5" y1="30" x2="31.5" y2="30" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="31.5" y1="42" x2="45" y2="42" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="chevron-disconnect_2" data-name="chevron-disconnect 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M36,13.5c12.43,0,22.5,10.07,22.5,22.5s-10.07,22.5-22.5,22.5-22.5-10.07-22.5-22.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="36 22.5 36 36 45 40.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M13.5,36c0-12.43,10.07-22.5,22.5-22.5" style="fill: none; stroke: #231f20; stroke-dasharray: 1 6; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

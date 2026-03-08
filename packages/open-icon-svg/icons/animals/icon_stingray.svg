@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="stingray" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M49.26,24.87c.16-.76.25-1.55.25-2.37,0-3.93-1.89-7.26-4.53-8.49-.27,4.73-4.18,8.49-8.97,8.49s-8.71-3.76-8.97-8.49c-2.63,1.23-4.53,4.56-4.53,8.49,0,.82.09,1.62.25,2.37-8.2,3.3-13.75,10.03-13.75,20.13h13.5c4.5,0,4.5,9,13.5,9s9-9,13.5-9h13.5c0-10.09-5.54-16.83-13.74-20.13Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M27,31.5s0,9,4.5,13.5" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M45,31.5s0,9-4.5,13.5" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M36,54v2.25c0,3.73,3.02,6.75,6.75,6.75h0c3.73,0,6.75-3.02,6.75-6.75v-2.25" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M49.26,24.87c.16-.76.25-1.55.25-2.37,0-3.93-1.89-7.26-4.53-8.49-.27,4.73-4.18,8.49-8.97,8.49s-8.71-3.76-8.97-8.49c-2.63,1.23-4.53,4.56-4.53,8.49,0,.82.09,1.62.25,2.37-8.2,3.3-13.75,10.03-13.75,20.13h13.5c4.5,0,4.5,9,13.5,9s9-9,13.5-9h13.5c0-10.09-5.54-16.83-13.74-20.13Z" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

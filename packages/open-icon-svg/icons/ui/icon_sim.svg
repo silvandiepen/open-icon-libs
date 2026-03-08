@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="sim" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M14.67,21.33l11.16-11.16c.75-.75,1.77-1.17,2.83-1.17h25.84c2.21,0,4,1.79,4,4v46c0,2.21-1.79,4-4,4H17.5c-2.21,0-4-1.79-4-4V24.16c0-1.06.42-2.08,1.17-2.83Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="22.5" y="27" width="27" height="27" rx="2" ry="2" style="fill: #ed1c24; opacity: .5;"/>
+  <line x1="31.5" y1="27" x2="31.5" y2="36" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="40.5" y1="27" x2="40.5" y2="36" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="40.5" y1="45" x2="40.5" y2="54" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="31.5" y1="45" x2="31.5" y2="54" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="49.5 40.5 40.5 36 31.5 36 22.5 40.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="49.5 40.5 40.5 45 31.5 45 22.5 40.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="22.5" y="27" width="27" height="27" rx="2" ry="2" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 5px;"/>
+</svg>

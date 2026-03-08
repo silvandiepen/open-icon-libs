@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="triangled-info" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M34.29,16.36L10.82,55.47c-.8,1.33.16,3.03,1.71,3.03h46.94c1.55,0,2.51-1.7,1.71-3.03l-23.47-39.11c-.78-1.29-2.65-1.29-3.43,0Z" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M34.29,16.36L10.82,55.47c-.8,1.33.16,3.03,1.71,3.03h46.94c1.55,0,2.51-1.7,1.71-3.03l-23.47-39.11c-.78-1.29-2.65-1.29-3.43,0Z" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <g>
+    <polyline points="36 54 36 40.5 31.5 40.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="36" y1="31.5" x2="36" y2="31.5" style="fill: none; stroke: #000; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

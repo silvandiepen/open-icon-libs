@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="layers-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="22.5" y="22.5" width="31.5" height="31.5" rx="2" ry="2" style="fill: #ed1c24; opacity: .5;"/>
+  <path d="M22.5,45h-7c-1.1,0-2-.9-2-2V15.5c0-1.1.9-2,2-2h27.5c1.1,0,2,.9,2,2v7" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="22.5" y="22.5" width="31.5" height="31.5" rx="2" ry="2" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

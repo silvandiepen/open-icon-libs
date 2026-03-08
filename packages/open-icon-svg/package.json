@@ -1,0 +1,46 @@
+{
+  "name": "open-icon-svg",
+  "version": "0.1.1",
+  "description": "Open Icon SVG catalog with generated names, types, and lookup metadata.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./catalog": {
+      "types": "./dist/generated/openIconCatalog.generated.d.ts",
+      "import": "./dist/generated/openIconCatalog.generated.js"
+    },
+    "./icons/*": "./icons/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "icons",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist src/generated/openIconCatalog.generated.ts",
+    "generate": "node ./scripts/generate-open-icon-catalog.mjs",
+    "build": "npm run clean && npm run generate && tsc -p tsconfig.json",
+    "typecheck": "npm run generate && tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test ./test/*.test.js"
+  },
+  "keywords": [
+    "svg",
+    "icons",
+    "open-icon",
+    "catalog"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/open-icon-libs.git",
+    "directory": "packages/open-icon-svg"
+  }
+}

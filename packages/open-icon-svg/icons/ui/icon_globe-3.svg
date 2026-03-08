@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="globe-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <circle cx="36.25" cy="29.66" r="15.75" style="fill: #ed1c24; opacity: .5;"/>
+  <circle cx="36.25" cy="29.66" r="15.75" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M51.91,13.5c4.07,4.07,6.59,9.7,6.59,15.91s-2.52,11.84-6.59,15.91c-4.07,4.07-9.7,6.59-15.91,6.59s-11.84-2.52-15.91-6.59" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="36" y1="60.91" x2="36" y2="51.91" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="27" y1="60.91" x2="45" y2="60.91" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

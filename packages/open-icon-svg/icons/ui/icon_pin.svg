@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="pin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <path d="M42.75,31.5V13.5h-13.5v18c-5.32,2.53-9,7.93-9,14.21h31.5c0-6.28-3.68-11.68-9-14.21Z" style="fill: #ed2024;"/>
+  </g>
+  <line x1="36" y1="45" x2="36" y2="67.5" style="fill: #fff; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <g>
+    <line x1="22.5" y1="13.5" x2="49.5" y2="13.5" style="fill: #fff; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <path d="M42.75,31.5V13.5h-13.5v18c-5.32,2.53-9,7.93-9,14.21h31.5c0-6.28-3.68-11.68-9-14.21Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

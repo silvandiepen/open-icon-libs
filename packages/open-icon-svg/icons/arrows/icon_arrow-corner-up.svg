@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="arrow-corner-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M49.5,13.5v25c0,11.05-8.95,20-20,20H13.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="58.5 22.5 49.5 13.5 40.5 22.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

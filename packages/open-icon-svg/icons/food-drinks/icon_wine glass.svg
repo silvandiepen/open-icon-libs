@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="wine_glass" data-name="wine glass" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M21.85,32.79c1.76,4.62,6.65,5.71,12.42,5.71s10.87-1.13,12.53-6c.18-.52.3-1.25.38-2.06.14-1.48.09-2.98-.13-4.44h-.26c-13.87,0-13.89,6.77-24.95,6.79Z" style="fill: #ed1f24; opacity: .5;"/>
+  <path d="M46.35,22.13c.94,2.63,1.35,5.48,1.09,8.31-.08.81-.2,1.54-.38,2.06-1.66,4.87-6.65,6-12.53,6s-10.87-1.13-12.53-6c-.18-.52-.3-1.25-.38-2.06-.26-2.82.15-5.68,1.09-8.31l3.08-8.63h17.5l3.08,8.63Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M22.05,32.79c11.11,0,11.11-6.79,25-6.79" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="34.57" y1="58.5" x2="34.43" y2="38.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="24.57" y1="58.5" x2="44.57" y2="58.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

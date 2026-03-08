@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="office-space" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M40.5,27h5.72c1.91,0,3.55,1.35,3.92,3.22l2.9,14.5c.5,2.48-1.4,4.78-3.92,4.78h-4.12l-4.5-22.5Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <circle cx="41.06" cy="15.75" r="5.06" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <circle cx="41.06" cy="15.75" r="5.06" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="9 27 13.5 40.5 27 40.5" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="9" y1="45" x2="31.5" y2="45" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="20.25" y1="63" x2="20.25" y2="45" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M40.5,54h10c4.42,0,8-3.58,8-8v-10" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="49.5" y1="63" x2="49.5" y2="54" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="36 63 31.5 49.5 45 49.5" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M40.5,27h5.72c1.91,0,3.55,1.35,3.92,3.22l2.9,14.5c.5,2.48-1.4,4.78-3.92,4.78h-4.12l-4.5-22.5Z" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="22.5 36 36 36 40.5 27" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

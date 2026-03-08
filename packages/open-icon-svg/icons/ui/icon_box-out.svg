@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="box-out" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M34.07,12.31l-18.5,10.18c-1.28.7-2.07,2.05-2.07,3.5v20.02c0,1.46.79,2.8,2.07,3.5l18.5,10.18c1.2.66,2.66.66,3.86,0l18.5-10.18c1.28-.7,2.07-2.05,2.07-3.5v-20.02c0-1.46-.79-2.8-2.07-3.5l-18.5-10.18c-1.2-.66-2.66-.66-3.86,0Z" style="fill: #ed2024; opacity: .5;"/>
+  <g>
+    <path d="M58.5,31.5v-5.51c0-1.46-.79-2.8-2.07-3.5l-9.18-5.05-9.32-5.13c-1.2-.66-2.66-.66-3.86,0l-9.32,5.13-9.18,5.05c-1.28.7-2.07,2.05-2.07,3.5v20.02c0,1.46.79,2.8,2.07,3.5l9.18,5.05,9.32,5.13c1.2.66,2.66.66,3.86,0l9.32-5.13" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <polyline points="14.07 23.94 36 36 57.93 23.94" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="36" y1="36" x2="36" y2="60.18" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+  <line x1="45" y1="45" x2="67.5" y2="45" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="58.5 36 67.5 45 58.5 54" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

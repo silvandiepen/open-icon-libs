@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="location-marker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M36,9c-12.43,0-22.5,10.07-22.5,22.5,0,18,22.5,31.5,22.5,31.5,0,0,22.5-13.5,22.5-31.5,0-12.43-10.07-22.5-22.5-22.5ZM36,40.5c-4.97,0-9-4.03-9-9s4.03-9,9-9,9,4.03,9,9-4.03,9-9,9Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M58.5,31.5c0,18-22.5,31.5-22.5,31.5,0,0-22.5-13.5-22.5-31.5,0-12.43,10.07-22.5,22.5-22.5s22.5,10.07,22.5,22.5Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <circle cx="36" cy="31.5" r="9" style="fill: none; stroke: #ed1f24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

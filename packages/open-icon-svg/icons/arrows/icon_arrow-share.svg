@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="arrow-share" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M63,49.5l-1.74,3.47c-1.69,3.39-5.16,5.53-8.94,5.53H19.68c-3.79,0-7.25-2.14-8.94-5.53l-1.74-3.47" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M18,22.5h11.5c11.05,0,20,8.95,20,20v7" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="27 13.5 18 22.5 27 31.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>
