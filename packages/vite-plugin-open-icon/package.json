@@ -35,5 +35,10 @@
   },
   "dependencies": {
     "open-icon-transform": "0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/open-icon-libs.git",
+    "directory": "packages/vite-plugin-open-icon"
   }
 }
