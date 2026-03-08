@@ -69,9 +69,15 @@ On every push to `master`, the workflow will:
 3. publish `vite-plugin-open-icon`
 4. commit the version bump back to `master` with `[skip ci]`
 
-Required repository secret:
+Trusted publishing setup required in npm (once per package):
 
-- `NPM_TOKEN`: npm automation token with publish rights for both packages
+1. Open each package in npm: `open-icon-transform` and `vite-plugin-open-icon`
+2. Add a Trusted Publisher for GitHub Actions
+3. Set owner/repo to `silvandiepen/open-icon-libs`
+4. Set workflow filename to `publish.yml`
+5. Set environment to `github-actions` (or your chosen protected environment if used)
+
+No `NPM_TOKEN` secret is required with this flow.
 
 Manual fallback:
 

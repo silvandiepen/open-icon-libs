@@ -60,23 +60,19 @@ jobs:
           npm run test
 
       - name: Publish open-icon-transform
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           if npm view "open-icon-transform@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
             echo "open-icon-transform@${{ steps.version.outputs.next }} already exists. Skipping publish."
           else
-            npm --workspace open-icon-transform publish --access public
+            npm --workspace open-icon-transform publish --access public --provenance
           fi
 
       - name: Publish vite-plugin-open-icon
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           if npm view "vite-plugin-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
             echo "vite-plugin-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
           else
-            npm --workspace vite-plugin-open-icon publish --access public
+            npm --workspace vite-plugin-open-icon publish --access public --provenance
           fi
 
       - name: Commit version updates
