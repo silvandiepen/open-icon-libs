@@ -66,3 +66,8 @@ Publish per package:
 npm --workspace open-icon-transform publish
 npm --workspace vite-plugin-open-icon publish
 ```
+
+
+## Contributing
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) for development, testing, and release guidelines.
