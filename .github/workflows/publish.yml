@@ -49,9 +49,10 @@ jobs:
 
       - name: Bump package versions
         run: |
-          npm --workspace open-icon-transform version "${{ steps.version.outputs.next }}" --no-git-tag-version
-          npm --workspace vite-plugin-open-icon version "${{ steps.version.outputs.next }}" --no-git-tag-version
-          npm --workspace vite-plugin-open-icon pkg set "dependencies.open-icon-transform=${{ steps.version.outputs.next }}"
+          npm pkg set "version=${{ steps.version.outputs.next }}" --workspace open-icon-transform
+          npm pkg set "version=${{ steps.version.outputs.next }}" --workspace vite-plugin-open-icon
+          npm pkg set "dependencies.open-icon-transform=${{ steps.version.outputs.next }}" --workspace vite-plugin-open-icon
+          npm install --package-lock-only --ignore-scripts
 
       - name: Build and test
         run: |
