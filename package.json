@@ -2,21 +2,24 @@
   "name": "open-icon-monorepo",
   "private": true,
   "version": "0.1.0",
-  "description": "Monorepo containing open-icon-transform and vite-plugin-open-icon.",
+  "description": "Monorepo containing open-icon-transform, open-icon-svg, and vite-plugin-open-icon.",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "build": "npm run build:transform && npm run build:vite-plugin",
+    "build": "npm run build:transform && npm run build:svg && npm run build:vite-plugin",
     "build:transform": "npm --workspace open-icon-transform run build",
+    "build:svg": "npm --workspace open-icon-svg run build",
     "build:vite-plugin": "npm --workspace vite-plugin-open-icon run build",
-    "typecheck": "npm run typecheck:transform && npm run typecheck:vite-plugin",
+    "typecheck": "npm run typecheck:transform && npm run typecheck:svg && npm run typecheck:vite-plugin",
     "typecheck:transform": "npm --workspace open-icon-transform run typecheck",
+    "typecheck:svg": "npm --workspace open-icon-svg run typecheck",
     "typecheck:vite-plugin": "npm --workspace vite-plugin-open-icon run typecheck",
-    "test": "npm run test:transform && npm run test:vite-plugin",
+    "test": "npm run test:transform && npm run test:svg && npm run test:vite-plugin",
     "test:transform": "npm --workspace open-icon-transform run test",
+    "test:svg": "npm --workspace open-icon-svg run test",
     "test:vite-plugin": "npm --workspace vite-plugin-open-icon run test",
-    "clean": "npm --workspace open-icon-transform run clean && npm --workspace vite-plugin-open-icon run clean"
+    "clean": "npm --workspace open-icon-transform run clean && npm --workspace open-icon-svg run clean && npm --workspace vite-plugin-open-icon run clean"
   },
   "devDependencies": {
     "@types/node": "^24.10.1",
