@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="_x5F_g_x2B_button" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 72 72">
-  <!-- Generator: Adobe Illustrator 29.0.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 192)  -->
-  <rect x="13.5" y="13.5" width="45" height="45" rx="6" ry="6" style="fill: #ed2024; opacity: .5;"/>
-  <rect x="13.5" y="13.5" width="45" height="36" rx="6" ry="6" style="fill: #ed2024; opacity: .5;"/>
-  <path d="M58.5,31.5v12c0,3.31-2.69,6-6,6H19.5c-3.31,0-6-2.69-6-6v-24c0-3.31,2.69-6,6-6h12" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <path d="M58.5,31.5v21c0,3.31-2.69,6-6,6H19.5c-3.31,0-6-2.69-6-6V19.5c0-3.31,2.69-6,6-6h16.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <rect x="36.05" width="31.5" height="31.5" style="fill: #8dc63f;"/>
-</svg>

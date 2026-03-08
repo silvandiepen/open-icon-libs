@@ -29,10 +29,10 @@ test('resolveOpenIconName supports canonical and prefixed names', () => {
 });
 
 test('resolves file path and import path with URI-safe encoding', () => {
-	assert.equal(getOpenIconFilePath('ui/settings-3'), 'icons/ui/icon_settings 3.svg');
+	assert.equal(getOpenIconFilePath('wayfinding/check-in'), 'icons/wayfinding/icon_check in.svg');
 	assert.equal(
-		getOpenIconImportPath('ui/settings-3'),
-		'open-icon-svg/icons/ui/icon_settings%203.svg'
+		getOpenIconImportPath('wayfinding/check-in'),
+		'open-icon-svg/icons/wayfinding/icon_check%20in.svg'
 	);
 });
 
