@@ -1,6 +1,6 @@
 import path from 'node:path';
-import { openIconSvgLoaderDefaults } from './openIconSvgLoader.config';
-import type { OpenIconSvgLoaderSettings, OpenIconSvgMeta } from './openIconSvgLoader.model';
+import { openIconSvgLoaderDefaults } from './openIconSvgLoader.config.js';
+import type { OpenIconSvgLoaderSettings, OpenIconSvgMeta } from './openIconSvgLoader.model.js';
 
 const baseColors: Record<string, string> = {
 	red: '#ff0000',
@@ -25,8 +25,10 @@ const baseColors: Record<string, string> = {
 	gold: '#ffd700',
 };
 
+/** Converts scalar/array values to array form. */
 const toArray = <T>(value: T | T[]): T[] => (Array.isArray(value) ? value : [value]);
 
+/** Trims leading/trailing blank lines from serialized SVG content. */
 const trimLines = (content: string): string => {
 	const lines = content.split('\n');
 
@@ -41,6 +43,7 @@ const trimLines = (content: string): string => {
 	return lines.join('\n');
 };
 
+/** Returns true when a remove-data pattern should be interpreted as regex. */
 const isRegex = (value: string): boolean => {
 	try {
 		const regexString =
@@ -52,6 +55,7 @@ const isRegex = (value: string): boolean => {
 	}
 };
 
+/** Removes configured literal/regex fragments from SVG content. */
 const removeData = (content: string, patterns: string | string[]): string => {
 	let output = content;
 
@@ -72,6 +76,7 @@ const removeData = (content: string, patterns: string | string[]): string => {
 	return trimLines(output);
 };
 
+/** Applies configured literal replacement rules in sequence. */
 const replaceData = (
 	content: string,
 	replacements: OpenIconSvgLoaderSettings['replaceData']
@@ -93,6 +98,7 @@ const replaceData = (
 	return trimLines(output);
 };
 
+/** Removes matching tags from SVG source. */
 const removeTags = (content: string, tags: string | string[]): string => {
 	let output = content;
 
@@ -103,6 +109,7 @@ const removeTags = (content: string, tags: string | string[]): string => {
 	return output;
 };
 
+/** Removes matching attributes from SVG source. */
 const removeAttributes = (content: string, attributes: string | string[]): string => {
 	let output = content;
 
@@ -113,6 +120,7 @@ const removeAttributes = (content: string, attributes: string | string[]): strin
 	return output;
 };
 
+/** Expands shorthand hex values to 6-digit form. */
 const toHexSix = (hex: string): string => {
 	if (hex.length === 4) {
 		return `#${hex[1]}${hex[1]}${hex[2]}${hex[2]}${hex[3]}${hex[3]}`;
@@ -120,6 +128,7 @@ const toHexSix = (hex: string): string => {
 	return hex;
 };
 
+/** Converts a hex color string to RGB tuple. */
 const hexToRgb = (hex: string): [number, number, number] => {
 	const normalized = toHexSix(hex).replace('#', '');
 	const red = Number.parseInt(normalized.slice(0, 2), 16);
@@ -128,6 +137,7 @@ const hexToRgb = (hex: string): [number, number, number] => {
 	return [red, green, blue];
 };
 
+/** Computes squared Euclidean distance in RGB space. */
 const colorDistance = (
 	[leftRed, leftGreen, leftBlue]: [number, number, number],
 	[rightRed, rightGreen, rightBlue]: [number, number, number]
@@ -138,21 +148,21 @@ const colorDistance = (
 	return red * red + green * green + blue * blue;
 };
 
+/** Converts all hex colors in source to nearest named base color. */
 const simplifyColors = (content: string): string =>
 	content.replace(/#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b/g, (match) => {
 		const currentColor = hexToRgb(match);
 		const closest = Object.entries(baseColors).reduce(
 			(accumulator, [name, hex]) => {
 				const distance = colorDistance(currentColor, hexToRgb(hex));
-				return distance < accumulator.distance
-					? { distance, name }
-					: accumulator;
+				return distance < accumulator.distance ? { distance, name } : accumulator;
 			},
 			{ distance: Number.POSITIVE_INFINITY, name: 'black' }
 		);
 		return closest.name;
 	});
 
+/** Normalizes excess whitespace generated during transformations. */
 const removeUnnecessarySpaces = (content: string): string =>
 	content
 		.replace(/\s{2,}/g, ' ')
@@ -161,6 +171,10 @@ const removeUnnecessarySpaces = (content: string): string =>
 		.replace(/>\s+</g, '><')
 		.replace(/\s*(<\/?\w+>)\s*/g, '$1');
 
+/**
+ * Moves opacity from `<g style="opacity: ...">` onto child elements.
+ * Keeps semantic output while avoiding nested group opacity reliance.
+ */
 const ungroupElements = (content: string): string => {
 	const regex =
 		/<g([^>]*)style=["'][^"']*opacity\s*:\s*([^;"']+)[^"']*["']([^>]*)>([\s\S]*?)<\/g>/g;
@@ -199,18 +213,18 @@ const ungroupElements = (content: string): string => {
 	);
 };
 
+/** Safely resolves dotted-path values from an object graph. */
 const getNestedProperty = (value: Record<string, unknown>, propertyPath: string): unknown => {
-	return propertyPath
-		.split('.')
-		.reduce<unknown>((accumulator: unknown, key: string) => {
-			if (!accumulator || typeof accumulator !== 'object') {
-				return null;
-			}
+	return propertyPath.split('.').reduce<unknown>((accumulator: unknown, key: string) => {
+		if (!accumulator || typeof accumulator !== 'object') {
+			return null;
+		}
 
-			return (accumulator as Record<string, unknown>)[key] ?? null;
-		}, value);
+		return (accumulator as Record<string, unknown>)[key] ?? null;
+	}, value);
 };
 
+/** Replaces `{{...}}` placeholders in content using settings/meta values. */
 const replaceVariables = (
 	content: string,
 	settings: OpenIconSvgLoaderSettings,
@@ -239,6 +253,7 @@ const replaceVariables = (
 	return trimLines(output);
 };
 
+/** Converts a filename to slug-case. */
 const toSlugCase = (value: string): string => {
 	const slug = value
 		.trim()
@@ -248,6 +263,7 @@ const toSlugCase = (value: string): string => {
 	return slug || 'icon';
 };
 
+/** Converts a slug to PascalCase component-like name. */
 const toComponentName = (fileName: string): string => {
 	const pascal = fileName
 		.split('-')
@@ -257,6 +273,7 @@ const toComponentName = (fileName: string): string => {
 	return /^\d/.test(pascal) ? `_${pascal}` : pascal || 'Icon';
 };
 
+/** Merges user settings with defaults. */
 const normalizeSettings = (
 	settings?: Partial<OpenIconSvgLoaderSettings>
 ): OpenIconSvgLoaderSettings => {
@@ -274,6 +291,7 @@ const normalizeSettings = (
 	};
 };
 
+/** Builds metadata used in variable replacement from file path/settings. */
 const buildMeta = (
 	filePath: string,
 	settings: OpenIconSvgLoaderSettings
@@ -291,6 +309,14 @@ const buildMeta = (
 	};
 };
 
+/**
+ * Applies the full open-icon transformation pipeline to raw SVG content.
+ *
+ * @param svgContent Raw SVG source.
+ * @param filePath File path used to derive icon metadata.
+ * @param settings Optional partial settings override.
+ * @returns Transformed SVG source.
+ */
 export const transformOpenIconSvg = (
 	svgContent: string,
 	filePath: string,

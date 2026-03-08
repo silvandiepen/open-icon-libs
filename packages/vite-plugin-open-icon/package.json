@@ -1,0 +1,39 @@
+{
+  "name": "vite-plugin-open-icon",
+  "version": "0.1.0",
+  "description": "Vite plugin that applies open-icon SVG transforms at import time.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm --workspace open-icon-transform run build && npm run clean && tsc -p tsconfig.json",
+    "typecheck": "npm --workspace open-icon-transform run build && tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test ./test/*.test.js"
+  },
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "svg",
+    "open-icon"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "vite": ">=5"
+  },
+  "dependencies": {
+    "open-icon-transform": "0.1.0"
+  }
+}

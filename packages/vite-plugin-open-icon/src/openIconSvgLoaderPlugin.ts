@@ -1,9 +1,12 @@
 import { readFile } from 'node:fs/promises';
 import type { Plugin } from 'vite';
-import { openIconSvgLoaderDefaults } from './openIconSvgLoader.config';
-import type { OpenIconSvgLoaderSettings } from './openIconSvgLoader.model';
-import { transformOpenIconSvg } from './openIconSvgTransformer';
+import {
+	openIconSvgLoaderDefaults,
+	transformOpenIconSvg,
+	type OpenIconSvgLoaderSettings,
+} from 'open-icon-transform';
 
+/** Parses Vite module id into file path and URL query params. */
 const parseId = (id: string): { filePath: string; searchParams: URLSearchParams } => {
 	const [filePath, queryString = ''] = id.split('?', 2);
 	return {
@@ -12,6 +15,7 @@ const parseId = (id: string): { filePath: string; searchParams: URLSearchParams 
 	};
 };
 
+/** Merges user settings with shared open-icon defaults. */
 const normalizeSettings = (
 	settings: Partial<OpenIconSvgLoaderSettings>
 ): OpenIconSvgLoaderSettings => {
@@ -29,13 +33,18 @@ const normalizeSettings = (
 	};
 };
 
+/**
+ * Vite plugin that transforms `.svg` modules when the configured query is present.
+ *
+ * Default query: `?open-icon`
+ */
 export const openIconSvgLoaderPlugin = (
 	settings: Partial<OpenIconSvgLoaderSettings> = {}
 ): Plugin => {
 	const normalizedSettings = normalizeSettings(settings);
 
 	return {
-		name: 'open-icon-svg-loader',
+		name: 'vite-plugin-open-icon',
 		enforce: 'pre',
 		async load(id) {
 			const { filePath, searchParams } = parseId(id);
