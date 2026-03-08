@@ -1,0 +1,90 @@
+name: Publish Packages
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish-open-icon-libs
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message || '', '[skip ci]') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Configure git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Calculate next version
+        id: version
+        shell: bash
+        run: |
+          current="$(node -p "require('./packages/open-icon-transform/package.json').version")"
+          IFS='.' read -r major minor patch <<< "$current"
+          next="$major.$minor.$((patch + 1))"
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          echo "next=$next" >> "$GITHUB_OUTPUT"
+
+      - name: Bump package versions
+        run: |
+          npm --workspace open-icon-transform version "${{ steps.version.outputs.next }}" --no-git-tag-version
+          npm --workspace vite-plugin-open-icon version "${{ steps.version.outputs.next }}" --no-git-tag-version
+          npm --workspace vite-plugin-open-icon pkg set "dependencies.open-icon-transform=${{ steps.version.outputs.next }}"
+
+      - name: Build and test
+        run: |
+          npm run build
+          npm run test
+
+      - name: Publish open-icon-transform
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if npm view "open-icon-transform@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
+            echo "open-icon-transform@${{ steps.version.outputs.next }} already exists. Skipping publish."
+          else
+            npm --workspace open-icon-transform publish --access public
+          fi
+
+      - name: Publish vite-plugin-open-icon
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if npm view "vite-plugin-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
+            echo "vite-plugin-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
+          else
+            npm --workspace vite-plugin-open-icon publish --access public
+          fi
+
+      - name: Commit version updates
+        run: |
+          git add package-lock.json packages/open-icon-transform/package.json packages/vite-plugin-open-icon/package.json
+          if git diff --cached --quiet; then
+            echo "No version changes to commit."
+            exit 0
+          fi
+
+          git commit -m "chore(Release): publish v${{ steps.version.outputs.next }} [skip ci]"
+          git push origin HEAD:master

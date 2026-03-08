@@ -60,7 +60,20 @@ npm run clean
 
 ## Publishing
 
-Publish per package:
+Publishing is automated via `.github/workflows/publish.yml`.
+
+On every push to `master`, the workflow will:
+
+1. bump both package versions (patch)
+2. publish `open-icon-transform`
+3. publish `vite-plugin-open-icon`
+4. commit the version bump back to `master` with `[skip ci]`
+
+Required repository secret:
+
+- `NPM_TOKEN`: npm automation token with publish rights for both packages
+
+Manual fallback:
 
 ```bash
 npm --workspace open-icon-transform publish
