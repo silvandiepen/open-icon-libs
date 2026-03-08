@@ -8,6 +8,13 @@ Framework-agnostic SVG transformation engine used by open-icon tooling.
 npm install open-icon-transform
 ```
 
+## Other Packages In This Repo
+
+- `open-icon-svg`: ships the raw Open Icon SVG files plus typed catalog helpers (names, categories, alias resolution, file/import path lookup).
+- `vite-plugin-open-icon`: Vite integration layer that runs this transform engine automatically when importing `.svg?open-icon`.
+
+Use `open-icon-transform` directly when you want full control in scripts, custom build steps, CLIs, or non-Vite runtimes.
+
 ## Quick Start
 
 ```ts

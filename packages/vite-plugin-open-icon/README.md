@@ -8,6 +8,13 @@ Vite plugin that applies `open-icon-transform` to SVG modules at load time.
 npm install vite-plugin-open-icon
 ```
 
+## Other Packages In This Repo
+
+- `open-icon-transform`: the core transformation engine used under the hood by this plugin (also re-exported).
+- `open-icon-svg`: typed Open Icon catalog plus raw SVG files that you can import with this plugin (`open-icon-svg/icons/*`).
+
+Use `vite-plugin-open-icon` when you want transformation at Vite module load time instead of running transforms manually.
+
 ## Basic Usage
 
 ```ts

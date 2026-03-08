@@ -13,6 +13,18 @@ Monorepo for open-icon SVG tooling.
 3. `vite-plugin-open-icon`
    A Vite plugin wrapper that applies `open-icon-transform` at import time for `*.svg` modules.
 
+## Pick The Right Package
+
+- `open-icon-svg`: choose this when you need icon files + typed catalog metadata (lookup, aliases, categories).
+- `open-icon-transform`: choose this when you need direct programmatic SVG transformation outside Vite.
+- `vite-plugin-open-icon`: choose this when your app uses Vite and you want transform-at-import behavior.
+
+Most projects combine packages:
+
+- `open-icon-svg` + `vite-plugin-open-icon` for Vite apps with typed icon selection.
+- `open-icon-svg` + `open-icon-transform` for scripts/CLIs/server pipelines.
+- `vite-plugin-open-icon` alone if you only need transform behavior on local SVG imports.
+
 ## Monorepo Layout
 
 ```text
