@@ -79,6 +79,8 @@ Trusted publishing setup required in npm (once per package):
 
 No `NPM_TOKEN` secret is required with this flow.
 
+Workflow runtime requirement for npm trusted publishing: Node `>=22.14.0` and npm `>=11.5.1`.
+
 Manual fallback:
 
 ```bash
