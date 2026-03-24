@@ -1,0 +1,60 @@
+name: Deploy Cloudflare
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-cloudflare-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  NODE_VERSION: 25
+  OPEN_ICON_API_BASE_URL: ${{ vars.OPEN_ICON_API_BASE_URL != '' && vars.OPEN_ICON_API_BASE_URL || 'https://api.open-icon.org' }}
+  CLOUDFLARE_PAGES_PROJECT_NAME: ${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME != '' && vars.CLOUDFLARE_PAGES_PROJECT_NAME || 'open-icon-org' }}
+
+jobs:
+  deploy:
+    if: ${{ github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message || '', '[skip ci]') }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify open-icon API
+        run: npm --workspace open-icon-api run test
+
+      - name: Verify open-icon docs
+        run: |
+          npm --workspace open-icon-org run typecheck
+          npm --workspace open-icon-org run build
+
+      - name: Deploy api.open-icon.org Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: apps/open-icon-api
+          command: deploy
+
+      - name: Deploy open-icon.org Pages site
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy apps/open-icon-org/public --project-name=${{ env.CLOUDFLARE_PAGES_PROJECT_NAME }} --branch=${{ github.ref_name }}

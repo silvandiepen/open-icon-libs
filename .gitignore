@@ -1,2 +1,10 @@
 node_modules
+.DS_Store
 dist
+apps/*/public
+apps/*/assets/generated
+apps/*/assets/scripts
+apps/*/media/icons
+apps/*/src/generated
+apps/*/icons/*/
+apps/*/dist

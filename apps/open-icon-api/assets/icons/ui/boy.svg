@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="boy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <polygon points="32.22 21.94 32.23 21.94 32.23 21.93 32.22 21.94" style="fill: #ed2024;"/>
+    <path d="M22.5,34.88c6.07-2.87,9.64-12.71,9.72-12.94-4.94,1.48-9.61,5.84-9.72,12.94Z" style="fill: #ed2024;"/>
+    <path d="M51,17.94c-3.65,6.78-9.61,3.42-15,3.42-1.23,0-2.51.2-3.77.58.05.18,3.87,12.94,17.27,12.94,11.31,0,6.52-12.02,1.5-16.93Z" style="fill: #ed2024;"/>
+  </g>
+  <path d="M22.5,34.88c0,7.46,6.04,13.5,13.5,13.5s13.5-6.04,13.5-13.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M51,63c0-4.97-6.72-9-15-9s-15,4.03-15,9" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="31.5" y1="37.12" x2="31.5" y2="37.12" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="40.5" y1="37.12" x2="40.5" y2="37.12" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <g>
+    <polygon points="32.22 21.94 32.23 21.94 32.23 21.93 32.22 21.94" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+    <path d="M22.5,34.88c6.07-2.87,9.64-12.71,9.72-12.94-4.94,1.48-9.61,5.84-9.72,12.94Z" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+    <path d="M51,17.94c-3.65,6.78-9.61,3.42-15,3.42-1.23,0-2.51.2-3.77.58.05.18,3.87,12.94,17.27,12.94,11.31,0,6.52-12.02,1.5-16.93Z" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+  <polygon points="32.23 21.93 32.22 21.94 32.23 21.94 32.23 21.93" style="fill: #fff; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

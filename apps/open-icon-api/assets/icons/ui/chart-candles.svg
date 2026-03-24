@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="chart-candles" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="18" y="18" width="9" height="27" rx="2" ry="2" style="fill: #ed2024; opacity: .5;"/>
+  <rect x="45" y="27" width="9" height="22.5" rx="2" ry="2" style="fill: #ed2024; opacity: .5;"/>
+  <line x1="22.5" y1="9" x2="22.5" y2="18" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="22.5" y1="45" x2="22.5" y2="63" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="49.5" y1="9" x2="49.5" y2="27" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="49.5" y1="49.5" x2="49.5" y2="63" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="18" y="18" width="9" height="27" rx="2" ry="2" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="45" y="27" width="9" height="22.5" rx="2" ry="2" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

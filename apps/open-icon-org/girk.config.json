@@ -1,0 +1,14 @@
+{
+  "projectTitle": "Open Icon",
+  "projectDescription": "Open Icon packages, the SVG catalog, and integration docs.",
+  "projectStyle": "/assets/site.css",
+  "projectScriptModule": "/assets/scripts/site.js",
+  "projectLogo": "logo.svg",
+  "colorsPrimary": "#ffd447",
+  "colorsSecondary": "#67c3f3",
+  "colorsTertiary": "#32c89f",
+  "colorsQuaternary": "#f15e3b",
+  "colorsDark": "#101416",
+  "colorsLight": "#ffffff",
+  "copyright": "Open Icon is maintained in the <a href=\"https://github.com/silvandiepen/open-icon-libs\">open-icon-libs</a> monorepo."
+}

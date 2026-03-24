@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="book-side" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <path d="M18,40.5h36V13.5H18s-4.5,3.02-4.5,6.75v27c0-3.73,4.5-6.75,4.5-6.75Z" style="fill: #ed1c24;"/>
+  </g>
+  <path d="M52.5,40.5s-2.25,3.02-2.25,6.75,2.25,6.75,2.25,6.75" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 2px;"/>
+  <path d="M13.5,47.25v-27c0-3.73,4.5-6.75,4.5-6.75h36v27H18s-4.5,3.02-4.5,6.75,4.5,6.75,4.5,6.75h36" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

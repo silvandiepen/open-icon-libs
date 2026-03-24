@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="code-brackets-circled" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <circle cx="36" cy="36" r="27" style="fill: #ed1f24; opacity: .5;"/>
+  <path d="M40.5,54c2.49,0,4.5-2.01,4.5-4.5v-9l4.5-4.5-4.5-4.5v-9c0-2.49-2.01-4.5-4.5-4.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M31.5,18c-2.49,0-4.5,2.01-4.5,4.5v9s-4.5,4.5-4.5,4.5l4.5,4.5v9c0,2.49,2.01,4.5,4.5,4.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <circle cx="36" cy="36" r="27" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

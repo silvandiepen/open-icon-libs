@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="microwave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M59,13.5H13c-2.21,0-4,1.79-4,4v32.5c0,2.21,1.79,4,4,4h46c2.21,0,4-1.79,4-4V17.5c0-2.21-1.79-4-4-4ZM45,45h-27v-22.5h27v22.5Z" style="fill: #ed2024; opacity: .5;"/>
+  <line x1="54" y1="31.5" x2="54" y2="31.5" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="54" y1="22.5" x2="54" y2="22.5" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <rect x="9" y="13.5" width="54" height="40.5" rx="4" ry="4" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <rect x="18" y="22.5" width="27" height="22.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M24.12,36h14.76c.74,0,1.23.78.89,1.45l-1.76,3.53c-1.23,2.47-3.75,4.02-6.51,4.02h0c-2.76,0-5.28-1.56-6.51-4.02l-1.76-3.53c-.33-.66.15-1.45.89-1.45Z" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

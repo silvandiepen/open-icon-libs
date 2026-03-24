@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="flag-golf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="9.75" y="27.75" width="27" height="13.5" transform="translate(-11.25 57.75) rotate(-90)" style="fill: #ed1c24; opacity: .5;"/>
+  <rect x="36.75" y="27.75" width="36" height="13.5" transform="translate(20.25 89.25) rotate(-90)" style="fill: #ed1c24; opacity: .5;"/>
+  <line x1="10.5" y1="7.5" x2="10.5" y2="61.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="42" y1="7.5" x2="42" y2="61.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="9.75" y="27.75" width="27" height="13.5" transform="translate(-11.25 57.75) rotate(-90)" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="36.75" y="27.75" width="36" height="13.5" transform="translate(20.25 89.25) rotate(-90)" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

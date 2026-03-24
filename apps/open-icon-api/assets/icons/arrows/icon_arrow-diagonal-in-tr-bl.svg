@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="arrow-diagonal-in-tr-bl" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g>
+    <polyline points="30.09 54.64 30.09 41.91 17.36 41.91" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+    <line x1="13.5" y1="58.5" x2="30.09" y2="41.91" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+  <g>
+    <polyline points="41.91 17.36 41.91 30.09 54.64 30.09" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+    <line x1="58.5" y1="13.5" x2="41.91" y2="30.09" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+</svg>

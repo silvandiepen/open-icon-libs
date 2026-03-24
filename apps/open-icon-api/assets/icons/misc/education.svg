@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="education" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M58.5,31.5l-22.5-13.5-22.5,13.5,7.5,4.5h-.75v13.5s7.05,4.5,15.75,4.5,15.75-4.5,15.75-4.5v-13.5h-.75l7.5-4.5Z" style="fill: #ed2024; opacity: .5;"/>
+  <line x1="13.5" y1="31.5" x2="13.5" y2="45" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polygon points="13.5 31.5 36 18 58.5 31.5 36 45 13.5 31.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M51.75,36v13.5s-7.05,4.5-15.75,4.5-15.75-4.5-15.75-4.5v-13.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

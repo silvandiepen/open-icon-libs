@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="taxi-stop" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="4.5" y="45" width="9" height="18" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <circle cx="27" cy="15.75" r="5.06" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <rect x="22.5" y="27" width="9" height="18" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M13.5,40.5l9-13.5h14.29c2.27,0,4.35-1.28,5.37-3.32l2.84-5.68" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="22.5 63 22.5 45 22.5 27 31.5 27 31.5 45 31.5 63" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="22.5" y1="45" x2="31.5" y2="45" style="fill: #fff; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <circle cx="27" cy="15.75" r="5.06" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <rect x="4.5" y="45" width="9" height="18" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <rect x="49.5" y="43" width="22.5" height="13.5" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M72,56.5h-22.5v-13.5l7.85-15.78c.68-1.36,2.06-2.22,3.58-2.22h11.07" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="49.5" y1="43" x2="72" y2="43" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M49.5,56.5h6v4.5c0,1.1-.9,2-2,2h-2c-1.1,0-2-.9-2-2v-4.5h0Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M49.5,56.5h6v4.5c0,1.1-.9,2-2,2h-2c-1.1,0-2-.9-2-2v-4.5h0Z" style="fill: #010101; stroke-width: 0px;"/>
+  <line x1="54" y1="50" x2="63" y2="50" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="45" y1="38.5" x2="51.74" y2="38.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

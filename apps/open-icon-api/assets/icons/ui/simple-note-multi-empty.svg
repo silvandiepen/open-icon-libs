@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="simple-note-multi-empty" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M49.5,22.5h5c2.21,0,4,1.79,4,4v28c0,2.21-1.79,4-4,4h-28c-2.21,0-4-1.79-4-4v-5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="14" y="13.5" width="35.5" height="36" rx="4" ry="4" style="fill: #ed1c24; opacity: .5;"/>
+  <rect x="13.5" y="13.5" width="36" height="36" rx="4" ry="4" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

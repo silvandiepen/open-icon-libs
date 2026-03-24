@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="pacman" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M36,36l20.12-10.06c-3.69-7.37-11.32-12.44-20.12-12.44-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5c8.81,0,16.43-5.06,20.12-12.44l-20.12-10.06Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M36,36l20.12-10.06c-3.69-7.37-11.32-12.44-20.12-12.44-12.43,0-22.5,10.07-22.5,22.5s10.07,22.5,22.5,22.5c8.81,0,16.43-5.06,20.12-12.44l-20.12-10.06Z" style="fill: none; stroke: #000; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="36" y1="25" x2="36" y2="25" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 8px;"/>
+</svg>

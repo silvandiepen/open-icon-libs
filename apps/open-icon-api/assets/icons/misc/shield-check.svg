@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="shield-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M36,9v54c24.55-9.82,24.55-44.18,24.55-44.18l-24.55-9.82Z" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M36,63C11.45,53.18,11.45,18.82,11.45,18.82l24.55-9.82" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M11.45,18.82l24.55-9.82,24.55,9.82s0,34.36-24.55,44.18C11.45,53.18,11.45,18.82,11.45,18.82Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="27 31.5 36 45 49.5 22.5" style="fill: none; stroke: #ee1c4e; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

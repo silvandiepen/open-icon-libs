@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="lounge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M13.5,58.5l-4.13-37.17c-.2-1.78,1.19-3.33,2.98-3.33h3.62c1.23,0,2.33.75,2.79,1.89l8.25,20.61h26.65c2.23,0,3.68,2.35,2.68,4.34l-6.83,13.66H13.5Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M31.5,35h9l-4-10.23c-.3-.77-1.04-1.27-1.86-1.27h-4.7c-1.41,0-2.38,1.42-1.86,2.73l3.43,8.77Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <circle cx="27.56" cy="12.94" r="5.06" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <circle cx="27.56" cy="12.94" r="5.06" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M13.5,58.5l-4.13-37.17c-.2-1.78,1.19-3.33,2.98-3.33h3.62c1.23,0,2.33.75,2.79,1.89l8.25,20.61h26.65c2.23,0,3.68,2.35,2.68,4.34l-6.83,13.66H13.5Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M31.5,35h9l-4-10.23c-.3-.77-1.04-1.27-1.86-1.27h-4.7c-1.41,0-2.38,1.42-1.86,2.73l3.43,8.77Z" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="54" y1="35" x2="40.5" y2="35" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="63" y1="58.5" x2="56.33" y2="44.84" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

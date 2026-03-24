@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="sticker-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <polygon points="55.09 43.91 63 36 55.09 28.09 55.09 16.91 43.91 16.91 36 9 28.09 16.91 16.91 16.91 16.91 28.09 9 36 16.91 43.91 16.91 55.09 28.09 55.09 36 63 43.91 55.09 55.09 55.09 55.09 43.91" style="fill: #ed1c24; opacity: .5;"/>
+  <polygon points="55.09 43.91 63 36 55.09 28.09 55.09 16.91 43.91 16.91 36 9 28.09 16.91 16.91 16.91 16.91 28.09 9 36 16.91 43.91 16.91 55.09 28.09 55.09 36 63 43.91 55.09 55.09 55.09 55.09 43.91" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="28 33 36 42 46.5 27" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

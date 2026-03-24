@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="button-heart_2" data-name="button-heart 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="13.5" y="13.5" width="45" height="45" rx="6" ry="6" style="fill: #ed2024; opacity: .5;"/>
+  <rect x="13.5" y="13.5" width="45" height="36" rx="6" ry="6" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M58.5,31.5v12c0,3.31-2.69,6-6,6H19.5c-3.31,0-6-2.69-6-6v-24c0-3.31,2.69-6,6-6h12" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M58.5,31.5v21c0,3.31-2.69,6-6,6H19.5c-3.31,0-6-2.69-6-6V19.5c0-3.31,2.69-6,6-6h12" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M49.5,31.5c-23.38-12.24-11.69-30.85,0-18.36,11.69-12.48,23.38,6.12,0,18.36Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

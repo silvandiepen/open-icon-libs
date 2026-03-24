@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="socket-type-b" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M27,49.5s-4.5-6.56-4.5-11.25,4.5-11.25,4.5-11.25h18s4.5,6.56,4.5,11.25-4.5,11.25-4.5,11.25h-18Z" style="fill: #ed1c24; opacity: .5;"/>
+  <path d="M27,49.5s-4.5-6.56-4.5-11.25,4.5-11.25,4.5-11.25h18s4.5,6.56,4.5,11.25-4.5,11.25-4.5,11.25h-18Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <g>
+    <line x1="31.5" y1="31.5" x2="31.5" y2="40.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="40.5" y1="31.5" x2="40.5" y2="40.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+  <line x1="36" y1="42.5" x2="36" y2="45" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="36" y1="42.49" x2="36" y2="42.49" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

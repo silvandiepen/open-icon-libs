@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="wallet" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M49.5,39.22h9v-5c0-2.21-1.79-4-4-4H17.5c-2.21,0-4,1.79-4,4v23.5c0,2.21,1.79,4,4,4h37c2.21,0,4-1.79,4-4v-9.5h-9c-2.49,0-4.5-2.01-4.5-4.5s2.01-4.5,4.5-4.5Z" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M58.5,39.22h-9c-2.49,0-4.5,2.01-4.5,4.5h0c0,2.49,2.01,4.5,4.5,4.5h9" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="18" y="21.24" width="13.96" height="9" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="31.96" y="15.22" width="19.79" height="15.02" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="13.5" y="30.22" width="45" height="31.5" rx="4" ry="4" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

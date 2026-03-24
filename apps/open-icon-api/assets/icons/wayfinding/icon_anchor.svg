@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="anchor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <line x1="36" y1="58.5" x2="36" y2="22.5" style="fill: none; stroke: #000; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="31.5" y1="31.5" x2="40.5" y2="31.5" style="fill: none; stroke: #ed2024; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M54,40.5c0,8.7-8.06,15.75-18,15.75s-18-7.05-18-15.75" style="fill: none; stroke: #000; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <circle cx="36" cy="18" r="4.5" style="fill: none; stroke: #ed2024; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="13.5 40.5 18 36 22.5 40.5" style="fill: none; stroke: #ed2024; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="49.5 40.5 54 36 58.5 40.5" style="fill: none; stroke: #ed2024; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

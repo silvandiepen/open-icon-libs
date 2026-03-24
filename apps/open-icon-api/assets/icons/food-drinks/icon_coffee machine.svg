@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="coffee_machine" data-name="coffee machine" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M18.19,49.5c-.14,1.17-.05,2.35.36,3.46,1.65,4.5,6.82,5.55,12.95,5.55s11.3-1.04,12.95-5.55c.61-1.67.53-3.51-.03-5.19l-1.61-4.82h-.68c-13.33,0-13.41,6.47-23.94,6.55Z" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M22.5,13v10c0,2.21,1.79,4,4,4h27.5v36H18h45V13c0-2.21-1.79-4-4-4H26.5c-2.21,0-4,1.79-4,4Z" style="fill: #ed2024; opacity: .5;"/>
+  <line x1="49.5" y1="18" x2="49.5" y2="18" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M22.5,13v10c0,2.21,1.79,4,4,4h27.5v36H18h45V13c0-2.21-1.79-4-4-4H26.5c-2.21,0-4,1.79-4,4Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M44.42,47.76c.56,1.68.64,3.53.03,5.19-1.65,4.5-6.82,5.55-12.95,5.55s-11.3-1.04-12.95-5.55c-.61-1.67-.53-3.51.03-5.19l3.92-11.76h18l3.92,11.76Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M18,49.5c10.73,0,10.73-6.56,24.14-6.56" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M22.5,36h-9.5c-2.21,0-4,1.79-4,4v10c0,2.21,1.79,4,4,4h5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

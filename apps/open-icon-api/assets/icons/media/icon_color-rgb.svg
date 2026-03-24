@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="color-rgb" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g>
+    <circle cx="26.37" cy="44.44" r="15.75" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+    <circle cx="45.86" cy="44.44" r="15.75" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+    <circle cx="36.12" cy="27.56" r="15.75" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  </g>
+  <g>
+    <circle cx="35.88" cy="27.56" r="15.75" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <circle cx="35.88" cy="27.56" r="15.75" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <circle cx="26.14" cy="44.44" r="15.75" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <circle cx="26.14" cy="44.44" r="15.75" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <circle cx="45.63" cy="44.44" r="15.75" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <circle cx="45.63" cy="44.44" r="15.75" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

@@ -1,0 +1,15 @@
+{
+  "name": "open-icon-api",
+  "main": "./dist/index.js",
+  "compatibility_date": "2026-03-24",
+  "routes": [
+    {
+      "pattern": "api.open-icon.org",
+      "custom_domain": true
+    }
+  ],
+  "assets": {
+    "directory": "./assets",
+    "binding": "ASSETS"
+  }
+}

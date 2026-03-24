@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="hello-goodbye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="13.5" y="45" width="9" height="13.5" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <circle cx="36" cy="15.75" r="5.06" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M35.5,27h5v18h-9v-14c0-2.21,1.79-4,4-4Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M22.5,40.5l7.81-11.72c.74-1.11,1.99-1.78,3.33-1.78h12.15c2.27,0,4.35-1.28,5.37-3.32l2.84-5.68" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M31.5,63V31c0-2.21,1.79-4,4-4h5v36" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="31.5" y1="45" x2="40.5" y2="45" style="fill: #fff; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <circle cx="36" cy="15.75" r="5.06" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <rect x="13.5" y="45" width="9" height="13.5" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <rect x="49.5" y="45" width="13.5" height="18" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <rect x="49.5" y="45" width="13.5" height="18" style="fill: none; stroke: #000; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M56,31.5h.5c1.1,0,2,.9,2,2v11.5h-4.5v-11.5c0-1.1.9-2,2-2Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 2px;"/>
+</svg>
