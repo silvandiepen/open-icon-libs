@@ -1,17 +1,34 @@
+import { execFile } from 'node:child_process';
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { transformOpenIconSvg } from '../../open-icon-transform/dist/index.js';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { promisify } from 'node:util';
 import { walkSvgFiles } from './openIconCatalog.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const packageRoot = path.resolve(__dirname, '..');
+const repoRoot = path.resolve(packageRoot, '../..');
 const sourceIconsRoot = path.resolve(packageRoot, '../../icons-src');
 const packageIconsRoot = path.join(packageRoot, 'icons');
+const transformModulePath = path.join(repoRoot, 'packages', 'open-icon-transform', 'dist', 'index.js');
+const execFileAsync = promisify(execFile);
+
+const ensureTransformModule = async () => {
+	try {
+		await fs.access(transformModulePath);
+	} catch {
+		await execFileAsync('npm', ['--workspace', 'open-icon-transform', 'run', 'build'], {
+			cwd: repoRoot,
+		});
+	}
+
+	return import(pathToFileURL(transformModulePath).href);
+};
 
 export const generatePackageIcons = async () => {
 	const sourceFiles = await walkSvgFiles(sourceIconsRoot);
+	const { transformOpenIconSvg } = await ensureTransformModule();
 
 	await fs.rm(packageIconsRoot, { recursive: true, force: true });
 	await fs.mkdir(packageIconsRoot, { recursive: true });
