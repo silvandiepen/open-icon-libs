@@ -22,12 +22,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22.14.0
           registry-url: 'https://registry.npmjs.org'
+          cache: npm
+
+      - name: Refresh tags
+        run: git fetch --force --tags origin
 
       - name: Install dependencies
         run: npm ci
@@ -53,6 +59,20 @@ jobs:
           echo "current=$current" >> "$GITHUB_OUTPUT"
           echo "next=$next" >> "$GITHUB_OUTPUT"
 
+      - name: Calculate release notes range
+        id: release_notes
+        shell: bash
+        run: |
+          previous_release_commit="$(git log --grep='^chore(Release): publish v' --format=%H -n 1 --first-parent HEAD || true)"
+
+          if [ -n "$previous_release_commit" ]; then
+            range="${previous_release_commit}..HEAD"
+          else
+            range="HEAD"
+          fi
+
+          echo "range=$range" >> "$GITHUB_OUTPUT"
+
       - name: Bump package versions
         run: |
           npm pkg set "version=${{ steps.version.outputs.next }}" --workspace open-icon-transform
@@ -65,6 +85,13 @@ jobs:
         run: |
           npm run build
           npm run test
+
+      - name: Generate docs release notes
+        run: |
+          node ./scripts/release-notes.mjs \
+            --version "${{ steps.version.outputs.next }}" \
+            --date "$(date -u +%F)" \
+            --range "${{ steps.release_notes.outputs.range }}"
 
       - name: Publish open-icon-transform
         run: |
@@ -92,7 +119,7 @@ jobs:
 
       - name: Commit version updates
         run: |
-          git add package-lock.json packages/open-icon-transform/package.json packages/open-icon-svg/package.json packages/vite-plugin-open-icon/package.json
+          git add package-lock.json packages/open-icon-transform/package.json packages/open-icon-svg/package.json packages/vite-plugin-open-icon/package.json apps/open-icon-org/release-notes
           if git diff --cached --quiet; then
             echo "No version changes to commit."
             exit 0
