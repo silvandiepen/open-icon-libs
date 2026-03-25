@@ -1,6 +1,6 @@
 {
   "name": "open-icon-transform",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Framework-agnostic SVG transformation pipeline used by open-icon.",
   "type": "module",
   "main": "./dist/index.js",
