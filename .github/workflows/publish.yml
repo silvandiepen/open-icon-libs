@@ -65,7 +65,7 @@ jobs:
         run: |
           current="$(node -p "require('./packages/open-icon/package.json').version")"
           published="$(npm view open-icon version 2>/dev/null || true)"
-          next="$(node -e "const current = process.argv[1]; const published = process.argv[2]; const parse = (value) => value.split('.').map((segment) => Number.parseInt(segment, 10) || 0); const compare = (left, right) => { const leftParts = parse(left); const rightParts = parse(right); for (let index = 0; index < Math.max(leftParts.length, rightParts.length); index += 1) { const difference = (leftParts[index] ?? 0) - (rightParts[index] ?? 0); if (difference !== 0) { return difference; } } return 0; }; const base = published && compare(published, current) > 0 ? published : current; const [major, minor, patch] = parse(base); process.stdout.write(`${major}.${minor}.${patch + 1}`);" "$current" "$published")"
+          next="$(node -e "const current = process.argv[1]; const published = process.argv[2]; const parse = (value) => value.split('.').map((segment) => Number.parseInt(segment, 10) || 0); const compare = (left, right) => { const leftParts = parse(left); const rightParts = parse(right); for (let index = 0; index < Math.max(leftParts.length, rightParts.length); index += 1) { const difference = (leftParts[index] ?? 0) - (rightParts[index] ?? 0); if (difference !== 0) { return difference; } } return 0; }; const base = published && compare(published, current) > 0 ? published : current; const [major, minor, patch] = parse(base); process.stdout.write([major, minor, patch + 1].join('.'));" "$current" "$published")"
           echo "current=$current" >> "$GITHUB_OUTPUT"
           echo "published=$published" >> "$GITHUB_OUTPUT"
           echo "next=$next" >> "$GITHUB_OUTPUT"
