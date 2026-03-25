@@ -3,33 +3,20 @@
   "version": "0.1.3",
   "description": "Open Icon SVG catalog with generated names, types, and lookup metadata.",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./catalog": {
-      "types": "./dist/generated/openIconCatalog.generated.d.ts",
-      "import": "./dist/generated/openIconCatalog.generated.js"
-    },
     "./icons/*": "./icons/*",
     "./package.json": "./package.json"
   },
   "files": [
-    "dist",
     "icons",
     "README.md",
     "LICENSE"
   ],
   "scripts": {
-    "clean": "rm -rf dist src/generated/openIconCatalog.generated.ts",
-    "generate": "node ./scripts/generate-open-icon-catalog.mjs",
-    "build": "npm run clean && npm run generate && tsc -p tsconfig.json",
-    "typecheck": "npm run generate && tsc -p tsconfig.json --noEmit",
-    "test": "npm run build && node --test ./test/*.test.js"
+    "clean": "node ./scripts/validate-package.mjs",
+    "build": "node ./scripts/validate-package.mjs",
+    "typecheck": "node ./scripts/validate-package.mjs",
+    "test": "node --test ./test/*.test.js"
   },
   "keywords": [
     "svg",

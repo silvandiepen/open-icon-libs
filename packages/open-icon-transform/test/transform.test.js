@@ -24,11 +24,18 @@ test('maps Layer id/data-name to componentName using replaceName + filename norm
 });
 
 test('default replaceData maps fill and stroke variants', () => {
-	const input = `<svg><path style="fill:none;stroke:red;stroke-width:4;"/></svg>`;
+	const input = `<svg><path style="fill:white;stroke:black;"/><path style="fill:none;stroke:red;stroke-width:4;"/></svg>`;
 	const output = transformOpenIconSvg(input, '/tmp/icon_combo.svg');
 
+	assert.equal(output.includes('var(--icon-fill-secondary, white)'), true);
+	assert.equal(output.includes('var(--icon-stroke-color, currentColor)'), true);
 	assert.equal(output.includes('var(--icon-stroke-color-secondary'), true);
-	assert.equal(output.includes('icon-stroke-width-m'), true);
+	assert.equal(
+		output.includes(
+			'var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)))'
+		),
+		true
+	);
 });
 
 test('removeData supports regex and literal cleanup in same run', () => {
@@ -118,7 +125,7 @@ test('full pipeline combination remains stable', () => {
 	assert.equal(output.includes('id="MultiStep12"'), true);
 	assert.equal(output.includes('var(--icon-fill'), true);
 	assert.equal(output.includes('var(--icon-stroke-color-secondary'), true);
-	assert.equal(output.includes('icon-stroke-width-m'), true);
+	assert.equal(output.includes('icon-stroke-width-secondary-m'), true);
 	assert.equal(output.includes('opacity: .5;'), true);
 });
 

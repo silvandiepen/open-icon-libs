@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="cube-3d" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <polygon points="13.5 23.62 36 11.25 58.5 23.62 58.5 48.38 36 60.75 13.5 48.38 13.5 23.62" style="fill: #ed2024;"/>
+    <polyline points="13.5 23.62 36 36 58.5 23.62" style="fill: #ed2024; stroke: #ed2024; stroke-miterlimit: 10;"/>
+  </g>
+  <g>
+    <polyline points="13.5 23.62 36 36 58.5 23.62" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="36" y1="36" x2="36" y2="60.75" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <polygon points="13.5 23.62 36 11.25 58.5 23.62 58.5 48.38 36 60.75 13.5 48.38 13.5 23.62" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

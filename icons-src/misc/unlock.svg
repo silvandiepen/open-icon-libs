@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="unlock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <rect x="18" y="38.05" width="36.82" height="20.45" style="fill: #ed1c24;"/>
+  </g>
+  <g>
+    <rect x="17.59" y="38.05" width="36.82" height="20.45" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <path d="M46.23,23.73c0-5.65-4.58-10.23-10.23-10.23s-10.23,4.58-10.23,10.23v14.32" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

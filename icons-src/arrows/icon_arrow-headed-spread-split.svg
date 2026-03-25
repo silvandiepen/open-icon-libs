@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="arrow-headed-spread-split" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <polyline points="13.5 45.77 13.5 58.5 26.23 58.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="58.5 26.23 58.5 13.5 45.77 13.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="45" y1="27" x2="52.14" y2="19.86" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="19.86" y1="52.14" x2="27" y2="45" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="45.77 58.5 58.5 58.5 58.5 45.77" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="26.23 13.5 13.5 13.5 13.5 26.23" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="27" y1="27" x2="19.86" y2="19.86" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="51.75" y1="51.75" x2="45" y2="45" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polygon points="13.5 58.5 26.23 58.5 13.5 45.77 13.5 58.5" style="fill: #ed2024;"/>
+  <polygon points="45.77 13.5 58.5 26.23 58.5 13.5 45.77 13.5" style="fill: #ed2024;"/>
+  <polygon points="45.77 58.5 58.5 58.5 58.5 45.77 45.77 58.5" style="fill: #ed2024;"/>
+  <polygon points="13.5 13.5 13.5 26.23 26.23 13.5 13.5 13.5" style="fill: #ed2024;"/>
+  <polygon points="13.5 58.5 26.23 58.5 13.5 45.77 13.5 58.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polygon points="45.77 13.5 58.5 26.23 58.5 13.5 45.77 13.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polygon points="45.77 58.5 58.5 58.5 58.5 45.77 45.77 58.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polygon points="13.5 13.5 13.5 26.23 26.23 13.5 13.5 13.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

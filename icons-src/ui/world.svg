@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="world" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <circle cx="36" cy="36" r="27" style="fill: #ed1c24; opacity: .5;"/>
+  <path d="M45,31.5s-13.5,0-13.5,4.5,9,4.5,9,9,4.5,13.5,9,4.5,9-18-4.5-18Z" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M59.16,22.12c-2.88,2.7-6.38,1.32-8.21.3-1.04-.58-2.83,5.09-3.73,4.64s-4.17-5.82-4.97-6.06c-2.33-.71-5.18,2.93-7.14,4.89-4.5,4.5-7.67-4.8-3.61-6.24,9.48-3.36,4.5-1.64,4.5-6.14v-4.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M13.12,21.66s4.42,3.52,3.62,8.2c-.79,4.67-7.13,7.6-7.68,7.76" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M10.63,42.69s10.3-1.11,9.51,3.56c-.79,4.67-2.03,9.31-2.58,9.47" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <circle cx="36" cy="36" r="27" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

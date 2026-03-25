@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="globe" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <circle cx="36" cy="36" r="27" style="fill: #ed1c24; opacity: .5;"/>
+  <circle cx="36" cy="36" r="27" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="36" y1="9" x2="36" y2="63" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="9" y1="36" x2="63" y2="36" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M36,63c8,0,15.18-3.48,20.12-9-4.94-5.52-12.12-9-20.12-9s-15.18,3.48-20.12,9c4.94,5.52,12.12,9,20.12,9Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M36,27c8,0,15.18-3.48,20.12-9-4.94-5.52-12.12-9-20.12-9s-15.18,3.48-20.12,9c4.94,5.52,12.12,9,20.12,9Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M26.37,10.77c-2.39,6.5-3.87,15.4-3.87,25.23s1.48,18.73,3.87,25.23c2.99,1.14,6.24,1.77,9.63,1.77s6.64-.63,9.63-1.77c2.39-6.5,3.87-15.4,3.87-25.23s-1.48-18.73-3.87-25.23c-2.99-1.14-6.24-1.77-9.63-1.77s-6.64.63-9.63,1.77Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

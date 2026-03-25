@@ -1,8 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="arrow-headed-rouned-left-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <polygon points="22.5 31.5 13.5 22.5 22.5 13.5 22.5 31.5" style="fill: #ed2024; opacity: .5;"/>
-  <polygon points="58.5 49.5 49.5 58.5 40.5 49.5 58.5 49.5" style="fill: #ed2024; opacity: .5;"/>
-  <polygon points="22.5 31.5 13.5 22.5 22.5 13.5 22.5 31.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
-  <path d="M22.5,22.5h7c11.05,0,20,8.95,20,20v7" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
-  <polygon points="58.5 49.5 49.5 58.5 40.5 49.5 58.5 49.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
-</svg>
+<svg id="arrow-headed-rouned-left-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><polygon points="22.5 31.5 13.5 22.5 22.5 13.5 22.5 31.5" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><polygon points="58.5 49.5 49.5 58.5 40.5 49.5 58.5 49.5" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><polygon points="22.5 31.5 13.5 22.5 22.5 13.5 22.5 31.5" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linejoin: round; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><path d="M22.5,22.5h7c11.05,0,20,8.95,20,20v7" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linejoin: round; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><polygon points="58.5 49.5 49.5 58.5 40.5 49.5 58.5 49.5" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linejoin: round; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></svg>

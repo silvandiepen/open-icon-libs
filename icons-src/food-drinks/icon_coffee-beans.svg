@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="coffee-beans" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <path d="M36,27.24c0,10.41-5.04,13.46-11.25,13.46s-11.25-3.05-11.25-13.46,5.04-13.95,11.25-13.95,11.25,3.54,11.25,13.95Z" style="fill: #ed2024;"/>
+    <path d="M23.74,40.7c4.91-13.43-1.95-10.14,4.19-26.92" style="fill: #ed2024;"/>
+    <path d="M58.5,45.44c0,10.25-5.04,13.26-11.25,13.26s-11.25-3.01-11.25-13.26,5.04-13.74,11.25-13.74,11.25,3.49,11.25,13.74Z" style="fill: #ed2024;"/>
+    <path d="M46.24,58.7c4.91-13.23-1.95-9.99,4.19-26.52" style="fill: #ed2024;"/>
+  </g>
+  <g>
+    <path d="M36,27.24c0,10.41-5.04,13.46-11.25,13.46s-11.25-3.05-11.25-13.46,5.04-13.95,11.25-13.95,11.25,3.54,11.25,13.95Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <path d="M23.74,40.7c4.91-13.43-1.95-10.14,4.19-26.92" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <path d="M58.5,45.44c0,10.25-5.04,13.26-11.25,13.26s-11.25-3.01-11.25-13.26,5.04-13.74,11.25-13.74,11.25,3.49,11.25,13.74Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <path d="M46.24,58.7c4.91-13.23-1.95-9.99,4.19-26.52" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

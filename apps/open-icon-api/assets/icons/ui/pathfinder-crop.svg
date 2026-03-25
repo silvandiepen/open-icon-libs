@@ -1,7 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="flag-golf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <rect x="27" y="27" width="18" height="18" style="fill: #ed1c24; opacity: .5;"/>
-  <polyline points="45 27 45 45 27 45" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <rect x="27" y="27" width="31.5" height="31.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <polyline points="22.5 45 13.5 45 13.5 13.5 45 13.5 45 22.5" style="fill: none; stroke: #ed1c24; stroke-miterlimit: 10; stroke-width: 4px;"/>
-</svg>
+<svg id="flag-golf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><rect x="27" y="27" width="18" height="18" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><polyline points="45 27 45 45 27 45" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><rect x="27" y="27" width="31.5" height="31.5" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><polyline points="22.5 45 13.5 45 13.5 13.5 45 13.5 45 22.5" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/></svg>

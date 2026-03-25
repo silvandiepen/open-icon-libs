@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="layers-2-dotted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <rect x="22.5" y="22.5" width="31.5" height="31.5" rx="2" ry="2" style="fill: #ed1c24; opacity: .5;"/>
-  <g>
-    <line x1="22.5" y1="45" x2="20.5" y2="45" style="fill: none; stroke: #ed1c24; stroke-linejoin: round; stroke-width: 4px;"/>
-    <path d="M16.58,45h-1.08c-1.1,0-2-.9-2-2V15.5c0-1.1.9-2,2-2h27.5c1.1,0,2,.9,2,2v3.04" style="fill: none; stroke: #ed1c24; stroke-dasharray: 3.92 3.92; stroke-linejoin: round; stroke-width: 4px;"/>
-    <line x1="45" y1="20.5" x2="45" y2="22.5" style="fill: none; stroke: #ed1c24; stroke-linejoin: round; stroke-width: 4px;"/>
-  </g>
-  <rect x="22.5" y="22.5" width="31.5" height="31.5" rx="2" ry="2" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
-</svg>
+<svg id="layers-2-dotted" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><rect x="22.5" y="22.5" width="31.5" height="31.5" rx="2" ry="2" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><g><line x1="22.5" y1="45" x2="20.5" y2="45" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-linejoin: round; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/><path d="M16.58,45h-1.08c-1.1,0-2-.9-2-2V15.5c0-1.1.9-2,2-2h27.5c1.1,0,2,.9,2,2v3.04" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-dasharray: 3.92 3.92; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/><line x1="45" y1="20.5" x2="45" y2="22.5" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-linejoin: round; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/></g><rect x="22.5" y="22.5" width="31.5" height="31.5" rx="2" ry="2" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></svg>

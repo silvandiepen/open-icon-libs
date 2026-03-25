@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="walking_2" data-name="walking 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="18" y="49.5" width="9" height="13.5" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <circle cx="47" cy="15.75" r="5.06" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M45,45h-9l3.67-14.69c.49-1.94,2.23-3.31,4.24-3.31h0c2.84,0,4.92,2.67,4.24,5.42l-3.14,12.58Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M27,40.5l3.61-7.21c.58-1.16,1.52-2.1,2.68-2.68l3.97-1.98c2.13-1.07,4.48-1.62,6.87-1.62h3.04c1.46,0,2.82.73,3.63,1.94l3.35,5.02c.43.65.98,1.2,1.63,1.64l7.23,4.89" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <path d="M31.5,63l3.87-7.73c.42-.83.63-1.75.63-2.68v-7.58l3.67-14.69c.49-1.94,2.23-3.31,4.24-3.31h0c2.84,0,4.92,2.67,4.24,5.42l-3.14,12.58,3.87,7.73c.42.83.63,1.75.63,2.68v7.58" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="36" y1="45" x2="45" y2="45" style="fill: #fff; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <circle cx="47" cy="15.75" r="5.06" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="27 49.5 27 63 18 63 18 49.5 27 49.5" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="27" y1="40.5" x2="27" y2="49.5" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2px;"/>
+</svg>

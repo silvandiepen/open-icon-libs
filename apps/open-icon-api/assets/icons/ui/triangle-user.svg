@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="triangle-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <path d="M34.29,16.36L10.82,55.47c-.8,1.33.16,3.03,1.71,3.03h46.94c1.55,0,2.51-1.7,1.71-3.03l-23.47-39.11c-.78-1.29-2.65-1.29-3.43,0Z" style="fill: #ed2024; opacity: .5;"/>
-  <path d="M34.29,16.36L10.82,55.47c-.8,1.33.16,3.03,1.71,3.03h46.94c1.55,0,2.51-1.7,1.71-3.03l-23.47-39.11c-.78-1.29-2.65-1.29-3.43,0Z" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <g>
-    <circle cx="36" cy="35.77" r="4.27" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-    <path d="M43.32,47.35c0,2.93-7.32,2.93-7.32,2.93,0,0-7.32,0-7.32-2.93,0-4.04,3.28-7.32,7.32-7.32s7.32,3.28,7.32,7.32Z" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-linejoin: round; stroke-width: 4px;"/>
-  </g>
-</svg>
+<svg id="triangle-user" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><path d="M34.29,16.36L10.82,55.47c-.8,1.33.16,3.03,1.71,3.03h46.94c1.55,0,2.51-1.7,1.71-3.03l-23.47-39.11c-.78-1.29-2.65-1.29-3.43,0Z" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><path d="M34.29,16.36L10.82,55.47c-.8,1.33.16,3.03,1.71,3.03h46.94c1.55,0,2.51-1.7,1.71-3.03l-23.47-39.11c-.78-1.29-2.65-1.29-3.43,0Z" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/><g><circle cx="36" cy="35.77" r="4.27" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><path d="M43.32,47.35c0,2.93-7.32,2.93-7.32,2.93,0,0-7.32,0-7.32-2.93,0-4.04,3.28-7.32,7.32-7.32s7.32,3.28,7.32,7.32Z" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linecap: square; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></g></svg>

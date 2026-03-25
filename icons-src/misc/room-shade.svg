@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="room-shade" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M18,13.5h36v29.32c0,2.21-1.79,4-4,4h-28c-2.21,0-4-1.79-4-4V13.5h0Z" style="fill: #ed1f24; opacity: .5;"/>
+  <line x1="58.5" y1="13.5" x2="13.5" y2="13.5" style="fill: #010101; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M18,13.5h36v29.32c0,2.21-1.79,4-4,4h-28c-2.21,0-4-1.79-4-4V13.5h0Z" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <circle cx="36" cy="59.41" r="3.59" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="36" y1="46.82" x2="36" y2="55.82" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

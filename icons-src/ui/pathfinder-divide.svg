@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="flag-golf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <polygon points="45 27 45 13.5 13.5 13.5 13.5 45 27 45 27 58.5 58.5 58.5 58.5 27 45 27" style="fill: #ed1c24; opacity: .5;"/>
+  <rect x="13.5" y="13.5" width="31.5" height="31.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="27" y="27" width="31.5" height="31.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

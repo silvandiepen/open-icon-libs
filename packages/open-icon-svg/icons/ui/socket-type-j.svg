@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="socket-type-j" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <polygon points="18 36 27 47.25 45 47.25 54 36 45 24.75 27 24.75 18 36" style="fill: #ed1c24; opacity: .5;"/>
-  <g>
-    <line x1="27" y1="36" x2="27" y2="36" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-    <line x1="36" y1="40.5" x2="36" y2="40.5" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-    <line x1="45" y1="36" x2="45" y2="36" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-  </g>
-  <polygon points="18 36 27 47.25 45 47.25 54 36 45 24.75 27 24.75 18 36" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-</svg>
+<svg id="socket-type-j" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><polygon points="18 36 27 47.25 45 47.25 54 36 45 24.75 27 24.75 18 36" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><g><line x1="27" y1="36" x2="27" y2="36" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/><line x1="36" y1="40.5" x2="36" y2="40.5" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/><line x1="45" y1="36" x2="45" y2="36" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/></g><polygon points="18 36 27 47.25 45 47.25 54 36 45 24.75 27 24.75 18 36" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></svg>

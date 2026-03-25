@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="arrow-invert" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <line x1="58.5" y1="13.5" x2="45" y2="27" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="27" y1="45" x2="13.5" y2="58.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="13.5" y1="13.5" x2="27" y2="27" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <line x1="45" y1="45" x2="58.5" y2="58.5" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="27 57.73 27 45 14.27 45" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="45 14.27 45 27 57.73 27" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="57.73 45 45 45 45 57.73" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  <polyline points="14.27 27 27 27 27 14.27" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+</svg>

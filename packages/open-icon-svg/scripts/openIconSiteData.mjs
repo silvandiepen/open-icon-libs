@@ -6,15 +6,23 @@ import { buildOpenIconCatalog } from './openIconCatalog.mjs';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '../../..');
-const iconsRoot = path.join(repoRoot, 'packages', 'open-icon-svg', 'icons');
+const sourceIconsRoot = path.join(repoRoot, 'icons-src');
 
 const PACKAGE_DETAILS = {
+	'open-icon': {
+		bestFor: 'The main Open Icon package with catalog helpers, lookup keys, and runtime SVG access.',
+		highlights: [
+			'Exports the generated icon catalog and `Icons` lookup keys.',
+			'Provides `Icons`, `getIcon()`, and tree-shakable exports from `open-icon/icons`.',
+			'Depends on `open-icon-svg` for raw asset delivery.',
+		],
+	},
 	'open-icon-svg': {
-		bestFor: 'Typed icon browsing, raw SVG access, aliases, and canonical file lookup.',
+		bestFor: 'Direct raw SVG file imports without the main catalog helper layer.',
 		highlights: [
 			'Ships the raw SVG files from the catalog.',
-			'Generates canonical names, categories, and alias resolution.',
-			'Pairs well with both Vite and non-Vite runtimes.',
+			'Exports package-stable `./icons/*` asset paths.',
+			'Pairs well with Vite and any runtime that imports SVG assets directly.',
 		],
 	},
 	'open-icon-transform': {
@@ -35,7 +43,7 @@ const PACKAGE_DETAILS = {
 	},
 };
 
-const PACKAGE_NAMES = ['open-icon-svg', 'open-icon-transform', 'vite-plugin-open-icon'];
+const PACKAGE_NAMES = ['open-icon', 'open-icon-svg', 'open-icon-transform', 'vite-plugin-open-icon'];
 
 const toDisplayLabel = (iconName) => {
 	const parts = iconName.split('/');
@@ -72,6 +80,7 @@ export const createSiteIconCatalog = (catalog, options = {}) => {
 
 		return {
 			name: entry.iconName,
+			constName: entry.key,
 			category: entry.category,
 			label: toDisplayLabel(entry.iconName),
 			filePath: entry.filePath,
@@ -122,7 +131,7 @@ const readPackageManifest = async (packageName) => {
 
 export const buildOpenIconSiteData = async (options = {}) => {
 	const { apiBaseUrl = '' } = options;
-	const catalog = await buildOpenIconCatalog({ iconsRoot });
+	const catalog = await buildOpenIconCatalog({ iconsRoot: sourceIconsRoot });
 	const iconCatalog = createSiteIconCatalog(catalog, { apiBaseUrl });
 	const packages = await Promise.all(PACKAGE_NAMES.map(readPackageManifest));
 	const packageCatalog = createPackageCatalog({

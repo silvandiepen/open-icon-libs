@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="flag-golf" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M24.86,15.86c2.85-2.85,6.79-4.61,11.14-4.61s8.29,1.76,11.14,4.61c2.85,2.85,4.61,6.79,4.61,11.14v6.75" style="fill: none; stroke: #ed1c24; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M20.25,33.75h31.5c2.49,0,4.5,1.79,4.5,4v19c0,2.21-2.01,4-4.5,4h-31.5c-2.49,0-4.5-1.79-4.5-4v-19c0-2.21,2.01-4,4.5-4Z" style="fill: #ed1c24; opacity: .5;"/>
+  <path d="M20.25,33.75h31.5c2.49,0,4.5,1.79,4.5,4v19c0,2.21-2.01,4-4.5,4h-31.5c-2.49,0-4.5-1.79-4.5-4v-19c0-2.21,2.01-4,4.5-4Z" style="fill: none; stroke: #231f20; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

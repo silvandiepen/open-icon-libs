@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="socket-type-f" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M51.75,33.75h-2.25v-4.68c-2.75-3.93-7.76-6.57-13.5-6.57s-10.75,2.64-13.5,6.57v4.68h-2.25v4.5h2.25v4.68c2.75,3.93,7.76,6.57,13.5,6.57s10.75-2.64,13.5-6.57v-4.68h2.25v-4.5Z" style="fill: #ed1c24; opacity: .5;"/>
+  <g>
+    <line x1="42.75" y1="36" x2="42.75" y2="36" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="29.25" y1="36" x2="29.25" y2="36" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+  <line x1="36" y1="29.25" x2="36" y2="29.25" style="fill: none; stroke: #ed1c24; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M51.75,33.75h-2.25v-4.68c-2.75-3.93-7.76-6.57-13.5-6.57s-10.75,2.64-13.5,6.57v4.68h-2.25v4.5h2.25v4.68c2.75,3.93,7.76,6.57,13.5,6.57s10.75-2.64,13.5-6.57v-4.68h2.25v-4.5Z" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

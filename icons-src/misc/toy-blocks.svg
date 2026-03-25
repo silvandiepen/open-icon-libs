@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="toy-blocks" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <rect x="18" y="22.5" width="36" height="18" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M23.5,15.5h7c.55,0,1,.45,1,1v6h-9v-6c0-.55.45-1,1-1Z" style="fill: #ed2024; opacity: .5;"/>
+  <path d="M41.5,15.5h7c.55,0,1,.45,1,1v6h-9v-6c0-.55.45-1,1-1Z" style="fill: #ed2024; opacity: .5;"/>
+  <rect x="18" y="40.5" width="36" height="18" style="fill: #ed2024; opacity: .5;"/>
+  <rect x="18" y="22.5" width="36" height="18" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M23.5,15.5h7c.55,0,1,.45,1,1v6h-9v-6c0-.55.45-1,1-1Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M41.5,15.5h7c.55,0,1,.45,1,1v6h-9v-6c0-.55.45-1,1-1Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <rect x="18" y="40.5" width="36" height="18" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

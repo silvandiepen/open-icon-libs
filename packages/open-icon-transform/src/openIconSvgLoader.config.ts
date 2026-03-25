@@ -8,14 +8,16 @@ export const openIconSvgLoaderDefaults: OpenIconSvgLoaderSettings = {
 	replaceName: 'icon_',
 	removeData: [
 		'/<\\?xml.*?\\?>/',
-		'stroke:black;',
-		'stroke: black;',
 		'/<!--.*?-->/',
 	],
 	replaceData: [
 		[['fill: black;'], 'fill: var(--icon-line-color, currentColor);'],
 		['id="Layer_1"', 'id="{{componentName}}"'],
 		['data-name="Layer_1"', 'data-name="{{componentName}}"'],
+		[
+			['fill:white;', 'fill: white;'],
+			'fill: var(--icon-fill-secondary, white);'
+		],
 		[
 			[
 				'opacity:0.5;fill:red;',
@@ -27,6 +29,10 @@ export const openIconSvgLoaderDefaults: OpenIconSvgLoaderSettings = {
 		[
 			['stroke:red;', 'stroke: red;', 'fill:none;stroke:red;'],
 			'stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor));'
+		],
+		[
+			['stroke:black;', 'stroke: black;'],
+			'stroke: var(--icon-stroke-color, currentColor);'
 		],
 		['fill:red;', 'fill: var(--icon-fill, {{default.iconFill}});'],
 		[['stroke: teal;', 'stroke:teal;'], 'stroke: var(--icon-stroke-invisible, transparent);'],

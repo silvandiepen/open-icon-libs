@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="shopping-basket-rounded" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M21.28,54h29.44c1.91,0,3.55-1.35,3.92-3.22l3.38-16.89c.25-1.24-.7-2.39-1.96-2.39H15.94c-1.26,0-2.21,1.15-1.96,2.39l3.38,16.89c.37,1.87,2.02,3.22,3.92,3.22Z" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
+  <path d="M27,31.5v-5c0-2.21,1.79-4,4-4h10c2.21,0,4,1.79,4,4v5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M21.28,54h29.44c1.91,0,3.55-1.35,3.92-3.22l3.38-16.89c.25-1.24-.7-2.39-1.96-2.39H15.94c-1.26,0-2.21,1.15-1.96,2.39l3.38,16.89c.37,1.87,2.02,3.22,3.92,3.22Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="27" y1="38" x2="27" y2="46.5" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="45" y1="38" x2="45" y2="46.5" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="35.75" y1="38" x2="35.75" y2="46.5" style="fill: none; stroke: #ed2024; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="note-user-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g style="opacity: .5;">
+    <rect x="13.5" y="13.5" width="45" height="45" rx="4" ry="4" style="fill: #ed2024;"/>
+  </g>
+  <g>
+    <path d="M58.5,36v-18.5c0-2.21-1.79-4-4-4H17.5c-2.21,0-4,1.79-4,4v37c0,2.21,1.79,4,4,4h18.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <path d="M58.5,36v-18.5c0-2.21-1.79-4-4-4H17.5c-2.21,0-4,1.79-4,4v37c0,2.21,1.79,4,4,4h18.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+  <line x1="22.5" y1="6.5" x2="22.5" y2="20" style="fill: #010101; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="31.5" y1="6.5" x2="31.5" y2="20" style="fill: #010101; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="40.5" y1="6.5" x2="40.5" y2="20" style="fill: #010101; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="49.5" y1="6.5" x2="49.5" y2="20" style="fill: #010101; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <g>
+    <circle cx="51.57" cy="41.95" r="5.95" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
+    <path d="M61.77,58.1c0,4.08-10.2,4.08-10.2,4.08,0,0-10.2,0-10.2-4.08,0-5.63,4.57-10.2,10.2-10.2s10.2,4.57,10.2,10.2Z" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+</svg>

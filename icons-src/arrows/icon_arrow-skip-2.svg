@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <g id="arrow-up-down">
+    <polyline points="49.5 27.24 58.62 36.12 67.5 27" style="fill: none; stroke: #010101; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+  <g id="chevron-disconnect_2" data-name="chevron-disconnect 2">
+    <circle cx="36" cy="49.5" r="4.5" style="fill: #ed1c24; opacity: .5;"/>
+    <circle cx="13.5" cy="49.5" r="4.5" style="fill: #ed1c24; opacity: .5;"/>
+    <circle cx="58.5" cy="49.5" r="4.5" style="fill: #ed1c24; opacity: .5;"/>
+    <path d="M13.5,45v-13.5c0-12.43,10.07-13.5,22.5-13.5s22.5,1.07,22.5,13.5l.12,4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="36" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="13.5" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="58.5" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="36" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="13.5" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+    <circle cx="58.5" cy="49.5" r="4.5" style="fill: none; stroke: #231f20; stroke-linejoin: round; stroke-width: 4px;"/>
+  </g>
+</svg>

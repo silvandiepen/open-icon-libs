@@ -1,0 +1,51 @@
+{
+  "name": "open-icon",
+  "version": "0.1.2",
+  "description": "Primary Open Icon package with generated catalog helpers and icon access APIs.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./icons": {
+      "types": "./dist/icons.d.ts",
+      "import": "./dist/icons.js"
+    },
+    "./catalog": {
+      "types": "./dist/generated/openIconCatalog.generated.d.ts",
+      "import": "./dist/generated/openIconCatalog.generated.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist src/generated src/icons.ts",
+    "generate": "node ./scripts/generate-open-icon-package.mjs",
+    "build": "npm run clean && npm run generate && tsc -p tsconfig.json",
+    "typecheck": "npm run generate && tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test ./test/*.test.js"
+  },
+  "keywords": [
+    "icons",
+    "svg",
+    "open-icon",
+    "catalog"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "open-icon-svg": "0.1.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/open-icon-libs.git",
+    "directory": "packages/open-icon"
+  }
+}

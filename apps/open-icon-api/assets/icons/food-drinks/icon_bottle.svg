@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="bottle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <path d="M40.5,28.21v-14.71h-9v14.71c-2.69,1.56-4.5,4.46-4.5,7.79v27h18v-27c0-3.33-1.81-6.23-4.5-7.79Z" style="fill: #ed1c24; opacity: .5;"/>
-  <path d="M40.5,28.21v-14.71h-9v14.71c-2.69,1.56-4.5,4.46-4.5,7.79v27h18v-27c0-3.33-1.81-6.23-4.5-7.79Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
-</svg>
+<svg id="bottle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><path d="M40.5,28.21v-14.71h-9v14.71c-2.69,1.56-4.5,4.46-4.5,7.79v27h18v-27c0-3.33-1.81-6.23-4.5-7.79Z" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><path d="M40.5,28.21v-14.71h-9v14.71c-2.69,1.56-4.5,4.46-4.5,7.79v27h18v-27c0-3.33-1.81-6.23-4.5-7.79Z" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></svg>

@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="volume-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <polygon points="22.5 27 22.5 45 31.5 45 45 54 45 18 31.5 27 22.5 27" style="fill: #ed1e27; opacity: .5; stroke-width: 0px;"/>
-  <polygon points="22.5 27 22.5 45 31.5 45 45 54 45 18 31.5 27 22.5 27" style="fill: none; stroke: #231f20; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-  <line x1="58.5" y1="13.5" x2="13.5" y2="63" style="fill: #fff; stroke: #ed2024; stroke-linecap: round; stroke-linejoin: round; stroke-width: 4px;"/>
-</svg>
+<svg id="volume-mute" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><polygon points="22.5 27 22.5 45 31.5 45 45 54 45 18 31.5 27 22.5 27" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1); stroke-width: 0px;"/><polygon points="22.5 27 22.5 45 31.5 45 45 54 45 18 31.5 27 22.5 27" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><line x1="58.5" y1="13.5" x2="13.5" y2="63" style="fill: var(--icon-fill-secondary, white); stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/></svg>

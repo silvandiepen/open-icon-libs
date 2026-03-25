@@ -98,6 +98,18 @@ const replaceData = (
 	return trimLines(output);
 };
 
+/** Rewrites secondary stroke width variables to use dedicated secondary width hooks with primary fallback. */
+const applySecondaryStrokeWidthVariables = (content: string): string =>
+	content.replace(/style="([^"]*var\(--icon-stroke-color-secondary[^"]*)"/g, (_, styleValue: string) => {
+		const nextStyleValue = styleValue.replace(
+			/stroke-width:var\(--icon-stroke-width-(xs|s|m|l|xl),\s*([^;]+)\);/g,
+			(_: string, size: string, fallback: string) =>
+				`stroke-width:var(--icon-stroke-width-secondary-${size}, var(--icon-stroke-width-${size}, ${fallback}));`
+		);
+
+		return `style="${nextStyleValue}"`;
+	});
+
 /** Removes matching tags from SVG source. */
 const removeTags = (content: string, tags: string | string[]): string => {
 	let output = content;
@@ -339,6 +351,8 @@ export const transformOpenIconSvg = (
 	if (normalizedSettings.replaceData.length) {
 		output = replaceData(output, normalizedSettings.replaceData);
 	}
+
+	output = applySecondaryStrokeWidthVariables(output);
 
 	if (toArray(normalizedSettings.removeTags).length) {
 		output = removeTags(output, normalizedSettings.removeTags);

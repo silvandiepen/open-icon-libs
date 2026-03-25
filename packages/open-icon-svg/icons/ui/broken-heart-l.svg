@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="broken-heart-l" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <path d="M36,58.5C-10.77,34.02,12.62-3.19,36,21.77c23.38-24.97,46.77,12.24,0,36.73Z" style="fill: #ed2024; opacity: .5;"/>
-  <polyline points="36 22.5 40.5 36 31.5 40.5 36 58.5" style="fill: none; stroke: #ed2024; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <path d="M36,58.5C-10.77,34.02,12.62-3.19,36,21.77c23.38-24.97,46.77,12.24,0,36.73Z" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
-</svg>
+<svg id="broken-heart-l" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><path d="M36,58.5C-10.77,34.02,12.62-3.19,36,21.77c23.38-24.97,46.77,12.24,0,36.73Z" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><polyline points="36 22.5 40.5 36 31.5 40.5 36 58.5" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/><path d="M36,58.5C-10.77,34.02,12.62-3.19,36,21.77c23.38-24.97,46.77,12.24,0,36.73Z" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></svg>

@@ -1,5 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="question-mark-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <line x1="36" y1="54" x2="36" y2="54" style="fill: none; stroke: #000; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <path d="M28.5,30c0-4.14,3.36-7.5,7.5-7.5s7.5,3.36,7.5,7.5c0,7.5-7.5,7.5-7.5,15" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
-</svg>
+<svg id="question-mark-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><line x1="36" y1="54" x2="36" y2="54" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linecap: round; stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><path d="M28.5,30c0-4.14,3.36-7.5,7.5-7.5s7.5,3.36,7.5,7.5c0,7.5-7.5,7.5-7.5,15" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></svg>

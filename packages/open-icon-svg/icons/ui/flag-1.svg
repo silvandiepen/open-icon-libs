@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="flag-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <path d="M18,18c17.36-9,23.14,9,40.5,0v22.5c-17.36,9-23.14-9-40.5,0" style="fill: #ed1c24; opacity: .5;"/>
-  <line x1="18" y1="13.5" x2="18" y2="58.5" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <path d="M18,18c17.36-9,23.14,9,40.5,0v22.5c-17.36,9-23.14-9-40.5,0" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
-</svg>
+<svg id="flag-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><path d="M18,18c17.36-9,23.14,9,40.5,0v22.5c-17.36,9-23.14-9-40.5,0" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><line x1="18" y1="13.5" x2="18" y2="58.5" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><path d="M18,18c17.36-9,23.14,9,40.5,0v22.5c-17.36,9-23.14-9-40.5,0" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/></svg>

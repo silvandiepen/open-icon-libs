@@ -1,6 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="target_2" data-name="target 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <circle cx="36" cy="36" r="22.5" style="fill: #ed1f24; opacity: .5;"/>
-  <circle cx="36" cy="36" r="22.5" style="fill: none; stroke: #010101; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <line x1="36" y1="36" x2="36" y2="36" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-linejoin: round; stroke-width: 6px;"/>
-</svg>
+<svg id="target_2" data-name="target 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><circle cx="36" cy="36" r="22.5" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);"/><circle cx="36" cy="36" r="22.5" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><line x1="36" y1="36" x2="36" y2="36" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linecap: round; stroke-linejoin: round; stroke-width:var(--icon-stroke-width-l,  calc(var(--icon-stroke-width, 5) * 1.5));"/></svg>

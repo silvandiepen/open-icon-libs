@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="socket-type-a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <path d="M26.25,48s-5.25-5.62-5.25-11.25,5.25-11.25,5.25-11.25h21s5.25,5.62,5.25,11.25-5.25,11.25-5.25,11.25h-21Z" style="fill: #ed1c24; opacity: .5;"/>
+  <path d="M26.25,48s-5.25-5.62-5.25-11.25,5.25-11.25,5.25-11.25h21s5.25,5.62,5.25,11.25-5.25,11.25-5.25,11.25h-21Z" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <g>
+    <line x1="32.25" y1="32.25" x2="32.25" y2="41.25" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+    <line x1="41.25" y1="32.25" x2="41.25" y2="41.25" style="fill: none; stroke: #231f20; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="perculator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
+  <polygon points="49.5 40.5 63 18 54 18 54 9 22.5 9 22.5 18 27 40.5 27 49.5 22.5 63 27 63 49.5 63 54 63 49.5 49.5 49.5 40.5" style="fill: #ed2024; opacity: .5;"/>
+  <polyline points="13.5 36 13.5 18 22.5 18" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="31.5" y1="18" x2="36" y2="40.5" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="40.5" y1="49.5" x2="45" y2="63" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="31.5" y1="63" x2="36" y2="49.5" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="40.5" y1="40.5" x2="45" y2="18" style="fill: none; stroke: #010101; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polygon points="54 18 54 9 22.5 9 22.5 18 27 40.5 27 49.5 22.5 63 27 63 49.5 63 54 63 49.5 49.5 49.5 40.5 54 18" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="22.5 18 54 18 63 18 49.5 40.5 27 40.5" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="27" y1="49.5" x2="49.5" y2="49.5" style="fill: none; stroke: #010101; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg id="elevator_2" data-name="elevator 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72">
-  <rect x="9" y="9" width="54" height="54" rx="4" ry="4" style="fill: #ed2024; opacity: .5; stroke-width: 0px;"/>
-  <rect x="9" y="9" width="54" height="54" rx="4" ry="4" style="fill: none; stroke: #000; stroke-linecap: round; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <g style="opacity: .5;">
-    <path d="M31.5,41.5c0,3.73-3.02,10.12-6.75,10.12s-6.75-6.4-6.75-10.12,3.02-6.75,6.75-6.75,6.75,3.02,6.75,6.75Z" style="fill: #ed1f24; stroke-width: 0px;"/>
-    <circle cx="24.75" cy="27.56" r="5.06" style="fill: #ed1f24; stroke-width: 0px;"/>
-  </g>
-  <polyline points="54 31.5 47.25 24.75 40.5 31.5" style="fill: none; stroke: #ed1f24; stroke-miterlimit: 10; stroke-width: 4px;"/>
-  <polyline points="54 40.5 47.25 47.25 40.5 40.5" style="fill: none; stroke: #ed1f24; stroke-miterlimit: 10; stroke-width: 4px;"/>
-</svg>
+<svg id="elevator_2" data-name="elevator 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72"><rect x="9" y="9" width="54" height="54" rx="4" ry="4" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1); stroke-width: 0px;"/><rect x="9" y="9" width="54" height="54" rx="4" ry="4" style="fill: none; stroke: var(--icon-stroke-color, currentColor); stroke-linecap: round; stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1));"/><g ><path d="M31.5,41.5c0,3.73-3.02,10.12-6.75,10.12s-6.75-6.4-6.75-10.12,3.02-6.75,6.75-6.75,6.75,3.02,6.75,6.75Z" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);" /><circle cx="24.75" cy="27.56" r="5.06" style="fill: var(--icon-fill, rgba(0, 0, 0, 0)); opacity: var(--icon-fill-opacity, 1);" /></g><polyline points="54 31.5 47.25 24.75 40.5 31.5" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/><polyline points="54 40.5 47.25 47.25 40.5 40.5" style="fill: none; stroke: var(--icon-stroke-color-secondary, var(--icon-stroke-color, currentColor)); stroke-miterlimit: 10; stroke-width:var(--icon-stroke-width-secondary-m, var(--icon-stroke-width-m, calc(var(--icon-stroke-width, 5) * 1)));"/></svg>
