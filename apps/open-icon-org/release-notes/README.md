@@ -1,11 +1,10 @@
 ---
 title: Release Notes
 description: Release notes for published Open Icon releases.
-hide: true
 ---
 
 # Release Notes
 
 Published changes for Open Icon releases.
 
-- Release notes are generated during the publish workflow.
+- [0.1.4](/release-notes/v0-1-4/index.html)

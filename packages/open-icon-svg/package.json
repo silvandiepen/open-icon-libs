@@ -1,6 +1,6 @@
 {
   "name": "open-icon-svg",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Open Icon SVG catalog with generated names, types, and lookup metadata.",
   "type": "module",
   "exports": {
