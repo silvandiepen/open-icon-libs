@@ -13,9 +13,9 @@
     "LICENSE"
   ],
   "scripts": {
-    "clean": "node ./scripts/validate-package.mjs",
-    "build": "node ./scripts/validate-package.mjs",
-    "typecheck": "node ./scripts/validate-package.mjs",
+    "clean": "rm -rf icons",
+    "build": "npm --workspace open-icon-transform run build && node ./scripts/validate-package.mjs",
+    "typecheck": "npm --workspace open-icon-transform run build && node ./scripts/validate-package.mjs",
     "test": "node --test ./test/*.test.js"
   },
   "keywords": [
