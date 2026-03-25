@@ -5,7 +5,7 @@
   "description": "Markdown-first static website for open-icon.org built with Girk.",
   "type": "module",
   "engines": {
-    "node": "^25.0.0"
+    "node": ">=22.14.0"
   },
   "scripts": {
     "build:assets": "node ./_scripts/build-site-assets.mjs && tsc -p tsconfig.json",

@@ -75,9 +75,11 @@ jobs:
 
       - name: Bump package versions
         run: |
+          npm pkg set "version=${{ steps.version.outputs.next }}" --workspace open-icon
           npm pkg set "version=${{ steps.version.outputs.next }}" --workspace open-icon-transform
           npm pkg set "version=${{ steps.version.outputs.next }}" --workspace open-icon-svg
           npm pkg set "version=${{ steps.version.outputs.next }}" --workspace vite-plugin-open-icon
+          npm pkg set "dependencies.open-icon-svg=${{ steps.version.outputs.next }}" --workspace open-icon
           npm pkg set "dependencies.open-icon-transform=${{ steps.version.outputs.next }}" --workspace vite-plugin-open-icon
           npm install --package-lock-only --ignore-scripts
 
@@ -92,6 +94,14 @@ jobs:
             --version "${{ steps.version.outputs.next }}" \
             --date "$(date -u +%F)" \
             --range "${{ steps.release_notes.outputs.range }}"
+
+      - name: Publish open-icon
+        run: |
+          if npm view "open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
+            echo "open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
+          else
+            npm --workspace open-icon publish --access public --provenance
+          fi
 
       - name: Publish open-icon-transform
         run: |

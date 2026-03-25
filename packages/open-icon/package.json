@@ -1,6 +1,6 @@
 {
   "name": "open-icon",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Primary Open Icon package with generated catalog helpers and icon access APIs.",
   "type": "module",
   "main": "./dist/index.js",
@@ -41,7 +41,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "open-icon-svg": "0.1.2"
+    "open-icon-svg": "0.1.3"
   },
   "repository": {
     "type": "git",

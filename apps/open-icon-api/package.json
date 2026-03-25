@@ -5,7 +5,7 @@
   "description": "Cloudflare Worker API for open-icon metadata and asset delivery.",
   "type": "module",
   "engines": {
-    "node": "^25.0.0"
+    "node": ">=22.14.0"
   },
   "scripts": {
     "build:data": "node ./scripts/build-api-assets.mjs",
