@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 307 194.5">
+  <path d="M15.5,12.5c-7.46,0-13.5,6.04-13.5,13.5v27c0,7.46,6.04,13.5,13.5,13.5s13.5-6.04,13.5-13.5v-27c0-7.46-6.04-13.5-13.5-13.5Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M29,138.5c-7.46,0-13.5,6.04-13.5,13.5v27c0,7.46,6.04,13.5,13.5,13.5s13.5-6.04,13.5-13.5v-27c0-7.46-6.04-13.5-13.5-13.5Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M249.5,26c-7.46,0-13.5,6.04-13.5,13.5v13.5c0,7.46,6.04,13.5,13.5,13.5s13.5-6.04,13.5-13.5v-13.5c0-7.46-6.04-13.5-13.5-13.5Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <path d="M60.5,26c-7.46,0-13.5,6.04-13.5,13.5v13.5c0,7.46,6.04,13.5,13.5,13.5s13.5-6.04,13.5-13.5v-13.5c0-7.46-6.04-13.5-13.5-13.5Z" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M155,66.5v-27c0-7.46-6.04-13.5-13.5-13.5s-13.5,6.04-13.5,13.5v27" style="fill: none; stroke: #000; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="168.5" y1="26" x2="186.5" y2="26" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <line x1="168.5" y1="66.5" x2="186.5" y2="66.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <line x1="177.5" y1="26" x2="177.5" y2="66.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <polyline points="47 80 47 26 42.5 26" style="fill: none; stroke: #000; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <polyline points="128 66.5 128 26 123.5 26" style="fill: none; stroke: #000; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M303.5,66.5v-27c0-7.46-6.04-13.5-13.5-13.5s-13.5,6.04-13.5,13.5v27" style="fill: none; stroke: #000; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <polyline points="276.5 66.5 276.5 26 272 26" style="fill: none; stroke: #000; stroke-linecap: square; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <path d="M87.5,48.5l27-4.5v-4.5c0-7.46-6.04-13.5-13.5-13.5s-13.5,6.04-13.5,13.5v13.5c0,7.46,6.04,13.5,13.5,13.5s13.5-6.04,13.5-13.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <path d="M222.5,39.5c0-7.46-6.04-13.5-13.5-13.5s-13.5,6.04-13.5,13.5v13.5c0,7.46,6.04,13.5,13.5,13.5s13.5-6.04,13.5-13.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <circle cx="177.5" cy="8" r="4.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 7px;"/>
+  <line x1="20" y1="165.5" x2="38" y2="165.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <line x1="29" y1="165.5" x2="29" y2="192.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+  <circle cx="29" cy="152" r="4.5" style="fill: none; stroke: #000; stroke-miterlimit: 10; stroke-width: 4px;"/>
+</svg>

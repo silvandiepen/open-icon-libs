@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { getIconDetailHref, getRelatedIcons } from '../assets/scripts/lib/site-formatters.js';
+import { getIconDetailHash, getIconDetailHref, getRelatedIcons, parseIconDetailHash } from '../assets/scripts/lib/site-formatters.js';
 
 globalThis.HTMLElement ??= class HTMLElement {};
 
@@ -63,8 +63,10 @@ test('buildIconDownloadLinks includes API and raster variants when available', (
 	assert.match(downloads[3].href, /size=1024/);
 });
 
-test('getIconDetailHref creates nested icon routes', () => {
-	assert.equal(getIconDetailHref('ui/search-m'), '/icons/ui/search-m/');
+test('getIconDetailHref creates icon hash routes', () => {
+	assert.equal(getIconDetailHash('ui/search-m'), '#ui%2Fsearch-m');
+	assert.equal(parseIconDetailHash('#ui%2Fsearch-m'), 'ui/search-m');
+	assert.equal(getIconDetailHref('ui/search-m'), '/icons/#ui%2Fsearch-m');
 });
 
 test('getRelatedIcons prefers icons from the same category', () => {

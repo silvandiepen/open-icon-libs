@@ -1,50 +1,67 @@
 ---
 title: Open Icon
-description: Browse the packages, inspect the icon catalog, and pick the right Open Icon layer for your runtime.
+description: Open Icon is an ever-extending open source icon set built to stay easy to customize, ship, and reuse anywhere.
 ---
 
 # Open Icon
 
-Open Icon packages the raw SVG library, the transform pipeline, and the Vite loader into one repo. This site keeps the content Markdown-first, while the icon gallery and package cards are loaded from the package data itself.
+Open Icon is an ever-extending open source icon set. The core idea is simple: keep the icons clean, keep the names stable, and make them easy to load and restyle anywhere.
+
+- Load raw SVG files directly.
+- Transform them in build tools or scripts.
+- Use the API to search, inspect, and export variants.
+- Restyle fills, strokes, opacity, and line thickness without forking the assets.
 
 <open-icon-site-stats></open-icon-site-stats>
 
-## Pick the right package
+## Icons first
 
-Choose the smallest layer that matches your runtime:
+The library is designed around the icons themselves, not around one framework. That means:
 
-- `open-icon-svg` for the canonical catalog, raw files, aliases, and typed names
-- `open-icon-transform` for direct SVG processing in scripts, CLIs, or custom build steps
-- `vite-plugin-open-icon` for Vite apps that want transform-at-import behavior
+- a canonical SVG source of truth
+- a catalog that keeps growing over time
+- predictable names and aliases
+- customization that stays external instead of baking edits into every file
+- open source packages and an API layer that let you use the same icon set in different runtimes
 
-<open-icon-package-grid></open-icon-package-grid>
+The preview below is loaded from the actual icon catalog in this repo.
 
-## Browse the icon catalog
+<open-icon-gallery mode="preview" limit="24"></open-icon-gallery>
 
-The live gallery below is generated from `packages/open-icon-svg/icons` and exposes the same canonical names you use from the package.
+## Philosophy
 
-<open-icon-gallery mode="preview" limit="18"></open-icon-gallery>
+Open Icon is meant to stay practical:
 
-## Start with the SVG package
+- ever-extending instead of frozen
+- open source instead of locked into one product
+- SVG-first instead of screenshot-driven
+- customizable with CSS-like controls and API transforms
+- usable in apps, sites, docs, build pipelines, and scripts
+
+## Load it anywhere
+
+The icon files are plain SVG assets, so they can be used directly or through one of the packages:
 
 ```bash
-npm install open-icon-svg
+npm install open-icon
 ```
 
 ```ts
-import {
-  OPEN_ICON_CATEGORY_TO_NAMES,
-  OPEN_ICON_KEY_TO_NAME,
-  getOpenIconImportPath,
-} from 'open-icon-svg';
+import { Icons, getIcon, getOpenIconImportPath } from 'open-icon';
 
-const iconName = OPEN_ICON_KEY_TO_NAME.UI_SEARCH_M;
+const iconName = Icons.UI_SEARCH_M;
+const iconSvg = getIcon(iconName);
 const importPath = getOpenIconImportPath(iconName);
-const uiIcons = OPEN_ICON_CATEGORY_TO_NAMES.ui;
 ```
 
-## Next steps
+## Packages
+
+The packages make the icon set easier to consume in different environments, but the full package comparison and install guidance live on the dedicated packages page.
+
+[Browse the packages page](/packages/)
+
+## Next
 
 - Visit [Icons](/icons/) to search the full catalog and inspect import paths
-- Visit [Packages](/packages/) to see install guidance for each package in the repo
-- Visit [API](/api/) to see the Cloudflare-powered API layer for search and asset delivery
+- Visit [API](/api/) to use search, metadata, and SVG/PNG exports
+- Visit [Packages](/packages/) for package-specific install guidance

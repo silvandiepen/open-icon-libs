@@ -1,19 +1,28 @@
 import { loadIconCatalog, loadPackageCatalog } from '../../lib/site-data.js';
 import type { SiteStatItem } from './open-icon-site-stats.model.js';
 
+export const getPrimaryPackageVersion = (
+	entries: readonly { name: string; version: string }[]
+): string =>
+	entries.find((entry) => entry.name === 'open-icon')?.version ?? entries[0]?.version ?? '';
+
 export const buildStatItems = ({
+	currentVersion,
 	iconTotal,
 	categoryTotal,
 	packageTotal,
 }: {
+	currentVersion: string;
 	iconTotal: number;
 	categoryTotal: number;
 	packageTotal: number;
-}): SiteStatItem[] => [
-	{ label: 'SVG icons', value: iconTotal.toLocaleString() },
-	{ label: 'Categories', value: categoryTotal.toString() },
-	{ label: 'Packages', value: packageTotal.toString() },
-];
+}): SiteStatItem[] =>
+	[
+		currentVersion ? { label: 'Current version', value: `v${currentVersion}` } : null,
+		{ label: 'SVG icons', value: iconTotal.toLocaleString() },
+		{ label: 'Categories', value: categoryTotal.toString() },
+		{ label: 'Packages', value: packageTotal.toString() },
+	].filter((item): item is SiteStatItem => item !== null);
 
 export class OpenIconSiteStatsElement extends HTMLElement {
 	connectedCallback(): void {
@@ -30,6 +39,7 @@ export class OpenIconSiteStatsElement extends HTMLElement {
 		try {
 			const [icons, packages] = await Promise.all([loadIconCatalog(), loadPackageCatalog()]);
 			const items = buildStatItems({
+				currentVersion: getPrimaryPackageVersion(packages.entries),
 				iconTotal: icons.total,
 				categoryTotal: icons.categories.length,
 				packageTotal: packages.total,

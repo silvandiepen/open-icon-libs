@@ -5,6 +5,7 @@ export interface IconCategorySummary {
 
 export interface SiteIconEntry {
 	name: string;
+	constName: string;
 	category: string;
 	label: string;
 	filePath: string;

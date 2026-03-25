@@ -27,14 +27,19 @@ test('paginate returns the correct page slice', () => {
 	assert.deepEqual(paginate([1, 2, 3, 4, 5], 2, 2), [3, 4]);
 });
 
-test('applySvgMutations updates fill, stroke and title', () => {
-	const input = '<svg><path fill="#000" stroke="#111" style="fill: #000; stroke: #111;" /></svg>';
-	const url = new URL('https://api.open-icon.org/v1/icons/ui/search-m.svg?title=Demo&fill=%23fff&stroke=%23000');
+test('applySvgMutations updates grouped paint values and title', () => {
+	const input =
+		'<svg><path fill="#ed2024" stroke="#231f20" /><path fill="#fff" stroke="#ed1c24" style="fill: #fff; stroke: #ed1c24;" /></svg>';
+	const url = new URL(
+		'https://api.open-icon.org/v1/icons/ui/search-m.svg?title=Demo&fill=%23fff&fillSecondary=%2300ff00&stroke=%23000000&strokeSecondary=%23ff00ff'
+	);
 	const output = applySvgMutations(input, url.searchParams);
 
 	assert.match(output, /<title>Demo<\/title>/);
 	assert.match(output, /fill="#fff"/);
-	assert.match(output, /stroke="#000"/);
+	assert.match(output, /stroke="#000000"/);
+	assert.match(output, /fill="#00ff00"/);
+	assert.match(output, /stroke="#ff00ff"/);
 });
 
 test('applySvgMutations applies root opacity and stroke width updates', () => {

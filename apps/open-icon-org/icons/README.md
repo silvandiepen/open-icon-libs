@@ -6,6 +6,7 @@ order: 1
 
 # Icon Catalog
 
-Search, filter, and inspect the full Open Icon catalog. The gallery starts with categories, and every icon links to its own detail page with downloads, aliases, and related icons.
+Search, filter, and inspect the full Open Icon catalog. Open any icon to view downloads, aliases, related icons, and package usage without leaving this page.
 
 <open-icon-gallery></open-icon-gallery>
+<open-icon-icon-detail></open-icon-icon-detail>

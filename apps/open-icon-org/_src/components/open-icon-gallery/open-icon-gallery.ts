@@ -1,3 +1,10 @@
+import {
+	DEFAULT_ICON_RENDER_SETTINGS,
+	OPEN_ICON_RENDER_SETTINGS_EVENT,
+	normalizeIconRenderSettings,
+	readStoredIconRenderSettings,
+} from '../../lib/icon-render-settings.js';
+import { hydrateInlineIcons } from '../../lib/inline-icon.js';
 import { loadIconCatalog } from '../../lib/site-data.js';
 import { filterIcons, getIconDetailHref, normalizeSearchValue } from '../../lib/site-formatters.js';
 import type { IconCategorySummary, SiteIconEntry } from '../../lib/site-data.model.js';
@@ -14,6 +21,24 @@ export const getGalleryMode = (value: string | null): 'full' | 'preview' =>
 export const shouldShowCategoryTiles = (query: string, category: string, mode: 'full' | 'preview'): boolean =>
 	mode === 'full' && category === 'all' && !normalizeSearchValue(query);
 
+export const getGalleryIconPreviewUrl = (
+	icon: Pick<SiteIconEntry, 'url'>,
+	_settings = DEFAULT_ICON_RENDER_SETTINGS
+): string => icon.url;
+
+export const getCategoryPreviewIcons = (
+	entries: readonly SiteIconEntry[],
+	categoryName: string,
+	limit = 4
+): SiteIconEntry[] => entries.filter((entry) => entry.category === categoryName).slice(0, Math.max(limit, 0));
+
+type GalleryFocusSnapshot = {
+	name: string;
+	tagName: 'INPUT' | 'SELECT' | 'TEXTAREA';
+	selectionStart?: number;
+	selectionEnd?: number;
+};
+
 export class OpenIconGalleryElement extends HTMLElement {
 	private state: OpenIconGalleryState = {
 		catalog: null,
@@ -21,6 +46,15 @@ export class OpenIconGalleryElement extends HTMLElement {
 		category: 'all',
 		limit: null,
 		mode: 'full',
+		settings: DEFAULT_ICON_RENDER_SETTINGS,
+	};
+
+	private readonly handleRenderSettingsChange = (event: Event): void => {
+		if (!(event instanceof CustomEvent)) {
+			return;
+		}
+
+		this.state.settings = normalizeIconRenderSettings(event.detail as OpenIconGalleryState['settings']);
 	};
 
 	connectedCallback(): void {
@@ -30,13 +64,19 @@ export class OpenIconGalleryElement extends HTMLElement {
 
 		this.dataset.connected = 'true';
 		this.state.mode = getGalleryMode(this.getAttribute('mode'));
+		this.state.settings = readStoredIconRenderSettings();
 		this.state.limit =
 			this.state.mode === 'preview'
 				? Number.parseInt(this.getAttribute('limit') ?? `${PREVIEW_LIMIT}`, 10) || PREVIEW_LIMIT
 				: null;
+		window.addEventListener(OPEN_ICON_RENDER_SETTINGS_EVENT, this.handleRenderSettingsChange);
 
 		this.renderState('Loading icon catalog...');
 		void this.load();
+	}
+
+	disconnectedCallback(): void {
+		window.removeEventListener(OPEN_ICON_RENDER_SETTINGS_EVENT, this.handleRenderSettingsChange);
 	}
 
 	private async load(): Promise<void> {
@@ -78,6 +118,7 @@ export class OpenIconGalleryElement extends HTMLElement {
 					? `${activeCategory.count.toLocaleString()} icons in ${activeCategory.name}.`
 					: 'Browse the full icon catalog.';
 		const canReset = Boolean(this.state.query) || this.state.category !== 'all';
+		const focusSnapshot = this.captureFocusSnapshot();
 
 		this.innerHTML = `
 			<section class="oi-gallery" aria-label="Open Icon gallery">
@@ -89,8 +130,8 @@ export class OpenIconGalleryElement extends HTMLElement {
 							<p class="oi-gallery__summary-copy">${summaryDescription}</p>
 						</div>
 						<div class="oi-gallery__summary-actions">
-							${canReset ? '<button class="oi-gallery__show-all" type="button" data-reset-gallery>Reset filters</button>' : ''}
-							${this.state.mode === 'preview' ? '<a class="oi-gallery__show-all" href="/icons/">Open full catalog</a>' : ''}
+							${canReset ? '<button type="button" data-reset-gallery>Reset filters</button>' : ''}
+							${this.state.mode === 'preview' ? '<a href="/icons/">Open full catalog</a>' : ''}
 						</div>
 					</div>
 					${
@@ -98,14 +139,14 @@ export class OpenIconGalleryElement extends HTMLElement {
 							? `
 								<div class="oi-gallery__controls">
 									<label class="oi-gallery__field">
-										<span class="oi-gallery__label">Search</span>
-										<input class="oi-gallery__input" name="query" type="search" placeholder="Search icons, aliases, or categories" value="${this.escapeAttribute(
+										<span>Search</span>
+										<input name="query" type="search" placeholder="Search icons, aliases, or categories" value="${this.escapeAttribute(
 											this.state.query
 										)}" />
 									</label>
 									<label class="oi-gallery__field">
-										<span class="oi-gallery__label">Category</span>
-										<select class="oi-gallery__select" name="category">
+										<span>Category</span>
+										<select name="category">
 											<option value="all">All categories</option>
 											${catalog.categories
 												.map(
@@ -128,7 +169,9 @@ export class OpenIconGalleryElement extends HTMLElement {
 					showCategoryTiles
 						? `
 							<div class="oi-gallery__categories">
-								${catalog.categories.map((category) => this.renderCategoryTile(category)).join('')}
+								${catalog.categories
+									.map((category) => this.renderCategoryTile(category, catalog.entries))
+									.join('')}
 							</div>
 						`
 						: visibleIcons.length
@@ -143,11 +186,27 @@ export class OpenIconGalleryElement extends HTMLElement {
 		`;
 
 		this.bindEvents();
+		this.restoreFocusSnapshot(focusSnapshot);
+		void hydrateInlineIcons(this);
 	}
 
-	private renderCategoryTile(category: IconCategorySummary): string {
+	private renderCategoryTile(category: IconCategorySummary, entries: readonly SiteIconEntry[]): string {
+		const previewIcons = getCategoryPreviewIcons(entries, category.name);
+
 		return `
 			<button class="oi-gallery__category" type="button" data-category-name="${this.escapeAttribute(category.name)}">
+				<span class="oi-gallery__category-preview" aria-hidden="true">
+					${previewIcons
+						.map(
+							(icon) => `
+								<span
+									class="oi-gallery__category-preview-icon"
+									data-inline-icon-url="${this.escapeAttribute(getGalleryIconPreviewUrl(icon))}"
+								></span>
+							`
+						)
+						.join('')}
+				</span>
 				<span class="oi-gallery__category-title">${category.name}</span>
 				<span class="oi-gallery__category-meta">${category.count.toLocaleString()} icons</span>
 			</button>
@@ -155,14 +214,19 @@ export class OpenIconGalleryElement extends HTMLElement {
 	}
 
 	private renderCard(icon: SiteIconEntry): string {
+		const previewUrl = getGalleryIconPreviewUrl(icon);
+
 		return `
-			<a class="oi-gallery__card" href="${getIconDetailHref(icon.name)}">
-				<span class="oi-gallery__icon">
-					<img loading="lazy" src="${icon.svgUrl || icon.url}" alt="${icon.label}" />
-				</span>
-				<span class="oi-gallery__card-title">${icon.label}</span>
-				<span class="oi-gallery__meta">${icon.category}</span>
-			</a>
+			<article class="oi-gallery__card">
+				<a class="oi-gallery__card-link" href="${getIconDetailHref(icon.name)}">
+					<span class="oi-gallery__icon" data-inline-icon-url="${this.escapeAttribute(previewUrl)}" aria-hidden="true">
+					</span>
+					<span class="oi-gallery__card-copy">
+						<span class="oi-gallery__card-title">${icon.label}</span>
+						<span class="oi-gallery__meta">${icon.category}</span>
+					</span>
+				</a>
+			</article>
 		`;
 	}
 
@@ -201,5 +265,59 @@ export class OpenIconGalleryElement extends HTMLElement {
 
 	private escapeAttribute(value: string): string {
 		return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;');
+	}
+
+	private captureFocusSnapshot(): GalleryFocusSnapshot | null {
+		if (typeof document === 'undefined') {
+			return null;
+		}
+
+		const activeElement = document.activeElement;
+		if (!(activeElement instanceof HTMLElement) || !this.contains(activeElement)) {
+			return null;
+		}
+
+		if (
+			(activeElement instanceof HTMLInputElement ||
+				activeElement instanceof HTMLSelectElement ||
+				activeElement instanceof HTMLTextAreaElement) &&
+			activeElement.name
+		) {
+			return {
+				name: activeElement.name,
+				tagName: activeElement.tagName as GalleryFocusSnapshot['tagName'],
+				selectionStart:
+					activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement
+						? activeElement.selectionStart ?? activeElement.value.length
+						: undefined,
+				selectionEnd:
+					activeElement instanceof HTMLInputElement || activeElement instanceof HTMLTextAreaElement
+						? activeElement.selectionEnd ?? activeElement.value.length
+						: undefined,
+			};
+		}
+
+		return null;
+	}
+
+	private restoreFocusSnapshot(snapshot: GalleryFocusSnapshot | null): void {
+		if (!snapshot) {
+			return;
+		}
+
+		const selector = `${snapshot.tagName.toLowerCase()}[name="${snapshot.name}"]`;
+		const element = this.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(selector);
+		if (!element) {
+			return;
+		}
+
+		element.focus();
+		if (
+			(element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) &&
+			typeof snapshot.selectionStart === 'number' &&
+			typeof snapshot.selectionEnd === 'number'
+		) {
+			element.setSelectionRange(snapshot.selectionStart, snapshot.selectionEnd);
+		}
 	}
 }

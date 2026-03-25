@@ -15,6 +15,10 @@ const PACKAGE_INDEX = new Map<string, ApiPackageEntry>(PACKAGES.map((entry) => [
 
 const SVG_CONTENT_TYPE = 'image/svg+xml; charset=utf-8';
 const PNG_CONTENT_TYPE = 'image/png';
+const PRIMARY_FILL_COLORS = new Set(['#ed2024', '#ed1c24', '#ed1f24', '#ee1c4e', '#ed1e2b', '#ed1e27', '#ff0013']);
+const PRIMARY_STROKE_COLORS = new Set(['#000', '#010101', '#231f20']);
+const SECONDARY_FILL_COLORS = new Set(['#000', '#010101', '#231f20', '#fff', '#ffffff']);
+const SECONDARY_STROKE_COLORS = new Set(['#ed2024', '#ed1c24', '#ed1f24', '#ee1c4e', '#ed1e2b', '#ed1e27', '#ff0013']);
 
 const escapeForHtml = (value: string): string =>
 	value
@@ -114,15 +118,43 @@ export const applySvgMutations = (svg: string, searchParams: URLSearchParams): s
 	let output = svg;
 	const title = searchParams.get('title');
 	const fill = searchParams.get('fill');
+	const fillSecondary = searchParams.get('fillSecondary');
 	const stroke = searchParams.get('stroke');
+	const strokeSecondary = searchParams.get('strokeSecondary');
 	const color = searchParams.get('color');
 	const opacity = searchParams.get('opacity');
 	const strokeWidth = searchParams.get('strokeWidth');
+
+	const normalizePaintValue = (value: string): string => value.trim().toLowerCase();
 
 	const replacePaintValue = (input: string, property: 'fill' | 'stroke', nextValue: string): string =>
 		input
 			.replace(new RegExp(`${property}="(?!none)[^"]*"`, 'gi'), `${property}="${nextValue}"`)
 			.replace(new RegExp(`${property}:\\s*(?!none)[^;"']+`, 'gi'), `${property}: ${nextValue}`);
+
+	const replacePaintGroup = (
+		input: string,
+		property: 'fill' | 'stroke',
+		nextValue: string,
+		targetValues: ReadonlySet<string>
+	): string =>
+		input
+			.replace(new RegExp(`${property}="([^"]*)"`, 'gi'), (match, currentValue: string) => {
+				const normalizedValue = normalizePaintValue(currentValue);
+				if (normalizedValue === 'none' || !targetValues.has(normalizedValue)) {
+					return match;
+				}
+
+				return `${property}="${nextValue}"`;
+			})
+			.replace(new RegExp(`${property}:\\s*([^;"']+)`, 'gi'), (match, currentValue: string) => {
+				const normalizedValue = normalizePaintValue(currentValue);
+				if (normalizedValue === 'none' || !targetValues.has(normalizedValue)) {
+					return match;
+				}
+
+				return `${property}: ${nextValue}`;
+			});
 
 	const replaceDimensionValue = (input: string, property: 'stroke-width', nextValue: string): string =>
 		input
@@ -153,12 +185,20 @@ export const applySvgMutations = (svg: string, searchParams: URLSearchParams): s
 		output = replacePaintValue(output, 'stroke', color);
 	}
 
+	if (fillSecondary) {
+		output = replacePaintGroup(output, 'fill', fillSecondary, SECONDARY_FILL_COLORS);
+	}
+
 	if (fill) {
-		output = replacePaintValue(output, 'fill', fill);
+		output = replacePaintGroup(output, 'fill', fill, PRIMARY_FILL_COLORS);
 	}
 
 	if (stroke) {
-		output = replacePaintValue(output, 'stroke', stroke);
+		output = replacePaintGroup(output, 'stroke', stroke, PRIMARY_STROKE_COLORS);
+	}
+
+	if (strokeSecondary) {
+		output = replacePaintGroup(output, 'stroke', strokeSecondary, SECONDARY_STROKE_COLORS);
 	}
 
 	if (opacity) {

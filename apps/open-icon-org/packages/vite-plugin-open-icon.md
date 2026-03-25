@@ -1,7 +1,7 @@
 ---
 title: vite-plugin-open-icon
 description: The Vite integration layer that runs the Open Icon transform pipeline at import time.
-order: 3
+order: 4
 ---
 
 # vite-plugin-open-icon
@@ -41,5 +41,6 @@ import searchIcon from 'open-icon-svg/icons/ui/icon_search-m.svg?open-icon';
 
 ## Pair it with
 
-- `open-icon-svg` when you want typed icon selection plus package-based SVG imports
+- `open-icon` when you want the main icon package alongside Vite transforms
+- `open-icon-svg` when you want direct package-based SVG imports
 - `open-icon-transform` when you also need to reuse the same transform logic in non-Vite contexts

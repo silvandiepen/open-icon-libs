@@ -5,6 +5,11 @@ export interface IconSnippet {
 	value: string;
 }
 
+export const getIconDetailHash = (iconName: string): string => `#${encodeURIComponent(iconName)}`;
+
+export const parseIconDetailHash = (value: string): string =>
+	value.startsWith('#') ? decodeURIComponent(value.slice(1)) : '';
+
 export const normalizeSearchValue = (value: string): string =>
 	value
 		.toLowerCase()
@@ -39,10 +44,7 @@ export const filterIcons = (
 };
 
 export const getIconDetailHref = (iconName: string): string =>
-	`/icons/${iconName
-		.split('/')
-		.map((segment) => encodeURIComponent(segment))
-		.join('/')}/`;
+	`/icons/${getIconDetailHash(iconName)}`;
 
 export const getRelatedIcons = (
 	icons: readonly SiteIconEntry[],

@@ -1,3 +1,4 @@
 # open-icon-site-stats
 
-Renders a small stats grid backed by the generated icon and package JSON files.
+Renders a small stats grid backed by the generated icon and package JSON files,
+including the current `open-icon` package version.

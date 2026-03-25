@@ -12,6 +12,7 @@ test('createSiteIconCatalog maps icon entries to media URLs and labels', () => {
 		categoryToNames: { ui: ['ui/search-m'] },
 		entries: [
 			{
+				key: 'UI_SEARCH_M',
 				iconName: 'ui/search-m',
 				category: 'ui',
 				filePath: 'icons/ui/icon_search-m.svg',
@@ -25,6 +26,7 @@ test('createSiteIconCatalog maps icon entries to media URLs and labels', () => {
 	assert.equal(catalog.total, 1);
 	assert.deepEqual(catalog.categories, [{ name: 'ui', count: 1 }]);
 	assert.equal(catalog.entries[0].label, 'Search M');
+	assert.equal(catalog.entries[0].constName, 'UI_SEARCH_M');
 	assert.equal(catalog.entries[0].url, '/media/icons/ui/icon_search-m.svg');
 	assert.equal(catalog.entries[0].apiUrl, 'https://api.open-icon.org/v1/icons/ui%2Fsearch-m');
 });

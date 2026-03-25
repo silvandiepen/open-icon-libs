@@ -9,12 +9,12 @@
   },
   "scripts": {
     "build:assets": "node ./_scripts/build-site-assets.mjs && tsc -p tsconfig.json",
-    "build": "npm run build:assets && npx girky && node ./_scripts/patch-site-output.mjs",
+    "build": "npm run build:assets && npx --yes girky@latest && node ./_scripts/patch-site-output.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "npm run build:assets && node --test ./_test/*.test.js",
     "clean": "rm -rf public assets/generated assets/scripts media/icons"
   },
   "devDependencies": {
-    "girky": "^1.12.0"
+    "girky": "latest"
   }
 }

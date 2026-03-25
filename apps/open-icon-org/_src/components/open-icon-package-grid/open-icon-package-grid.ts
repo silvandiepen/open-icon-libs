@@ -40,7 +40,7 @@ export class OpenIconPackageGridElement extends HTMLElement {
 											${entry.highlights.map((highlight) => `<li>${highlight}</li>`).join('')}
 										</ul>
 										<code class="oi-package__code">${entry.install}</code>
-										<a class="oi-package__link" href="${entry.href}">Read package guide</a>
+										<p><a href="${entry.href}">Read package guide</a></p>
 									</article>
 								`
 							)

@@ -1,6 +1,7 @@
 import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { generatePackageIcons } from '../../../packages/open-icon-svg/scripts/generate-package-icons.mjs';
 import { buildOpenIconSiteData } from '../../../packages/open-icon-svg/scripts/openIconSiteData.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,31 +25,9 @@ const clearGeneratedIconPages = async () => {
 	);
 };
 
-const renderIconDetailPage = (icon) => `---
-title: ${icon.label}
-description: Details, downloads, and integration snippets for ${icon.name}.
-hide: true
----
-
-<div class="oi-icon-detail-page">
-	<open-icon-icon-detail icon="${icon.name}"></open-icon-icon-detail>
-</div>
-`;
-
-const writeIconDetailPages = async (icons) => {
-	await clearGeneratedIconPages();
-
-	await Promise.all(
-		icons.map(async (icon) => {
-			const iconPageFile = path.join(iconDocsDir, ...icon.name.split('/'), 'README.md');
-			await mkdir(path.dirname(iconPageFile), { recursive: true });
-			await writeFile(iconPageFile, renderIconDetailPage(icon), 'utf8');
-		})
-	);
-};
-
 export const buildSiteAssets = async () => {
 	const apiBaseUrl = process.env.OPEN_ICON_API_BASE_URL ?? '';
+	await generatePackageIcons();
 	const data = await buildOpenIconSiteData({ apiBaseUrl });
 	const iconCatalog = data.icons;
 	const packageCatalog = data.packages;
@@ -56,7 +35,7 @@ export const buildSiteAssets = async () => {
 	await mkdir(generatedAssetsDir, { recursive: true });
 	await writeFile(generatedIconsFile, `${JSON.stringify(iconCatalog, null, 2)}\n`, 'utf8');
 	await writeFile(generatedPackagesFile, `${JSON.stringify(packageCatalog, null, 2)}\n`, 'utf8');
-	await writeIconDetailPages(iconCatalog.entries);
+	await clearGeneratedIconPages();
 
 	await rm(appMediaIconsDir, { recursive: true, force: true });
 	await mkdir(path.dirname(appMediaIconsDir), { recursive: true });
@@ -64,7 +43,7 @@ export const buildSiteAssets = async () => {
 
 	console.log(`[open-icon-org] Wrote ${generatedIconsFile}`);
 	console.log(`[open-icon-org] Wrote ${generatedPackagesFile}`);
-	console.log(`[open-icon-org] Wrote ${iconCatalog.entries.length} icon detail pages under ${iconDocsDir}`);
+	console.log(`[open-icon-org] Cleared generated icon detail pages under ${iconDocsDir}`);
 	if (apiBaseUrl) {
 		console.log(`[open-icon-org] Using API URLs from ${apiBaseUrl}`);
 	}

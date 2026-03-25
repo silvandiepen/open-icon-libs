@@ -7,19 +7,20 @@ archive: sections
 
 # Open Icon API
 
-The docs site is static, but the Open Icon platform now also has an API layer designed for `api.open-icon.org`.
+The docs site is static, but the Open Icon platform also exposes a Worker API at `api.open-icon.org`.
 
 ## Why the API exists
 
 - expose the icon catalog to external apps
 - search by canonical name or alias
 - deliver raw SVGs from stable canonical routes
-- support best-effort PNG output through Cloudflare image transformations
+- provide PNG output from the same icon routes
 - keep the docs and external consumers aligned on one metadata contract
 
 ## Main endpoints
 
 ```text
+GET /v1
 GET /health
 GET /v1/catalog
 GET /v1/categories
@@ -36,6 +37,12 @@ GET /v1/packages/:name
 
 ```bash
 curl "https://api.open-icon.org/v1/icons?query=search&category=ui&page=1&perPage=24"
+```
+
+`GET /v1/catalog` returns summary data by default. Add `?include=entries` when you need the full icon entry list:
+
+```bash
+curl "https://api.open-icon.org/v1/catalog?include=entries"
 ```
 
 ## Search with a JSON payload
@@ -59,6 +66,8 @@ curl "https://api.open-icon.org/v1/icons/ui%2Fsearch-m"
 ```bash
 curl "https://api.open-icon.org/v1/icons/ui%2Fsearch-m.svg?color=%23000000&strokeWidth=2"
 ```
+
+Supported transform params currently include `title`, `color`, `fill`, `fillSecondary`, `stroke`, `strokeSecondary`, `opacity`, and `strokeWidth`.
 
 ## Docs build integration
 

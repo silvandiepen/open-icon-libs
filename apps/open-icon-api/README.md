@@ -9,7 +9,7 @@ The API owns:
 - icon listing and search
 - canonical icon detail responses
 - raw SVG delivery
-- best-effort PNG conversion through Cloudflare image transformations
+- PNG output from the icon routes
 - package metadata endpoints
 
 The docs app can either build from local package data or point its generated JSON at this API by setting:
@@ -20,6 +20,7 @@ OPEN_ICON_API_BASE_URL=https://api.open-icon.org
 
 ## Main endpoints
 
+- `GET /v1`
 - `GET /health`
 - `GET /v1/catalog`
 - `GET /v1/categories`
@@ -30,6 +31,8 @@ OPEN_ICON_API_BASE_URL=https://api.open-icon.org
 - `GET /v1/icons/:name.png`
 - `GET /v1/packages`
 - `GET /v1/packages/:name`
+
+`GET /v1/catalog` accepts `?include=entries` when callers need the full entry list in one response.
 
 ## Build
 

@@ -95,12 +95,13 @@ const servePng = async (request: Request, env: Env, iconName: string): Promise<R
 
 	try {
 		const rasterSize = width ?? height ?? 512;
-		const renderedImage = new Resvg(transformedSvg, {
+		const renderer = await Resvg.async(transformedSvg, {
 			fitTo: {
 				mode: width ? 'width' : 'height',
 				value: rasterSize,
 			},
-		}).render();
+		});
+		const renderedImage = renderer.render();
 		const pngBytes = renderedImage.asPng();
 		const pngBuffer = new ArrayBuffer(pngBytes.byteLength);
 		new Uint8Array(pngBuffer).set(pngBytes);

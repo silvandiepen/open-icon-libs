@@ -1,7 +1,7 @@
 ---
 title: open-icon-transform
 description: The framework-agnostic transformation engine used by the Open Icon toolchain.
-order: 2
+order: 3
 ---
 
 # open-icon-transform
@@ -47,5 +47,6 @@ const output = transformOpenIconSvg(
 
 ## Pair it with
 
-- `open-icon-svg` for typed names and file lookup metadata
+- `open-icon` for typed names and runtime icon lookup
+- `open-icon-svg` for direct raw SVG imports
 - your own scripts, CLIs, or build steps when Vite is not involved

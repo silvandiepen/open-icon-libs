@@ -6,18 +6,20 @@ order: 2
 
 # Packages
 
-The repo is split into three layers so apps can depend on only the parts they need.
+The repo is split into four layers so apps can depend on only the parts they need.
 
 <open-icon-package-grid></open-icon-package-grid>
 
 ## How the layers fit together
 
-- `open-icon-svg` is the source of truth for icon names, aliases, categories, and raw files
+- `open-icon` is the main package for catalog helpers and runtime icon access
+- `open-icon-svg` ships the raw SVG files
 - `open-icon-transform` turns raw SVG content into output that matches the Open Icon pipeline
 - `vite-plugin-open-icon` applies that transform automatically when Vite loads SVG modules
 
 ## Package pages
 
+- [open-icon](./open-icon/)
 - [open-icon-svg](./open-icon-svg/)
 - [open-icon-transform](./open-icon-transform/)
 - [vite-plugin-open-icon](./vite-plugin-open-icon/)

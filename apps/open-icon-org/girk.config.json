@@ -3,7 +3,7 @@
   "projectDescription": "Open Icon packages, the SVG catalog, and integration docs.",
   "projectStyle": "/assets/site.css",
   "projectScriptModule": "/assets/scripts/site.js",
-  "projectLogo": "logo.svg",
+  "projectLogo": "/assets/logo.svg",
   "colorsPrimary": "#ffd447",
   "colorsSecondary": "#67c3f3",
   "colorsTertiary": "#32c89f",
