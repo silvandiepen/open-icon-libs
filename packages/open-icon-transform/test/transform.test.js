@@ -111,6 +111,14 @@ test('custom configData variables are interpolated in replaceData values', () =>
 	assert.equal(output.includes('fill: #123456;'), true);
 });
 
+test('stroke linecap and linejoin map to dedicated runtime variables', () => {
+	const input = `<svg><path style="stroke:black;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;"/></svg>`;
+	const output = transformOpenIconSvg(input, '/tmp/icon_line-style.svg');
+
+	assert.equal(output.includes('stroke-linecap: var(--icon-stroke-linecap, round);'), true);
+	assert.equal(output.includes('stroke-linejoin: var(--icon-stroke-linejoin, round);'), true);
+});
+
 test('full pipeline combination remains stable', () => {
 	const input = `
 <?xml version="1.0"?>

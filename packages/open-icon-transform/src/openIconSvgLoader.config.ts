@@ -82,11 +82,11 @@ export const openIconSvgLoaderDefaults: OpenIconSvgLoaderSettings = {
 		],
 		[
 			'stroke-linejoin:round;',
-			'stroke-linecap: var(--icon-stroke-linejoin, round);'
+			'stroke-linejoin: var(--icon-stroke-linejoin, round);'
 		],
 		[
 			'stroke-linejoin:square;',
-			'stroke-linecap: var(--icon-stroke-linejoin, square);'
+			'stroke-linejoin: var(--icon-stroke-linejoin, square);'
 		],
 	],
 	default: {

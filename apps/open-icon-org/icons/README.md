@@ -8,5 +8,7 @@ order: 1
 
 Search, filter, and inspect the full Open Icon catalog. Open any icon to view downloads, aliases, related icons, and package usage without leaving this page.
 
+If you want to contribute icons or run your own SVGs through the same pipeline, read the [Icon Authoring Guide](./authoring/).
+
 <open-icon-gallery></open-icon-gallery>
 <open-icon-icon-detail></open-icon-icon-detail>
