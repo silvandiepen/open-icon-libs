@@ -41,7 +41,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "open-icon": "1.1.3"
+    "open-icon": "1.1.4"
   },
   "repository": {
     "type": "git",
