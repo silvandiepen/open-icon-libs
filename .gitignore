@@ -8,3 +8,5 @@ apps/*/media/icons
 apps/*/src/generated
 apps/*/icons/*/
 apps/*/dist
+packages/open-icon/src/generated/icons
+packages/open-icon/src/generated/openIconLoaders.generated.ts
