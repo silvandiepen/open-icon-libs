@@ -1,3 +1,48 @@
+.logo.logo--image-only {
+	display: inline-flex;
+	align-items: center;
+	color: inherit;
+	--icon-fill: color-mix(in srgb, var(--color-primary) 68%, transparent);
+	--icon-fill-opacity: 0.45;
+	--icon-stroke-color: currentColor;
+	--icon-stroke-width: 5;
+	--icon-stroke-linecap: round;
+}
+
+.logo.logo--image-only svg {
+	display: block;
+	width: clamp(4.75rem, 8vw, 6rem);
+	height: auto;
+	overflow: visible;
+}
+
+.logo.logo--image-only svg path {
+	transform-box: fill-box;
+	transform-origin: center;
+}
+
+.logo.logo--image-only svg path:nth-of-type(7),
+.logo.logo--image-only svg path:nth-of-type(8),
+.logo.logo--image-only svg path:nth-of-type(11),
+.logo.logo--image-only svg path:nth-of-type(12) {
+	transition: transform 180ms ease;
+	will-change: transform;
+}
+
+.logo.logo--image-only:hover svg path:nth-of-type(7),
+.logo.logo--image-only:hover svg path:nth-of-type(8),
+.logo.logo--image-only:focus-visible svg path:nth-of-type(7),
+.logo.logo--image-only:focus-visible svg path:nth-of-type(8) {
+	transform: translateY(1.25px);
+}
+
+.logo.logo--image-only:hover svg path:nth-of-type(11),
+.logo.logo--image-only:hover svg path:nth-of-type(12),
+.logo.logo--image-only:focus-visible svg path:nth-of-type(11),
+.logo.logo--image-only:focus-visible svg path:nth-of-type(12) {
+	transform: translateY(-1.25px);
+}
+
 .oi-gallery,
 .oi-packages,
 .oi-stats {

@@ -5,6 +5,7 @@ import {
 	createPackageCatalog,
 	createSiteIconCatalog,
 } from '../../../packages/open-icon-svg/scripts/openIconSiteData.mjs';
+import { transformSiteLogoSvg } from '../_scripts/build-site-assets.mjs';
 
 test('createSiteIconCatalog maps icon entries to media URLs and labels', () => {
 	const catalog = createSiteIconCatalog({
@@ -50,4 +51,14 @@ test('createPackageCatalog adds install commands and routes', () => {
 	assert.equal(catalog.entries[0].group, 'core');
 	assert.equal(catalog.entries[0].order, 6);
 	assert.match(catalog.entries[0].highlights[0], /1131 icons across 12 categories/);
+});
+
+test('transformSiteLogoSvg runs the docs logo through the shared svg transformer', () => {
+	const transformedLogo = transformSiteLogoSvg(
+		'<svg id="Layer_1"><path style="fill:#ff0000;stroke:#000000;stroke-width:4;" /></svg>'
+	);
+
+	assert.match(transformedLogo, /id="Logo"/);
+	assert.match(transformedLogo, /var\(--icon-fill,/);
+	assert.match(transformedLogo, /var\(--icon-stroke-color,/);
 });

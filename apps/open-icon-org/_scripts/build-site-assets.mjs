@@ -1,8 +1,9 @@
-import { cp, mkdir, readdir, rm, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { generatePackageIcons } from '../../../packages/open-icon-svg/scripts/generate-package-icons.mjs';
 import { buildOpenIconSiteData } from '../../../packages/open-icon-svg/scripts/openIconSiteData.mjs';
+import { transformOpenIconSvg } from '../../../packages/open-icon-transform/dist/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +14,10 @@ const iconsRoot = path.join(repoRoot, 'packages', 'open-icon-svg', 'icons');
 const generatedAssetsDir = path.join(appRoot, 'assets', 'generated');
 const generatedIconsFile = path.join(generatedAssetsDir, 'icons.json');
 const generatedPackagesFile = path.join(generatedAssetsDir, 'packages.json');
+const appMediaRootDir = path.join(appRoot, 'media');
 const appMediaIconsDir = path.join(appRoot, 'media', 'icons');
+const logoSourceFile = path.join(appRoot, 'assets', 'logo.svg');
+const logoOutputFile = path.join(appMediaRootDir, 'logo.svg');
 const iconDocsDir = path.join(appRoot, 'icons');
 
 const clearGeneratedIconPages = async () => {
@@ -24,6 +28,9 @@ const clearGeneratedIconPages = async () => {
 			.map((entry) => rm(path.join(iconDocsDir, entry.name), { recursive: true, force: true }))
 	);
 };
+
+export const transformSiteLogoSvg = (svgContent) =>
+	`${transformOpenIconSvg(svgContent, logoSourceFile).trim()}\n`;
 
 export const buildSiteAssets = async () => {
 	const apiBaseUrl = process.env.OPEN_ICON_API_BASE_URL ?? '';
@@ -38,8 +45,13 @@ export const buildSiteAssets = async () => {
 	await clearGeneratedIconPages();
 
 	await rm(appMediaIconsDir, { recursive: true, force: true });
-	await mkdir(path.dirname(appMediaIconsDir), { recursive: true });
+	await mkdir(appMediaRootDir, { recursive: true });
 	await cp(iconsRoot, appMediaIconsDir, { recursive: true });
+	await writeFile(
+		logoOutputFile,
+		transformSiteLogoSvg(await readFile(logoSourceFile, 'utf8')),
+		'utf8'
+	);
 
 	console.log(`[open-icon-org] Wrote ${generatedIconsFile}`);
 	console.log(`[open-icon-org] Wrote ${generatedPackagesFile}`);
@@ -48,6 +60,7 @@ export const buildSiteAssets = async () => {
 		console.log(`[open-icon-org] Using API URLs from ${apiBaseUrl}`);
 	}
 	console.log(`[open-icon-org] Copied icons to ${appMediaIconsDir}`);
+	console.log(`[open-icon-org] Wrote transformed logo to ${logoOutputFile}`);
 };
 
 if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
