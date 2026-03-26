@@ -1,0 +1,51 @@
+{
+  "name": "wc-open-icon",
+  "version": "0.1.4",
+  "description": "Web component package for rendering Open Icon assets with shared icon lookup helpers.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./static": {
+      "types": "./dist/static.d.ts",
+      "import": "./dist/static.js"
+    },
+    "./auto": {
+      "types": "./dist/auto.d.ts",
+      "import": "./dist/auto.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build": "npm --workspace open-icon run build && npm run clean && tsc -p tsconfig.json",
+    "typecheck": "npm --workspace open-icon run build && tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test ./test/*.test.js"
+  },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "icons",
+    "svg",
+    "open-icon"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "open-icon": "1.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/silvandiepen/open-icon-libs.git",
+    "directory": "packages/wc-open-icon"
+  }
+}

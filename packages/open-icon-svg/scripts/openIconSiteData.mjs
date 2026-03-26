@@ -10,11 +10,45 @@ const sourceIconsRoot = path.join(repoRoot, 'icons-src');
 
 const PACKAGE_DETAILS = {
 	'open-icon': {
-		bestFor: 'The main Open Icon package with catalog helpers, lookup keys, and runtime SVG access.',
+		bestFor: 'The main Open Icon package with catalog helpers, lookup keys, plus runtime and static SVG access.',
 		highlights: [
 			'Exports the generated icon catalog and `Icons` lookup keys.',
-			'Provides `Icons`, `getIcon()`, and tree-shakable exports from `open-icon/icons`.',
+			'Provides `open-icon/runtime` for lazy per-icon loading and `open-icon/static` for synchronous icon access.',
+			'Provides tree-shakable exports from `open-icon/icons`.',
 			'Depends on `open-icon-svg` for raw asset delivery.',
+		],
+	},
+	'vue-open-icon': {
+		bestFor: 'Vue apps that want ready-to-use icon components on top of the shared catalog.',
+		highlights: [
+			'Exports a lazy `Icon` component for the default client/runtime path.',
+			'Exports `StaticIcon` from `vue-open-icon/static` for synchronous SSR and static output.',
+			'Re-exports `Icons` and the shared catalog helpers from `open-icon`.',
+		],
+	},
+	'react-open-icon': {
+		bestFor: 'React apps that want ready-to-use icon components on top of the shared catalog.',
+		highlights: [
+			'Exports a lazy `Icon` component for the default client/runtime path.',
+			'Exports `StaticIcon` from `react-open-icon/static` for synchronous SSR and static output.',
+			'Re-exports `Icons` and the shared catalog helpers from `open-icon`.',
+		],
+	},
+	'ng-open-icon': {
+		bestFor: 'Angular apps that want standalone icon components backed by the shared catalog.',
+		highlights: [
+			'Exports a standalone `IconComponent` for the default client/runtime path.',
+			'Exports `StaticIconComponent` from `ng-open-icon/static` for synchronous SSR and static output.',
+			'Re-exports `Icons` and the shared catalog helpers from `open-icon`.',
+		],
+	},
+	'wc-open-icon': {
+		bestFor: 'Any app that wants a standards-based custom element or CDN-loadable icon package.',
+		highlights: [
+			'Exports a custom element class and `defineOpenIconElement()` helper for the runtime path.',
+			'Exports `renderStaticOpenIconMarkup()` from `wc-open-icon/static` for synchronous server output.',
+			'Provides an `auto` entrypoint for direct ESM/CDN loading.',
+			'Lets any project render icons with `<open-icon name=\"ui/search-m\"></open-icon>`.',
 		],
 	},
 	'open-icon-svg': {
@@ -43,7 +77,7 @@ const PACKAGE_DETAILS = {
 	},
 };
 
-const PACKAGE_NAMES = ['open-icon', 'open-icon-svg', 'open-icon-transform', 'vite-plugin-open-icon'];
+const PACKAGE_NAMES = ['open-icon', 'vue-open-icon', 'react-open-icon', 'ng-open-icon', 'wc-open-icon', 'open-icon-svg', 'open-icon-transform', 'vite-plugin-open-icon'];
 
 const toDisplayLabel = (iconName) => {
 	const parts = iconName.split('/');

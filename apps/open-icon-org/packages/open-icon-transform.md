@@ -1,7 +1,7 @@
 ---
 title: open-icon-transform
 description: The framework-agnostic transformation engine used by the Open Icon toolchain.
-order: 3
+order: 7
 ---
 
 # open-icon-transform

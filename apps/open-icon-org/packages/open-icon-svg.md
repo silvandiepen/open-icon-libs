@@ -1,7 +1,7 @@
 ---
 title: open-icon-svg
 description: The raw SVG asset package for Open Icon.
-order: 2
+order: 6
 ---
 
 # open-icon-svg

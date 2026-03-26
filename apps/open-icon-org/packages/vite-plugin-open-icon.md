@@ -1,7 +1,7 @@
 ---
 title: vite-plugin-open-icon
 description: The Vite integration layer that runs the Open Icon transform pipeline at import time.
-order: 4
+order: 8
 ---
 
 # vite-plugin-open-icon

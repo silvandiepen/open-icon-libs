@@ -87,9 +87,17 @@ jobs:
       - name: Bump package versions
         run: |
           npm pkg set "version=${{ steps.open_icon_version.outputs.next }}" --workspace open-icon
+          npm pkg set "version=${{ steps.version.outputs.next }}" --workspace vue-open-icon
+          npm pkg set "version=${{ steps.version.outputs.next }}" --workspace react-open-icon
+          npm pkg set "version=${{ steps.version.outputs.next }}" --workspace wc-open-icon
+          npm pkg set "version=${{ steps.version.outputs.next }}" --workspace ng-open-icon
           npm pkg set "version=${{ steps.version.outputs.next }}" --workspace open-icon-transform
           npm pkg set "version=${{ steps.version.outputs.next }}" --workspace open-icon-svg
           npm pkg set "version=${{ steps.version.outputs.next }}" --workspace vite-plugin-open-icon
+          npm pkg set "dependencies.open-icon=${{ steps.open_icon_version.outputs.next }}" --workspace vue-open-icon
+          npm pkg set "dependencies.open-icon=${{ steps.open_icon_version.outputs.next }}" --workspace react-open-icon
+          npm pkg set "dependencies.open-icon=${{ steps.open_icon_version.outputs.next }}" --workspace wc-open-icon
+          npm pkg set "dependencies.open-icon=${{ steps.open_icon_version.outputs.next }}" --workspace ng-open-icon
           npm pkg set "dependencies.open-icon-svg=${{ steps.version.outputs.next }}" --workspace open-icon
           npm pkg set "dependencies.open-icon-transform=${{ steps.version.outputs.next }}" --workspace vite-plugin-open-icon
           npm install --package-lock-only --ignore-scripts
@@ -112,6 +120,38 @@ jobs:
             echo "open-icon@${{ steps.open_icon_version.outputs.next }} already exists. Skipping publish."
           else
             npm --workspace open-icon publish --access public --provenance
+          fi
+
+      - name: Publish vue-open-icon
+        run: |
+          if npm view "vue-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
+            echo "vue-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
+          else
+            npm --workspace vue-open-icon publish --access public --provenance
+          fi
+
+      - name: Publish react-open-icon
+        run: |
+          if npm view "react-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
+            echo "react-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
+          else
+            npm --workspace react-open-icon publish --access public --provenance
+          fi
+
+      - name: Publish wc-open-icon
+        run: |
+          if npm view "wc-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
+            echo "wc-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
+          else
+            npm --workspace wc-open-icon publish --access public --provenance
+          fi
+
+      - name: Publish ng-open-icon
+        run: |
+          if npm view "ng-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
+            echo "ng-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
+          else
+            npm --workspace ng-open-icon publish --access public --provenance
           fi
 
       - name: Publish open-icon-transform
@@ -140,7 +180,7 @@ jobs:
 
       - name: Commit version updates
         run: |
-          git add package-lock.json packages/open-icon/package.json packages/open-icon-transform/package.json packages/open-icon-svg/package.json packages/vite-plugin-open-icon/package.json apps/open-icon-org/release-notes
+          git add package-lock.json packages/open-icon/package.json packages/vue-open-icon/package.json packages/react-open-icon/package.json packages/wc-open-icon/package.json packages/ng-open-icon/package.json packages/open-icon-transform/package.json packages/open-icon-svg/package.json packages/vite-plugin-open-icon/package.json apps/open-icon-org/release-notes
           if git diff --cached --quiet; then
             echo "No version changes to commit."
             exit 0
