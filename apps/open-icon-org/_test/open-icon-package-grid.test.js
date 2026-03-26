@@ -3,17 +3,20 @@ import assert from 'node:assert/strict';
 
 globalThis.HTMLElement ??= class HTMLElement {};
 
-const { sortPackagesByName } = await import('../assets/scripts/components/open-icon-package-grid/open-icon-package-grid.js');
+const {
+	groupPackages,
+	sortPackagesByOrder,
+} = await import('../assets/scripts/components/open-icon-package-grid/open-icon-package-grid.js');
 const {
 	buildStatItems,
 	getPrimaryPackageVersion,
 } = await import('../assets/scripts/components/open-icon-site-stats/open-icon-site-stats.js');
 
-test('sortPackagesByName orders entries alphabetically', () => {
-	const sorted = sortPackagesByName([
-		{ name: 'vite-plugin-open-icon' },
-		{ name: 'open-icon-svg' },
-		{ name: 'open-icon-transform' },
+test('sortPackagesByOrder respects package order metadata', () => {
+	const sorted = sortPackagesByOrder([
+		{ name: 'vite-plugin-open-icon', order: 8 },
+		{ name: 'open-icon-svg', order: 6 },
+		{ name: 'open-icon-transform', order: 7 },
 	]);
 
 	assert.deepEqual(sorted.map((entry) => entry.name), [
@@ -21,6 +24,18 @@ test('sortPackagesByName orders entries alphabetically', () => {
 		'open-icon-transform',
 		'vite-plugin-open-icon',
 	]);
+});
+
+test('groupPackages separates core and framework entries', () => {
+	const grouped = groupPackages([
+		{ name: 'react-open-icon', order: 3, group: 'framework' },
+		{ name: 'open-icon', order: 1, group: 'core' },
+		{ name: 'open-icon-svg', order: 6, group: 'core' },
+		{ name: 'vue-open-icon', order: 2, group: 'framework' },
+	]);
+
+	assert.deepEqual(grouped.core.map((entry) => entry.name), ['open-icon', 'open-icon-svg']);
+	assert.deepEqual(grouped.framework.map((entry) => entry.name), ['vue-open-icon', 'react-open-icon']);
 });
 
 test('buildStatItems formats the site stats payload', () => {

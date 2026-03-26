@@ -10,6 +10,8 @@ const sourceIconsRoot = path.join(repoRoot, 'icons-src');
 
 const PACKAGE_DETAILS = {
 	'open-icon': {
+		group: 'core',
+		order: 1,
 		bestFor: 'The main Open Icon package with catalog helpers, lookup keys, plus runtime and static SVG access.',
 		highlights: [
 			'Exports the generated icon catalog and `Icons` lookup keys.',
@@ -19,6 +21,8 @@ const PACKAGE_DETAILS = {
 		],
 	},
 	'vue-open-icon': {
+		group: 'framework',
+		order: 2,
 		bestFor: 'Vue apps that want ready-to-use icon components on top of the shared catalog.',
 		highlights: [
 			'Exports a lazy `Icon` component for the default client/runtime path.',
@@ -27,6 +31,8 @@ const PACKAGE_DETAILS = {
 		],
 	},
 	'react-open-icon': {
+		group: 'framework',
+		order: 3,
 		bestFor: 'React apps that want ready-to-use icon components on top of the shared catalog.',
 		highlights: [
 			'Exports a lazy `Icon` component for the default client/runtime path.',
@@ -35,6 +41,8 @@ const PACKAGE_DETAILS = {
 		],
 	},
 	'ng-open-icon': {
+		group: 'framework',
+		order: 4,
 		bestFor: 'Angular apps that want standalone icon components backed by the shared catalog.',
 		highlights: [
 			'Exports a standalone `IconComponent` for the default client/runtime path.',
@@ -43,6 +51,8 @@ const PACKAGE_DETAILS = {
 		],
 	},
 	'wc-open-icon': {
+		group: 'framework',
+		order: 5,
 		bestFor: 'Any app that wants a standards-based custom element or CDN-loadable icon package.',
 		highlights: [
 			'Exports a custom element class and `defineOpenIconElement()` helper for the runtime path.',
@@ -52,6 +62,8 @@ const PACKAGE_DETAILS = {
 		],
 	},
 	'open-icon-svg': {
+		group: 'core',
+		order: 6,
 		bestFor: 'Direct raw SVG file imports without the main catalog helper layer.',
 		highlights: [
 			'Ships the raw SVG files from the catalog.',
@@ -60,6 +72,8 @@ const PACKAGE_DETAILS = {
 		],
 	},
 	'open-icon-transform': {
+		group: 'core',
+		order: 7,
 		bestFor: 'Running the Open Icon SVG pipeline inside scripts, CLIs, or custom tooling.',
 		highlights: [
 			'Transforms raw SVG strings without depending on Vite.',
@@ -68,6 +82,8 @@ const PACKAGE_DETAILS = {
 		],
 	},
 	'vite-plugin-open-icon': {
+		group: 'core',
+		order: 8,
 		bestFor: 'Vite apps that want transformed SVG output at import time.',
 		highlights: [
 			'Runs the transform engine during Vite module loading.',
@@ -152,6 +168,9 @@ export const createPackageCatalog = ({ packages, totalIcons, totalCategories }) 
 			version: pkg.version,
 			install: `npm install ${pkg.name}`,
 			href: `/packages/${pkg.name}/`,
+			group: details.group,
+			groupLabel: details.group === 'framework' ? 'Framework package' : 'Core package',
+			order: details.order,
 			bestFor: details.bestFor,
 			highlights,
 		};

@@ -47,5 +47,7 @@ test('createPackageCatalog adds install commands and routes', () => {
 	assert.equal(catalog.total, 1);
 	assert.equal(catalog.entries[0].install, 'npm install open-icon-svg');
 	assert.equal(catalog.entries[0].href, '/packages/open-icon-svg/');
+	assert.equal(catalog.entries[0].group, 'core');
+	assert.equal(catalog.entries[0].order, 6);
 	assert.match(catalog.entries[0].highlights[0], /1131 icons across 12 categories/);
 });

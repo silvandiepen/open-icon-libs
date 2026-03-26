@@ -114,6 +114,31 @@
 	max-width: 42rem;
 }
 
+.oi-packages {
+	display: grid;
+	gap: 1.25rem;
+}
+
+.oi-packages__section {
+	display: grid;
+	gap: 0.85rem;
+}
+
+.oi-packages__section-copy {
+	display: grid;
+	gap: 0.3rem;
+}
+
+.oi-packages__section-copy > h2,
+.oi-packages__section-copy > p,
+.oi-package__title > a {
+	margin: 0;
+}
+
+.oi-package__actions {
+	margin: 0;
+}
+
 .oi-stats__grid {
 	grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 }

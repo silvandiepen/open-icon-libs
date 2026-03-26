@@ -30,6 +30,9 @@ export interface SitePackageEntry {
 	version: string;
 	install: string;
 	href: string;
+	group: 'core' | 'framework';
+	groupLabel: string;
+	order: number;
 	bestFor: string;
 	highlights: string[];
 }
