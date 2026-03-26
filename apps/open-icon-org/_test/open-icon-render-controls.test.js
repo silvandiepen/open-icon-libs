@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 globalThis.HTMLElement ??= class HTMLElement {};
 
 const {
+	getInitialCollapsedState,
 	getRenderControlsAccentColor,
 	renderCollapsedRenderControls,
 	renderExpandedRenderControls,
@@ -35,6 +36,13 @@ test('getRenderControlsAccentColor prefers the primary fill and falls back to th
 		'#0f766e'
 	);
 	assert.equal(getRenderControlsAccentColor(createState().settings), '#ed2024');
+});
+
+test('getInitialCollapsedState defaults to collapsed on mobile and respects stored preferences', () => {
+	assert.equal(getInitialCollapsedState({ storedValue: null, isMobile: true }), true);
+	assert.equal(getInitialCollapsedState({ storedValue: null, isMobile: false }), false);
+	assert.equal(getInitialCollapsedState({ storedValue: 'true', isMobile: false }), true);
+	assert.equal(getInitialCollapsedState({ storedValue: 'false', isMobile: true }), false);
 });
 
 test('renderExpandedRenderControls uses the primary fill as accent and renders concise control copy', () => {

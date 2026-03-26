@@ -7,13 +7,38 @@ import type { IconRenderSettings } from '../../lib/icon-render-settings.model.js
 import type { OpenIconRenderControlsState } from './open-icon-render-controls.model.js';
 
 const RENDER_CONTROL_PANEL_STORAGE_KEY = 'open-icon-render-controls-collapsed';
+const MOBILE_RENDER_CONTROL_MEDIA_QUERY = '(max-width: 640px)';
+
+export const getInitialCollapsedState = ({
+	storedValue,
+	isMobile,
+}: {
+	storedValue: string | null;
+	isMobile: boolean;
+}): boolean => {
+	if (storedValue === 'true') {
+		return true;
+	}
+
+	if (storedValue === 'false') {
+		return false;
+	}
+
+	return isMobile;
+};
 
 const readCollapsedState = (): boolean => {
 	if (typeof window === 'undefined') {
 		return false;
 	}
 
-	return window.localStorage.getItem(RENDER_CONTROL_PANEL_STORAGE_KEY) === 'true';
+	return getInitialCollapsedState({
+		storedValue: window.localStorage.getItem(RENDER_CONTROL_PANEL_STORAGE_KEY),
+		isMobile:
+			typeof window.matchMedia === 'function'
+				? window.matchMedia(MOBILE_RENDER_CONTROL_MEDIA_QUERY).matches
+				: false,
+	});
 };
 
 const writeCollapsedState = (collapsed: boolean): void => {
