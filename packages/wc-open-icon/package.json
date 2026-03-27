@@ -11,6 +11,14 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
+    "./cdn": {
+      "types": "./dist/cdn/index.d.ts",
+      "import": "./dist/cdn/index.js"
+    },
+    "./cdn/auto": {
+      "types": "./dist/cdn/auto.d.ts",
+      "import": "./dist/cdn/auto.js"
+    },
     "./static": {
       "types": "./dist/static.d.ts",
       "import": "./dist/static.js"
@@ -21,6 +29,8 @@
     },
     "./package.json": "./package.json"
   },
+  "unpkg": "./dist/cdn/auto.js",
+  "jsdelivr": "./dist/cdn/auto.js",
   "files": [
     "dist",
     "README.md",

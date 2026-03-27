@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Girk 1.20.0">
+    <meta name="type" content="content">
+    <title>open-icon-transform</title>
+    <link href="/style/app.css" rel="stylesheet" type="text/css">
+  </head>
+  <body class="page--open-icon-transform">
+    <div class="page-container">
+      <header class="header">
+        <div class="header__container">
+          <nav class="navigation navigation--header  navigation--mobile-inline" data-mobile-mode="inline">
+                      <ul class="navigation__list" id="header-navigation-list">
+                        <li class="navigation__item">
+                          <div class="navigation__entry"><a class="navigation__link" href="/contributing/index.html"><span class="navigation__text">Contributing</span></a>
+                          </div>
+                        </li>
+                      </ul>
+          </nav>
+        </div>
+      </header>
+      <main class="main">
+        <section class="section">
+          <div class="container">
+            <div class="content"><h1 id="open-icon-transform" tabindex="-1">open-icon-transform</h1>
+<p>Framework-agnostic SVG transformation engine used by open-icon tooling.</p>
+<h2 id="installation" tabindex="-1">Installation</h2>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> open-icon-transform
+</code></pre>
+<h2 id="other-packages-in-this-repo" tabindex="-1">Other Packages In This Repo</h2>
+<ul>
+<li><code>open-icon-svg</code>: ships the raw Open Icon SVG files plus typed catalog helpers (names, categories, alias resolution, file/import path lookup).</li>
+<li><code>vite-plugin-open-icon</code>: Vite integration layer that runs this transform engine automatically when importing <code>.svg?open-icon</code>.</li>
+</ul>
+<p>Use <code>open-icon-transform</code> directly when you want full control in scripts, custom build steps, CLIs, or non-Vite runtimes.</p>
+<h2 id="quick-start" tabindex="-1">Quick Start</h2>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword">import</span> <span class="token punctuation">{</span> transformOpenIconSvg <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'open-icon-transform'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> output <span class="token operator">=</span> <span class="token function">transformOpenIconSvg</span><span class="token punctuation">(</span>
+  <span class="token string">'&lt;svg>&lt;path style="fill:red;"/>&lt;/svg>'</span><span class="token punctuation">,</span>
+  <span class="token string">'/icons/icon_demo.svg'</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="api" tabindex="-1">API</h2>
+<h3 id="transformopeniconsvg(svgcontent%2C-filepath%2C-settings%3F)" tabindex="-1"><code>transformOpenIconSvg(svgContent, filePath, settings?)</code></h3>
+<p>Runs the full transformation pipeline:</p>
+<ol>
+<li>Optional color simplification (<code>#hex</code> -&gt; nearest base color name)</li>
+<li>Group opacity flattening (<code>&lt;g style=&quot;opacity:...&quot;&gt;</code> -&gt; child style)</li>
+<li>removeData cleanup (literal + regex)</li>
+<li>replaceData substitutions</li>
+<li>removeTags / removeAttributes</li>
+<li><code>{{...}}</code> variable interpolation</li>
+</ol>
+<h3 id="openiconsvgloaderdefaults" tabindex="-1"><code>openIconSvgLoaderDefaults</code></h3>
+<p>Default pipeline settings mirrored from open-icon build config.</p>
+<h3 id="types" tabindex="-1">Types</h3>
+<ul>
+<li><code>OpenIconSvgLoaderSettings</code></li>
+<li><code>OpenIconReplaceDataEntry</code></li>
+<li><code>OpenIconSvgMeta</code></li>
+</ul>
+<h2 id="settings-reference" tabindex="-1">Settings Reference</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>query</code></td>
+<td><code>string</code></td>
+<td>Shared compatibility key (used by loader wrappers)</td>
+</tr>
+<tr>
+<td><code>replaceName</code></td>
+<td><code>string | string[]</code></td>
+<td>Prefixes/fragments removed from source filename before metadata derivation</td>
+</tr>
+<tr>
+<td><code>replaceData</code></td>
+<td><code>[string|string[], string][]</code></td>
+<td>Literal replacement rules</td>
+</tr>
+<tr>
+<td><code>removeData</code></td>
+<td><code>string | string[]</code></td>
+<td>Literal or regex patterns (regex as <code>/.../</code>) removed from SVG</td>
+</tr>
+<tr>
+<td><code>removeTags</code></td>
+<td><code>string | string[]</code></td>
+<td>Element tags removed from output</td>
+</tr>
+<tr>
+<td><code>removeAttributes</code></td>
+<td><code>string | string[]</code></td>
+<td>Attributes removed from output</td>
+</tr>
+<tr>
+<td><code>simplifyColors</code></td>
+<td><code>boolean</code></td>
+<td>Enables color simplification</td>
+</tr>
+<tr>
+<td><code>default</code></td>
+<td><code>object</code></td>
+<td>Defaults used in interpolation templates</td>
+</tr>
+<tr>
+<td><code>configData</code></td>
+<td><code>Record&lt;string, unknown&gt;</code></td>
+<td>Custom interpolation values</td>
+</tr>
+</tbody>
+</table>
+<h2 id="variable-interpolation" tabindex="-1">Variable Interpolation</h2>
+<p>Placeholders are supported in replacement strings:</p>
+<ul>
+<li><code>{{componentName}}</code></li>
+<li><code>{{fileName}}</code></li>
+<li><code>{{default.iconFill}}</code></li>
+<li>custom values like <code>{{brand.primary}}</code> from <code>configData</code></li>
+</ul>
+<h2 id="example%3A-custom-brand-color-variable" tabindex="-1">Example: Custom Brand Color Variable</h2>
+<pre class="language-ts"><code class="language-ts"><span class="token function">transformOpenIconSvg</span><span class="token punctuation">(</span>svg<span class="token punctuation">,</span> <span class="token string">'/icons/icon_button.svg'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  replaceData<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'fill:red;'</span><span class="token punctuation">,</span> <span class="token string">'fill: {{brand.primary}};'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  configData<span class="token operator">:</span> <span class="token punctuation">{</span> brand<span class="token operator">:</span> <span class="token punctuation">{</span> primary<span class="token operator">:</span> <span class="token string">'#123456'</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  simplifyColors<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+  removeData<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="testing" tabindex="-1">Testing</h2>
+<pre class="language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token builtin class-name">test</span>
+</code></pre>
+<p>Tests cover individual transforms and combined transformation scenarios.</p>
+  
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <footer class="footer"> 
+      <div class="footer__container">
+        <div class="footer__navigation">
+          <nav class="navigation navigation--footer">
+                      <ul class="navigation__footer-list navigation__footer-list--level-0">
+                        <li class="navigation__footer-item"><a class="navigation__footer-link  navigation__footer-link--heading" href="/contributing/index.html">Contributing</a>
+                        </li>
+                      </ul>
+          </nav>
+        </div>
+        <div class="footer__bar footer__bar--end">
+          <div class="footer__controls">
+            <div class="footer__control">
+              <button class="color-mode-toggle" type="button" data-color-mode-toggle aria-label="Toggle color mode" aria-pressed="false"><span class="color-mode-toggle__option">Light</span><span class="color-mode-toggle__track" aria-hidden="true"><span class="color-mode-toggle__thumb"></span></span><span class="color-mode-toggle__option">Dark</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script>const getNavigationItems = (navigation) =>
+  Array.from(
+    navigation.querySelectorAll(".navigation__item--has-children")
+  );
+
+const PANEL_TRANSITION_MS = 180;
+const DESKTOP_NAVIGATION_MEDIA = "(min-width: 721px)";
+
+const clearPanelHideTimer = (submenu) => {
+  if (!submenu || typeof submenu.__hideTimer !== "number") return;
+
+  window.clearTimeout(submenu.__hideTimer);
+  delete submenu.__hideTimer;
+};
+
+const setNavigationItemPanelAlignment = (item) => {
+  const toggle = item.querySelector(".navigation__toggle");
+  const controls = toggle?.getAttribute("aria-controls");
+  const submenu = controls ? document.getElementById(controls) : null;
+
+  item.classList.remove("navigation__item--align-end");
+
+  if (!submenu || !window.matchMedia(DESKTOP_NAVIGATION_MEDIA).matches) return;
+
+  const gutter = 16;
+  const submenuRect = submenu.getBoundingClientRect();
+
+  if (submenuRect.right > window.innerWidth - gutter) {
+    item.classList.add("navigation__item--align-end");
+  }
+
+  if (!item.classList.contains("navigation__item--align-end")) return;
+
+  const alignedRect = submenu.getBoundingClientRect();
+  if (alignedRect.left < gutter) {
+    item.classList.remove("navigation__item--align-end");
+  }
+};
+
+const setNavigationItemOpen = (item, isOpen) => {
+  const toggle = item.querySelector(".navigation__toggle");
+  const controls = toggle?.getAttribute("aria-controls");
+  const submenu = controls ? document.getElementById(controls) : null;
+
+  if (!toggle || !submenu) return;
+
+  clearPanelHideTimer(submenu);
+  item.classList.toggle("navigation__item--open", isOpen);
+  toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+  if (isOpen) {
+    submenu.hidden = false;
+    submenu.setAttribute("data-state", "opening");
+    setNavigationItemPanelAlignment(item);
+
+    window.requestAnimationFrame(() => {
+      setNavigationItemPanelAlignment(item);
+      submenu.setAttribute("data-state", "open");
+    });
+
+    return;
+  }
+
+  item.classList.remove("navigation__item--align-end");
+  submenu.setAttribute("data-state", "closing");
+  submenu.__hideTimer = window.setTimeout(() => {
+    submenu.hidden = true;
+    submenu.setAttribute("data-state", "closed");
+    clearPanelHideTimer(submenu);
+  }, PANEL_TRANSITION_MS);
+};
+
+const closeSiblingItems = (item) => {
+  const parentList = item.parentElement;
+  if (!parentList) return;
+
+  Array.from(parentList.children).forEach((sibling) => {
+    if (sibling === item || !(sibling instanceof HTMLElement)) return;
+    if (!sibling.classList.contains("navigation__item--has-children")) return;
+    setNavigationItemOpen(sibling, false);
+  });
+};
+
+const setMobileNavigationOpen = (navigation, isOpen) => {
+  const toggle = navigation.querySelector(".navigation__mobile-toggle");
+  if (!(toggle instanceof HTMLButtonElement)) return;
+
+  navigation.classList.toggle("navigation--mobile-open", isOpen);
+  toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+};
+
+const initHeaderNavigation = (navigation) => {
+  const items = getNavigationItems(navigation);
+
+  const updateOpenPanelAlignment = () => {
+    items.forEach((item) => {
+      if (!item.classList.contains("navigation__item--open")) return;
+      setNavigationItemPanelAlignment(item);
+    });
+  };
+
+  items.forEach((item) => {
+    const toggle = item.querySelector(".navigation__toggle");
+    const link = item.querySelector(".navigation__link");
+    if (!(toggle instanceof HTMLButtonElement)) return;
+
+    setNavigationItemOpen(item, toggle.getAttribute("aria-expanded") === "true");
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      closeSiblingItems(item);
+      setNavigationItemOpen(item, !isOpen);
+    });
+
+    if (link instanceof HTMLAnchorElement) {
+      link.addEventListener("click", (event) => {
+        if (
+          event.defaultPrevented ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey ||
+          event.button !== 0
+        ) {
+          return;
+        }
+
+        const isOpen = toggle.getAttribute("aria-expanded") === "true";
+        if (isOpen) return;
+
+        event.preventDefault();
+        closeSiblingItems(item);
+        setNavigationItemOpen(item, true);
+      });
+    }
+
+    item.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape") return;
+      setNavigationItemOpen(item, false);
+      toggle.focus();
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+
+    items.forEach((item) => {
+      if (item.contains(target)) return;
+      setNavigationItemOpen(item, false);
+    });
+  });
+
+  window.addEventListener("resize", updateOpenPanelAlignment);
+};
+
+const initMobileNavigation = (navigation) => {
+  const toggle = navigation.querySelector(".navigation__mobile-toggle");
+  if (!(toggle instanceof HTMLButtonElement)) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    setMobileNavigationOpen(navigation, !isOpen);
+  });
+
+  navigation.querySelectorAll(".navigation__link").forEach((link) => {
+    if (!(link instanceof HTMLAnchorElement)) return;
+    const item = link.closest(".navigation__item");
+    if (item?.classList.contains("navigation__item--has-children")) return;
+
+    link.addEventListener("click", () => {
+      setMobileNavigationOpen(navigation, false);
+    });
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof Node)) return;
+    if (navigation.contains(target)) return;
+    setMobileNavigationOpen(navigation, false);
+  });
+
+  navigation.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape") return;
+    setMobileNavigationOpen(navigation, false);
+    toggle.focus();
+  });
+
+  const media = window.matchMedia("(min-width: 721px)");
+  media.addEventListener("change", (event) => {
+    if (event.matches) setMobileNavigationOpen(navigation, false);
+  });
+};
+
+const initNavigation = () => {
+  document.querySelectorAll(".navigation--header").forEach((navigation) => {
+    if (!(navigation instanceof HTMLElement)) return;
+    initHeaderNavigation(navigation);
+
+    if (navigation.dataset.mobileMode === "panel") {
+      initMobileNavigation(navigation);
+    }
+  });
+};
+
+initNavigation();
+const isDarkMode = window.matchMedia("prefers-color-scheme: dark").matches;
+let localMode = isDarkMode ? "dark" : "light";
+
+const updateColorModeToggle = () => {
+  const toggle = document.querySelector("[data-color-mode-toggle]");
+  if (!toggle) return;
+
+  toggle.dataset.colorMode = localMode;
+  toggle.setAttribute("aria-pressed", localMode === "dark" ? "true" : "false");
+  toggle.setAttribute(
+    "aria-label",
+    localMode === "dark" ? "Switch to light mode" : "Switch to dark mode"
+  );
+};
+
+const initColorMode = () => {
+  localMode = localStorage.getItem("colorMode");
+  setCurrentMode(localMode ? localMode : isDarkMode ? "dark" : "light");
+};
+
+const setCurrentMode = (mode) => {
+  localMode = mode;
+  localStorage.setItem("colorMode", localMode);
+  document.documentElement.setAttribute("color-mode", mode);
+  document.body.setAttribute("color-mode", mode);
+  updateColorModeToggle();
+};
+
+const switchMode = () => {
+  if (localMode == "dark") setCurrentMode("light");
+  else setCurrentMode("dark");
+};
+
+const bindColorModeToggle = () => {
+  const toggle = document.querySelector("[data-color-mode-toggle]");
+  if (!toggle) return;
+
+  toggle.addEventListener("click", () => {
+    switchMode();
+  });
+};
+
+initColorMode();
+bindColorModeToggle();
+const container = document.querySelector(".container").querySelectorAll("*");
+
+container.forEach((el) => {
+  const text = el.innerText;
+  if (el.innerHTML == el.textContent)
+    if (text) {
+      const matches = text.match(/#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3}/i);
+      if (matches) {
+        el.innerHTML = el.innerHTML.replace(
+          matches[0],
+          `<span class="color-preview" style="--color-preview:${matches[0]}">${matches[0]}</span>`
+        );
+      }
+    }
+});
+const tables = document.querySelectorAll("table");
+let initTableWrap = false;
+
+const wrapTables = (tables) => {
+  tables &&
+    tables.forEach((table) => {
+      if (table.getBoundingClientRect().width > window.screen.width) {
+        table.classList.add("wrap");
+        initTableWrap = true;
+      }
+    });
+};
+
+const labelTables = (tables) => {
+  tables &&
+    tables.forEach((table) => {
+      // Set all headers as attributes to td's
+      const headerElements = table.querySelectorAll("thead th");
+      const bodyElementRows = table.querySelectorAll("tbody tr");
+      const heads = [];
+
+      if (headerElements && bodyElementRows) {
+        // Get TH heads
+        headerElements.forEach((th) => {
+          heads.push(th.textContent);
+        });
+      }
+
+      if (heads.length) {
+        bodyElementRows.forEach((tr) => {
+          const tds = tr.querySelectorAll("td");
+
+          tds.forEach((td, i) => {
+            td.setAttribute("data-label", heads[i]);
+          });
+        });
+      }
+    });
+};
+
+wrapTables(tables);
+labelTables(tables);
+
+window.addEventListener("resize", () => {
+  if (!initTableWrap) wrapTables(tables);
+});
+
+  </script>
+</html>

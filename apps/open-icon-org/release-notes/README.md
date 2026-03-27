@@ -1,12 +1,10 @@
 ---
 title: Release Notes
-description: Release notes for published Open Icon releases.
+description: Redirect to the About section release notes page.
+hide: true
+redirect: /about/release-notes/
 ---
 
 # Release Notes
 
-Published changes for Open Icon releases.
-
-- [0.1.6](/release-notes/v0-1-6/index.html)
-- [0.1.5](/release-notes/v0-1-5/index.html)
-- [0.1.4](/release-notes/v0-1-4/index.html)
+This page moved to [About / Release Notes](/about/release-notes/).

@@ -38,7 +38,7 @@ Open Icon is meant to stay practical:
 - customizable with CSS-like controls and API transforms
 - usable in apps, sites, docs, build pipelines, and scripts
 
-If you want the actual icon-system rules, contribution guidance, and transform mappings, read the [Icon Authoring Guide](/icons/authoring/).
+Read more in [About](/about/), the [Philosophy page](/about/philosophy/), or the [Icon Authoring Guide](/about/authoring/).
 
 ## Load it anywhere
 
@@ -64,7 +64,8 @@ The packages make the icon set easier to consume in different environments, but 
 
 ## Next
 
-- Visit [Icons](/icons/) to search the full catalog and inspect import paths
-- Visit [Icon Authoring Guide](/icons/authoring/) for the source-icon rules and transform mappings
+- Visit [About](/about/) for project background, authoring, philosophy, and release notes
+- Visit [Icon Catalog](/icons/) to search the full catalog and inspect import paths
+- Visit [Icon Authoring Guide](/about/authoring/) for the source-icon rules and transform mappings
 - Visit [API](/api/) to use search, metadata, and SVG/PNG exports
 - Visit [Packages](/packages/) for package-specific install guidance

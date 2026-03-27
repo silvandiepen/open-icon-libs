@@ -8,7 +8,7 @@ order: 7
 
 `open-icon-transform` is the pipeline layer. It accepts raw SVG content and applies the same cleanup and interpolation steps used by the loader integrations.
 
-If you want the actual Open Icon authoring rules, semantic color mappings, and source SVG conventions, read the [Icon Authoring Guide](/icons/authoring/).
+If you want the actual Open Icon authoring rules, semantic color mappings, and source SVG conventions, read the [Icon Authoring Guide](/about/authoring/).
 
 ## Install
 

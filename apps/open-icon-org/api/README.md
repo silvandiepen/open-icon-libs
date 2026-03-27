@@ -1,7 +1,7 @@
 ---
 title: API
 description: Use api.open-icon.org for icon search, metadata, raw SVG delivery, and PNG output.
-order: 3
+order: 4
 archive: sections
 ---
 
@@ -68,13 +68,3 @@ curl "https://api.open-icon.org/v1/icons/ui%2Fsearch-m.svg?color=%23000000&strok
 ```
 
 Supported transform params currently include `title`, `color`, `fill`, `fillSecondary`, `stroke`, `strokeSecondary`, `opacity`, and `strokeWidth`.
-
-## Docs build integration
-
-When generating this site with Girk, you can point the generated JSON at the deployed API:
-
-```bash
-OPEN_ICON_API_BASE_URL=https://api.open-icon.org npm --workspace open-icon-org run build
-```
-
-That keeps the docs static while still letting the generated payload reference the production API.
