@@ -1,14 +1,17 @@
-import { cp, mkdir, readFile, readdir, rm, writeFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { cp, mkdir, readFile, readdir, rm, writeFile, access } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { promisify } from 'node:util';
 import { generatePackageIcons } from '../../../packages/open-icon-svg/scripts/generate-package-icons.mjs';
 import { buildOpenIconSiteData } from '../../../packages/open-icon-svg/scripts/openIconSiteData.mjs';
-import { transformOpenIconSvg } from '../../../packages/open-icon-transform/dist/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const appRoot = path.resolve(__dirname, '..');
 const repoRoot = path.resolve(appRoot, '../..');
+const transformModulePath = path.join(repoRoot, 'packages', 'open-icon-transform', 'dist', 'index.js');
+const execFileAsync = promisify(execFile);
 
 const iconsRoot = path.join(repoRoot, 'packages', 'open-icon-svg', 'icons');
 const generatedAssetsDir = path.join(appRoot, 'assets', 'generated');
@@ -20,6 +23,18 @@ const logoSourceFile = path.join(appRoot, 'assets', 'logo.svg');
 const logoOutputFile = path.join(appMediaRootDir, 'logo.svg');
 const iconDocsDir = path.join(appRoot, 'icons');
 
+const ensureTransformModule = async () => {
+	try {
+		await access(transformModulePath);
+	} catch {
+		await execFileAsync('npm', ['--workspace', 'open-icon-transform', 'run', 'build'], {
+			cwd: repoRoot,
+		});
+	}
+
+	return import(pathToFileURL(transformModulePath).href);
+};
+
 const clearGeneratedIconPages = async () => {
 	const entries = await readdir(iconDocsDir, { withFileTypes: true });
 	await Promise.all(
@@ -29,8 +44,11 @@ const clearGeneratedIconPages = async () => {
 	);
 };
 
-export const transformSiteLogoSvg = (svgContent) =>
-	`${transformOpenIconSvg(svgContent, logoSourceFile).trim()}\n`;
+export const transformSiteLogoSvg = async (svgContent) => {
+	const { transformOpenIconSvg } = await ensureTransformModule();
+
+	return `${transformOpenIconSvg(svgContent, logoSourceFile).trim()}\n`;
+};
 
 export const buildSiteAssets = async () => {
 	const apiBaseUrl = process.env.OPEN_ICON_API_BASE_URL ?? '';
@@ -49,7 +67,7 @@ export const buildSiteAssets = async () => {
 	await cp(iconsRoot, appMediaIconsDir, { recursive: true });
 	await writeFile(
 		logoOutputFile,
-		transformSiteLogoSvg(await readFile(logoSourceFile, 'utf8')),
+		await transformSiteLogoSvg(await readFile(logoSourceFile, 'utf8')),
 		'utf8'
 	);
 

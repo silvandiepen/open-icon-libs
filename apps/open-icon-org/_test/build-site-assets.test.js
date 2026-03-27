@@ -53,8 +53,8 @@ test('createPackageCatalog adds install commands and routes', () => {
 	assert.match(catalog.entries[0].highlights[0], /1131 icons across 12 categories/);
 });
 
-test('transformSiteLogoSvg runs the docs logo through the shared svg transformer', () => {
-	const transformedLogo = transformSiteLogoSvg(
+test('transformSiteLogoSvg runs the docs logo through the shared svg transformer', async () => {
+	const transformedLogo = await transformSiteLogoSvg(
 		'<svg id="Layer_1"><path style="fill:#ff0000;stroke:#000000;stroke-width:4;" /></svg>'
 	);
 

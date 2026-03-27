@@ -1,7 +1,11 @@
 name: Deploy Cloudflare
 
 on:
-  push:
+  workflow_run:
+    workflows:
+      - Publish Packages
+    types:
+      - completed
     branches:
       - master
   workflow_dispatch:
@@ -10,7 +14,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: deploy-cloudflare-${{ github.ref }}
+  group: deploy-cloudflare-${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref }}
   cancel-in-progress: false
 
 env:
@@ -20,12 +24,16 @@ env:
 
 jobs:
   deploy:
-    if: ${{ github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message || '', '[skip ci]') }}
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    env:
+      DEPLOY_BRANCH: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          ref: refs/heads/${{ env.DEPLOY_BRANCH }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -57,4 +65,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy apps/open-icon-org/public --project-name=${{ env.CLOUDFLARE_PAGES_PROJECT_NAME }} --branch=${{ github.ref_name }}
+          command: pages deploy apps/open-icon-org/public --project-name=${{ env.CLOUDFLARE_PAGES_PROJECT_NAME }} --branch=${{ env.DEPLOY_BRANCH }}
