@@ -5,6 +5,12 @@ on:
     branches:
       - master
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Build, test, and verify the publish plan without releasing packages
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -18,6 +24,10 @@ jobs:
   publish:
     if: ${{ github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message || '', '[skip ci]') }}
     runs-on: ubuntu-latest
+    environment: github-actions
+    env:
+      DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' }}
+      SHARED_VERSION_WORKSPACES: vue-open-icon react-open-icon wc-open-icon ng-open-icon open-icon-transform open-icon-svg vite-plugin-open-icon
 
     steps:
       - name: Checkout
@@ -48,6 +58,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Report release mode
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Running publish workflow in dry-run mode."
+          else
+            echo "Running publish workflow in release mode."
+          fi
 
       - name: Calculate next version
         id: version
@@ -84,6 +102,25 @@ jobs:
 
           echo "range=$range" >> "$GITHUB_OUTPUT"
 
+      - name: Summarize dry-run release plan
+        if: env.DRY_RUN == 'true'
+        env:
+          OPEN_ICON_VERSION: ${{ steps.open_icon_version.outputs.next }}
+          SHARED_VERSION: ${{ steps.version.outputs.next }}
+        run: |
+          {
+            echo "# Publish Dry Run"
+            echo
+            echo "The workflow will build, test, and pack these package versions without publishing them:"
+            echo
+            echo "| Package | Version |"
+            echo "| --- | --- |"
+            echo "| open-icon | $OPEN_ICON_VERSION |"
+            for workspace in $SHARED_VERSION_WORKSPACES; do
+              echo "| $workspace | $SHARED_VERSION |"
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+
       - name: Bump package versions
         run: |
           npm pkg set "version=${{ steps.open_icon_version.outputs.next }}" --workspace open-icon
@@ -114,71 +151,95 @@ jobs:
             --date "$(date -u +%F)" \
             --range "${{ steps.release_notes.outputs.range }}"
 
-      - name: Publish open-icon
+      - name: Publish packages
+        if: env.DRY_RUN != 'true'
+        shell: bash
+        env:
+          OPEN_ICON_VERSION: ${{ steps.open_icon_version.outputs.next }}
+          SHARED_VERSION: ${{ steps.version.outputs.next }}
         run: |
-          if npm view "open-icon@${{ steps.open_icon_version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "open-icon@${{ steps.open_icon_version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace open-icon publish --access public --provenance
-          fi
+          set -euo pipefail
 
-      - name: Publish vue-open-icon
-        run: |
-          if npm view "vue-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "vue-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace vue-open-icon publish --access public --provenance
-          fi
+          publish_package() {
+            local workspace="$1"
+            local version="$2"
+            local package_spec="${workspace}@${version}"
 
-      - name: Publish react-open-icon
-        run: |
-          if npm view "react-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "react-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace react-open-icon publish --access public --provenance
-          fi
+            if npm view "$package_spec" version > /dev/null 2>&1; then
+              echo "$package_spec already exists. Skipping publish."
+              return 0
+            fi
 
-      - name: Publish wc-open-icon
-        run: |
-          if npm view "wc-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "wc-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace wc-open-icon publish --access public --provenance
-          fi
+            npm --workspace "$workspace" publish --access public --provenance
+          }
 
-      - name: Publish ng-open-icon
-        run: |
-          if npm view "ng-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "ng-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace ng-open-icon publish --access public --provenance
-          fi
+          publish_package open-icon "$OPEN_ICON_VERSION"
 
-      - name: Publish open-icon-transform
-        run: |
-          if npm view "open-icon-transform@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "open-icon-transform@${{ steps.version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace open-icon-transform publish --access public --provenance
-          fi
+          for workspace in $SHARED_VERSION_WORKSPACES; do
+            publish_package "$workspace" "$SHARED_VERSION"
+          done
 
-      - name: Publish open-icon-svg
+      - name: Verify dry-run publish plan
+        if: env.DRY_RUN == 'true'
+        shell: bash
+        env:
+          OPEN_ICON_VERSION: ${{ steps.open_icon_version.outputs.next }}
+          SHARED_VERSION: ${{ steps.version.outputs.next }}
         run: |
-          if npm view "open-icon-svg@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "open-icon-svg@${{ steps.version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace open-icon-svg publish --access public --provenance
-          fi
+          set -euo pipefail
 
-      - name: Publish vite-plugin-open-icon
+          dry_run_pack() {
+            local workspace="$1"
+            local version="$2"
+
+            echo "Checking ${workspace}@${version} with npm pack --dry-run"
+            npm pack --dry-run --workspace "$workspace"
+          }
+
+          dry_run_pack open-icon "$OPEN_ICON_VERSION"
+
+          for workspace in $SHARED_VERSION_WORKSPACES; do
+            dry_run_pack "$workspace" "$SHARED_VERSION"
+          done
+
+      - name: Verify published packages
+        if: env.DRY_RUN != 'true'
+        shell: bash
+        env:
+          OPEN_ICON_VERSION: ${{ steps.open_icon_version.outputs.next }}
+          SHARED_VERSION: ${{ steps.version.outputs.next }}
         run: |
-          if npm view "vite-plugin-open-icon@${{ steps.version.outputs.next }}" version > /dev/null 2>&1; then
-            echo "vite-plugin-open-icon@${{ steps.version.outputs.next }} already exists. Skipping publish."
-          else
-            npm --workspace vite-plugin-open-icon publish --access public --provenance
-          fi
+          set -euo pipefail
+
+          verify_package() {
+            local workspace="$1"
+            local version="$2"
+            local package_spec="${workspace}@${version}"
+
+            for attempt in {1..12}; do
+              if npm view "$package_spec" version > /dev/null 2>&1; then
+                echo "Verified $package_spec"
+                return 0
+              fi
+
+              if [ "$attempt" -eq 12 ]; then
+                echo "Failed to verify $package_spec on npm after publishing."
+                return 1
+              fi
+
+              echo "Waiting for $package_spec to appear on npm (attempt $attempt/12)..."
+              sleep 10
+            done
+          }
+
+          verify_package open-icon "$OPEN_ICON_VERSION"
+
+          for workspace in $SHARED_VERSION_WORKSPACES; do
+            verify_package "$workspace" "$SHARED_VERSION"
+          done
 
       - name: Commit version updates
+        if: env.DRY_RUN != 'true'
         run: |
           git add package-lock.json packages/open-icon/package.json packages/vue-open-icon/package.json packages/react-open-icon/package.json packages/wc-open-icon/package.json packages/ng-open-icon/package.json packages/open-icon-transform/package.json packages/open-icon-svg/package.json packages/vite-plugin-open-icon/package.json apps/open-icon-org/release-notes
           if git diff --cached --quiet; then

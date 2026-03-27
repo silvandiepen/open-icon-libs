@@ -80,19 +80,26 @@ Publishing is automated via `.github/workflows/publish.yml`.
 On every push to `master`, the workflow will:
 
 1. bump all package versions (patch)
-2. publish `open-icon-svg`
-3. publish `open-icon`
-4. publish `open-icon-transform`
-5. publish `vite-plugin-open-icon`
-5. commit the version bump back to `master` with `[skip ci]`
+2. publish `open-icon`
+3. publish `vue-open-icon`
+4. publish `react-open-icon`
+5. publish `wc-open-icon`
+6. publish `ng-open-icon`
+7. publish `open-icon-transform`
+8. publish `open-icon-svg`
+9. publish `vite-plugin-open-icon`
+10. verify every published version is visible on npm before committing
+11. commit the version bump back to `master` with `[skip ci]`
+
+Manual `workflow_dispatch` runs also support a `dry_run` input that builds, tests, writes a GitHub Actions job summary with the exact package versions, bumps versions in the workflow workspace, and validates each package with `npm pack --dry-run` without publishing or pushing a release commit.
 
 Trusted publishing setup required in npm (once per package):
 
-1. Open each package in npm: `open-icon`, `open-icon-svg`, `open-icon-transform`, and `vite-plugin-open-icon`
+1. Open each package in npm: `open-icon`, `vue-open-icon`, `react-open-icon`, `wc-open-icon`, `ng-open-icon`, `open-icon-transform`, `open-icon-svg`, and `vite-plugin-open-icon`
 2. Add a Trusted Publisher for GitHub Actions
 3. Set owner/repo to `silvandiepen/open-icon-libs`
 4. Set workflow filename to `publish.yml`
-5. Set environment to `github-actions` (or your chosen protected environment if used)
+5. Set environment to `github-actions` (or update the workflow job environment to match your protected environment)
 
 No `NPM_TOKEN` secret is required with this flow.
 
@@ -101,9 +108,13 @@ Workflow runtime requirement for npm trusted publishing: Node `>=22.14.0` and np
 Manual fallback:
 
 ```bash
+npm --workspace open-icon publish
+npm --workspace vue-open-icon publish
+npm --workspace react-open-icon publish
+npm --workspace wc-open-icon publish
+npm --workspace ng-open-icon publish
 npm --workspace open-icon-transform publish
 npm --workspace open-icon-svg publish
-npm --workspace open-icon publish
 npm --workspace vite-plugin-open-icon publish
 ```
 
