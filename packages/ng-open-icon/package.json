@@ -1,6 +1,6 @@
 {
   "name": "ng-open-icon",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "Angular component package for rendering Open Icon assets with shared icon lookup helpers.",
   "type": "module",
   "main": "./dist/index.js",
@@ -41,7 +41,7 @@
     "rxjs": "^7.8.0"
   },
   "dependencies": {
-    "open-icon": "1.1.4"
+    "open-icon": "1.1.6"
   },
   "devDependencies": {
     "@angular/common": "^20.0.0",

@@ -1,6 +1,6 @@
 {
   "name": "wc-open-icon",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "Web component package for rendering Open Icon assets with shared icon lookup helpers.",
   "type": "module",
   "main": "./dist/index.js",
@@ -41,7 +41,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "open-icon": "1.1.4"
+    "open-icon": "1.1.6"
   },
   "repository": {
     "type": "git",
