@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-open-icon",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Vite plugin that applies open-icon SVG transforms at import time.",
   "type": "module",
   "main": "./dist/index.js",
@@ -34,7 +34,7 @@
     "vite": ">=5"
   },
   "dependencies": {
-    "open-icon-transform": "0.1.6"
+    "open-icon-transform": "0.1.7"
   },
   "repository": {
     "type": "git",
