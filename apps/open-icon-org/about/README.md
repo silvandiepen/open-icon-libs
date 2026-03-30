@@ -1,6 +1,7 @@
 ---
 title: About
 description: Learn the principles, authoring rules, and release history behind Open Icon.
+icon: ui/circled-info
 order: 1
 ---
 

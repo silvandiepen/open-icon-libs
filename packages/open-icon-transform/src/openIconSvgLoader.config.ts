@@ -34,7 +34,7 @@ export const openIconSvgLoaderDefaults: OpenIconSvgLoaderSettings = {
 			['stroke:black;', 'stroke: black;'],
 			'stroke: var(--icon-stroke-color, currentColor);'
 		],
-		['fill:red;', 'fill: var(--icon-fill, {{default.iconFill}});'],
+		[['fill:red;', 'fill: red;'], 'fill: var(--icon-fill, {{default.iconFill}});'],
 		[['stroke: teal;', 'stroke:teal;'], 'stroke: var(--icon-stroke-invisible, transparent);'],
 		[
 			['stroke-width:1;', 'stroke-width: 1px;'],

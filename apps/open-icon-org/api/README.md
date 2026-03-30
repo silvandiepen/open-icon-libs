@@ -1,6 +1,7 @@
 ---
 title: API
 description: Use api.open-icon.org for icon search, metadata, raw SVG delivery, and PNG output.
+icon: ui/code-chevrons
 order: 4
 archive: sections
 ---

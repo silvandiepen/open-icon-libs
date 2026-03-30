@@ -1,6 +1,7 @@
 ---
 title: Release Notes
 description: Release notes for published Open Icon releases.
+icon: ui/edit-line
 ---
 
 # Release Notes
