@@ -1,6 +1,7 @@
 ---
 title: Packages
 description: Understand the purpose of each package in the Open Icon monorepo.
+icon: ui/file-archive
 order: 3
 ---
 

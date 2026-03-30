@@ -1,5 +1,6 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
+import { OPEN_ICON_CUSTOM_ALIASES } from './openIconCustomAliases.mjs';
 
 export const normalizeSegment = (value) => {
 	return value
@@ -184,6 +185,12 @@ export const buildOpenIconCatalog = async ({
 			if (!aliasToName[alias]) {
 				aliasToName[alias] = entry.iconName;
 			}
+		}
+	}
+
+	for (const [alias, iconName] of Object.entries(OPEN_ICON_CUSTOM_ALIASES)) {
+		if (!aliasToName[alias] && names.includes(iconName)) {
+			aliasToName[alias] = iconName;
 		}
 	}
 

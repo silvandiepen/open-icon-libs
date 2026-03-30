@@ -1,6 +1,7 @@
 ---
 title: Icon Catalog
 description: Search every Open Icon asset and inspect the canonical package import path.
+icon: ui/search-m
 order: 2
 ---
 

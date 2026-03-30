@@ -83,6 +83,27 @@ test('simplifyColors enabled integrates with replaceData defaults', () => {
 	assert.equal(output.includes('var(--icon-fill, rgba(0, 0, 0, 0))'), true);
 });
 
+test('fill: red with space is replaced with fill variable', () => {
+	const input = `<svg><path style="fill: red;"/></svg>`;
+	const output = transformOpenIconSvg(input, '/tmp/icon_red-space.svg', {
+		removeData: [],
+		simplifyColors: false,
+	});
+
+	assert.equal(output.includes('var(--icon-fill, rgba(0, 0, 0, 0))'), true);
+});
+
+test('fill: red in css style block is replaced with fill variable', () => {
+	const input = `<svg><defs><style>.cls { fill: red; opacity: .5; }</style></defs><path class="cls" d="M0 0"/></svg>`;
+	const output = transformOpenIconSvg(input, '/tmp/icon_css-class.svg', {
+		removeData: [],
+		simplifyColors: false,
+	});
+
+	assert.equal(output.includes('var(--icon-fill, rgba(0, 0, 0, 0))'), true);
+	assert.equal(output.includes('fill: red;'), false);
+});
+
 test('ungroupElements flattens opacity from group to children', () => {
 	const input = `<svg><g style="opacity: .5;"><path style="fill:red;"/></g></svg>`;
 	const output = transformOpenIconSvg(input, '/tmp/icon_group.svg', {

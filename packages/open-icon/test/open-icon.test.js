@@ -37,6 +37,15 @@ test('resolveOpenIconName and getOpenIconImportPath use the shared catalog rules
 	);
 });
 
+test('custom semantic aliases resolve to canonical icon names', () => {
+	assert.equal(resolveOpenIconName('plus'), 'ui/add-m');
+	assert.equal(resolveOpenIconName('x'), 'ui/multiply-m');
+	assert.equal(resolveOpenIconName('check'), 'ui/check-m');
+	assert.equal(resolveOpenIconName('code'), 'ui/code-chevrons');
+	assert.equal(resolveOpenIconName('edit'), 'ui/edit-line');
+	assert.equal(resolveOpenIconName('archive'), 'ui/file-archive');
+});
+
 test('getIcon returns the raw svg string for a known icon', () => {
 	const svg = getIcon(Icons.UI_ADD_M);
 
