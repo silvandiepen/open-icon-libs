@@ -1,6 +1,6 @@
 {
   "name": "react-open-icon",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "React component package for rendering Open Icon assets with shared icon lookup helpers.",
   "type": "module",
   "main": "./dist/index.js",
@@ -39,7 +39,7 @@
     "react": "^18.0.0 || ^19.0.0"
   },
   "dependencies": {
-    "open-icon": "1.1.8"
+    "open-icon": "1.1.9"
   },
   "devDependencies": {
     "@types/react": "^19.0.0",

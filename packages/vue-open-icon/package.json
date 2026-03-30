@@ -1,6 +1,6 @@
 {
   "name": "vue-open-icon",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Vue component package for rendering Open Icon assets with shared icon lookup helpers.",
   "type": "module",
   "main": "./dist/index.js",
@@ -39,7 +39,7 @@
     "vue": ">=3.5.0"
   },
   "dependencies": {
-    "open-icon": "1.1.8"
+    "open-icon": "1.1.9"
   },
   "devDependencies": {
     "@vue/server-renderer": "^3.5.0",

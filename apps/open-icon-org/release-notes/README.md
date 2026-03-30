@@ -1,13 +1,13 @@
 ---
 title: Release Notes
 description: Release notes for published Open Icon releases.
-icon: ui/edit-line
 ---
 
 # Release Notes
 
 Published changes for Open Icon releases.
 
+- [0.1.9](/release-notes/v0-1-9/index.html)
 - [0.1.8](/release-notes/v0-1-8/index.html)
 - [0.1.7](/release-notes/v0-1-7/index.html)
 - [0.1.6](/release-notes/v0-1-6/index.html)
