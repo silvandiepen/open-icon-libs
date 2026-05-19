@@ -11,5 +11,16 @@
   "assets": {
     "directory": "./assets",
     "binding": "ASSETS"
+  },
+  "env": {
+    "development": {
+      "name": "open-icon-api-dev",
+      "routes": [
+        {
+          "pattern": "api.dev.open-icon.org",
+          "custom_domain": true
+        }
+      ]
+    }
   }
 }
