@@ -35,11 +35,33 @@ what you use existed but were under-surfaced or subtly broken:
   importing one icon via `?open-icon` excludes un-imported icons from the output.
 - The root README documents the three tree-shakeable paths.
 
-**Remaining.** No wrapper exposes a per-icon *component* API built on the
-`open-icon/icons` named exports; the wrappers' runtime path also always bundles
-the full catalog metadata maps via `export * from 'open-icon/runtime'`. A
-future improvement is a per-icon component (e.g. `<Icon glyph={IconUiSearchM}/>`)
-and slimming the always-bundled runtime metadata.
+**The measured bloat.** Any import of `open-icon/runtime` — which every wrapper
+re-exports and its runtime `Icon` component uses — is not tree-shakeable because
+selection is by runtime name. Measured with a real Vite build:
+
+| Import | Eager entry | Lazy |
+| --- | --- | --- |
+| `import { IconUiSearchM } from 'open-icon/icons'` | 0.8 KB | 0 |
+| `loadIcon` from `open-icon/runtime` | 270 KB | 1,556 KB / 1,125 chunks |
+| `getIcon` from `open-icon/static` | 1,721 KB | 0 |
+| `<InlineIcon icon={IconUiSearchM}/>` (new) | **1.3 KB** | **0** |
+
+**Fixed.**
+
+- Added a tree-shakeable `InlineIcon` component to `react`/`vue`/`ng-open-icon`
+  (exposed on a dedicated `./inline` subpath). It renders a statically-imported
+  glyph from `open-icon/icons` and imports nothing from `open-icon/runtime` —
+  ~1.3 KB and zero lazy chunks instead of ~1.9 MB. Source-check tests assert the
+  inline entry never pulls the runtime/static catalog.
+- Marked every publishable package `sideEffects: false` (WC keeps its
+  auto-register entrypoints). This alone lets bundlers drop the `export * from
+  'open-icon/runtime'` re-export when only the inline path is used, so even
+  `import { InlineIcon } from 'react-open-icon'` (main entry) measures ~1.2 KB.
+
+**Remaining.** The name-based runtime path still bundles the full catalog by
+design (a runtime name can't be statically resolved). A per-icon *component*
+generator (à la lucide) could go further, and the WC wrapper could gain an inline
+element; the CDN element already ships zero bundle.
 
 ## 2. Consts / types cleanup & reducing double work
 
@@ -162,8 +184,6 @@ binaries; these are the main "bring the site up to standard" items).**
 
 - Added `.github/workflows/ci.yml` running typecheck + tests on `pull_request`
   and non-master pushes (previously validation only ran during publish on master).
-- Pinned the site generator to `girky@1.18.0` (script + devDependency + lockfile)
-  for deterministic site builds.
 - README/CONTRIBUTING corrected (all 8 packages + 2 apps documented; Node/npm
   prerequisites fixed to 22.14+/11.5+).
 

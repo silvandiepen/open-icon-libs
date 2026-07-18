@@ -141,3 +141,32 @@ test('built entrypoints keep runtime and static icon loading separate', async ()
 	assert.doesNotMatch(runtimeSource, /open-icon\/static/);
 	assert.match(staticSource, /open-icon\/static/);
 });
+
+test('InlineIconComponent renders a statically-imported glyph via SSR', async () => {
+	const { InlineIconComponent } = await import('../dist/index.js');
+	const glyph = '<svg viewBox="0 0 10 10"><path d="M1 2"></path></svg>';
+
+	class TestInlineAppComponent {
+		constructor() {
+			this.glyph = glyph;
+		}
+	}
+	Component({
+		selector: 'test-inline-app',
+		standalone: true,
+		imports: [InlineIconComponent],
+		template: `<open-icon-inline [icon]="glyph" title="Search"></open-icon-inline>`,
+	})(TestInlineAppComponent);
+
+	const html = await renderAngularApplication(TestInlineAppComponent, 'test-inline-app');
+
+	assert.match(html, /<svg\b/i);
+	assert.match(html, /role="img"/);
+	assert.match(html, /aria-label="Search"/);
+});
+
+test('the inline component does not import the runtime or static catalog', async () => {
+	const inlineSource = await readFile(path.join(__dirname, '../dist/inline-icon.component.js'), 'utf8');
+	assert.doesNotMatch(inlineSource, /from ['"]open-icon\/runtime/);
+	assert.doesNotMatch(inlineSource, /from ['"]open-icon\/static/);
+});

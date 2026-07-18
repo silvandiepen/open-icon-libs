@@ -3,6 +3,10 @@
   "version": "0.1.9",
   "description": "Web component package for rendering Open Icon assets with shared icon lookup helpers.",
   "type": "module",
+  "sideEffects": [
+    "./dist/auto.js",
+    "./dist/cdn/auto.js"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

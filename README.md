@@ -40,13 +40,41 @@ Apps (not published):
 
 ## Not Including All Icons
 
-The catalog has 1,100+ icons; you rarely want them all in your bundle. There are three tree-shakeable paths:
+The catalog has 1,100+ icons; you rarely want them all in your bundle.
 
-- **Per-icon named exports** — `import { IconUiSearchM } from 'open-icon/icons'`. Only the icons you import are bundled.
-- **Resolve a name to a single file import** — use `getOpenIconImportPath('search')` (from `open-icon-svg`) to get `open-icon-svg/icons/ui/search-m.svg`, then import that one file (optionally through `vite-plugin-open-icon` for transform-at-import).
-- **Lazy loading** — the framework wrappers' runtime component and `open-icon`'s `loadIcon()` dynamically import icons on demand, so unused icons become separate chunks that are never downloaded.
+**The important thing to understand:** a *name-based* API (`<Icon name="search"/>`,
+`loadIcon('search')`) can never tree-shake — the name is a runtime string, so the
+bundler has to keep the whole catalog. Measured, importing `open-icon/runtime`
+(which the wrapper `Icon`/runtime components use) pulls **~270 KB of eager catalog
+metadata + loader code and emits 1,125 lazy icon chunks**. `open-icon/static`
+inlines **~1.7 MB**. Use those only when you deliberately want the whole set.
 
-Avoid `open-icon/static` / the `Static*` wrapper components unless you deliberately want the entire catalog inlined. See each package README for framework-specific examples.
+For a small, fixed set of icons, use one of the **static** paths — each bundles
+only the icons you reference (measured: ~1 KB for one icon, zero extra chunks):
+
+- **Tree-shakeable component** — import a per-icon glyph and pass it to `InlineIcon`
+  (the wrappers expose it on the `./inline` subpath, and on the main entry too since
+  the packages are marked `sideEffects: false`):
+
+  ```tsx
+  import { InlineIcon } from 'react-open-icon';        // or 'react-open-icon/inline'
+  import { IconUiSearchM } from 'open-icon/icons';
+  <InlineIcon icon={IconUiSearchM} title="Search" />
+  ```
+
+  (Vue: `vue-open-icon` `InlineIcon`; Angular: `open-icon-inline` /
+  `InlineIconComponent`.)
+
+- **Per-icon named exports** — `import { IconUiSearchM } from 'open-icon/icons'` gives
+  the raw SVG string directly.
+
+- **Single-file import path** — `getOpenIconImportPath('search')` (from `open-icon-svg`)
+  returns `open-icon-svg/icons/ui/search-m.svg` to import one file, optionally through
+  `vite-plugin-open-icon`.
+
+Use the name-based runtime `Icon` / `loadIcon()` when you genuinely need
+lazy-by-name loading of an unknown-at-build-time icon; use `open-icon/static` /
+`Static*` only when you want the entire catalog inlined.
 
 ## Monorepo Layout
 
