@@ -163,3 +163,28 @@ test('default settings object exposes expected query and defaults', () => {
 	assert.equal(openIconSvgLoaderDefaults.default.iconStrokeWidth, '5');
 	assert.equal(Array.isArray(openIconSvgLoaderDefaults.replaceData), true);
 });
+
+test('maps black fill produced by simplifyColors (#000000 -> black, unspaced) to a variable', () => {
+	// simplifyColors rewrites #000000 to the bare word `black`, yielding the
+	// unspaced `fill:black;`. Regression: the rule previously matched only the
+	// spaced `fill: black;` form, so black fills survived untransformed.
+	const input = `<svg><path style="fill:#000000;"/></svg>`;
+	const output = transformOpenIconSvg(input, '/tmp/icon_black.svg');
+
+	assert.equal(output.includes('fill:black'), false);
+	assert.equal(output.includes('fill: var(--icon-line-color, currentColor)'), true);
+});
+
+test('removeData treats only /.../ patterns as regex and matches other values literally', () => {
+	// The literal `path.data` contains regex metacharacters; it must be removed
+	// literally, not interpreted as the regex /path.data/ (which would also
+	// delete `pathXdata`). And a real /regex/ still applies.
+	const input = `<svg data="path.data pathXdata"><g class="drop-me-123"/></svg>`;
+	const output = transformOpenIconSvg(input, '/tmp/icon_regex.svg', {
+		removeData: ['path.data', '/drop-me-\\d+/'],
+	});
+
+	assert.equal(output.includes('path.data'), false);
+	assert.equal(output.includes('pathXdata'), true);
+	assert.equal(output.includes('drop-me-'), false);
+});

@@ -11,7 +11,7 @@ export const openIconSvgLoaderDefaults: OpenIconSvgLoaderSettings = {
 		'/<!--.*?-->/',
 	],
 	replaceData: [
-		[['fill: black;'], 'fill: var(--icon-line-color, currentColor);'],
+		[['fill:black;', 'fill: black;'], 'fill: var(--icon-line-color, currentColor);'],
 		['id="Layer_1"', 'id="{{componentName}}"'],
 		['data-name="Layer_1"', 'data-name="{{componentName}}"'],
 		[

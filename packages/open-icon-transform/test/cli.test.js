@@ -201,3 +201,24 @@ test('cli transforms svg directories recursively and preserves relative paths', 
 	assert.match(transformedNestedSvg, /var\(--icon-stroke-color,/);
 	assert.equal(existsSync(path.join(outputRoot, 'notes.txt')), false);
 });
+
+test('cli --help prints usage and exits 0', () => {
+	const output = execFileSync('node', [cliPath, '--help'], {
+		cwd: packageRoot,
+		stdio: 'pipe',
+		encoding: 'utf8',
+	});
+
+	assert.match(output, /Usage:/);
+});
+
+test('cli exits non-zero when no input path is given', () => {
+	assert.throws(
+		() =>
+			execFileSync('node', [cliPath], {
+				cwd: packageRoot,
+				stdio: 'pipe',
+			}),
+		(error) => error.status === 1
+	);
+});

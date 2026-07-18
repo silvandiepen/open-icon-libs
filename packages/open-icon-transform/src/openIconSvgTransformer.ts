@@ -43,17 +43,18 @@ const trimLines = (content: string): string => {
 	return lines.join('\n');
 };
 
-/** Returns true when a remove-data pattern should be interpreted as regex. */
-const isRegex = (value: string): boolean => {
-	try {
-		const regexString =
-			value.startsWith('/') && value.endsWith('/') ? value.slice(1, -1) : value;
-		void new RegExp(regexString);
-		return true;
-	} catch {
-		return false;
-	}
-};
+/**
+ * Returns true when a remove-data pattern is written as a `/.../` regex literal.
+ *
+ * Only patterns delimited by a leading and trailing slash are treated as
+ * regular expressions; every other value is matched literally. This keeps the
+ * documented `/regex/` convention meaningful — previously any string that
+ * happened to be a valid `RegExp` (i.e. almost anything) was treated as a
+ * regex, so literal patterns containing metacharacters silently behaved as
+ * patterns and the literal-escaping branch was unreachable.
+ */
+const isRegex = (value: string): boolean =>
+	value.length > 1 && value.startsWith('/') && value.endsWith('/');
 
 /** Removes configured literal/regex fragments from SVG content. */
 const removeData = (content: string, patterns: string | string[]): string => {
@@ -61,11 +62,7 @@ const removeData = (content: string, patterns: string | string[]): string => {
 
 	toArray(patterns).forEach((pattern) => {
 		if (isRegex(pattern)) {
-			const regexString =
-				pattern.startsWith('/') && pattern.endsWith('/')
-					? pattern.slice(1, -1)
-					: pattern;
-			output = output.replace(new RegExp(regexString, 'g'), '');
+			output = output.replace(new RegExp(pattern.slice(1, -1), 'g'), '');
 			return;
 		}
 
