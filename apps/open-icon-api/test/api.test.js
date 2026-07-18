@@ -55,6 +55,48 @@ test('applySvgMutations applies root opacity and stroke width updates', () => {
 	assert.match(output, /stroke-width: 3.5/);
 });
 
+test('applySvgMutations rejects unsafe paint values instead of injecting them', () => {
+	const input = '<svg><path fill="#ed2024" stroke="#231f20" /></svg>';
+	const malicious = '"><script>alert(1)</script>';
+	const url = new URL('https://api.open-icon.org/v1/icons/ui/search-m.svg');
+	url.searchParams.set('color', malicious);
+	url.searchParams.set('fill', malicious);
+	url.searchParams.set('stroke', malicious);
+
+	const output = applySvgMutations(input, url.searchParams);
+
+	assert.equal(output.includes('<script>'), false);
+	assert.equal(output.includes('alert(1)'), false);
+	// The original paint is left untouched because the injected value is rejected.
+	assert.match(output, /fill="#ed2024"/);
+});
+
+test('applySvgMutations rejects unsafe numeric values', () => {
+	const input = '<svg><path stroke-width="2" /></svg>';
+	const url = new URL('https://api.open-icon.org/v1/icons/ui/search-m.svg');
+	url.searchParams.set('opacity', '0.5"><script>x</script>');
+	url.searchParams.set('strokeWidth', '3);}</style><script>y</script>');
+
+	const output = applySvgMutations(input, url.searchParams);
+
+	assert.equal(output.includes('<script>'), false);
+	assert.equal(output.includes('opacity='), false);
+	assert.match(output, /stroke-width="2"/);
+});
+
+test('applySvgMutations still accepts safe paint forms (named, rgb, var)', () => {
+	const input = '<svg><path fill="#ed2024" /></svg>';
+	const url = new URL('https://api.open-icon.org/v1/icons/ui/search-m.svg');
+	url.searchParams.set('fill', 'rebeccapurple');
+	const named = applySvgMutations(input, url.searchParams);
+	assert.match(named, /fill="rebeccapurple"/);
+
+	const url2 = new URL('https://api.open-icon.org/v1/icons/ui/search-m.svg');
+	url2.searchParams.set('color', 'rgb(10, 20, 30)');
+	const rgb = applySvgMutations('<svg><path fill="#ed2024" stroke="#231f20" /></svg>', url2.searchParams);
+	assert.match(rgb, /fill="rgb\(10, 20, 30\)"/);
+});
+
 test('createIconDetail returns API URLs for a known icon', () => {
 	const detail = createIconDetail('ui/search-m', 'https://api.open-icon.org');
 

@@ -114,16 +114,45 @@ export const paginate = <T>(items: readonly T[], page: number, perPage: number):
 	return items.slice(start, start + perPage);
 };
 
+/**
+ * Whitelist for CSS paint values injected into the returned SVG.
+ *
+ * The SVG is served with content-type image/svg+xml, so any attribute/style
+ * value that contains `"`, `<`, `>` or `;` could break out of the paint context
+ * and inject markup/script (reflected XSS). Rather than escape, we accept only
+ * values that match well-known safe paint forms and reject everything else.
+ */
+const SAFE_PAINT_VALUE = /^(?:#(?:[0-9a-f]{3,4}|[0-9a-f]{6}|[0-9a-f]{8})|rgba?\([\d\s.,%]+\)|hsla?\([\d\s.,%]+\)|[a-z]{1,32}|currentcolor|transparent|var\(--[a-z0-9-]{1,64}(?:,\s*[a-z0-9#.,()%\s-]{1,64})?\))$/i;
+
+/** Whitelist for numeric params (opacity, stroke-width). Optional %/px/em unit. */
+const SAFE_NUMBER_VALUE = /^\d{1,4}(?:\.\d{1,4})?(?:%|px|em|rem)?$/;
+
+const sanitizePaintValue = (value: string | null): string | null => {
+	if (value === null) {
+		return null;
+	}
+	const trimmed = value.trim();
+	return SAFE_PAINT_VALUE.test(trimmed) ? trimmed : null;
+};
+
+const sanitizeNumberValue = (value: string | null): string | null => {
+	if (value === null) {
+		return null;
+	}
+	const trimmed = value.trim();
+	return SAFE_NUMBER_VALUE.test(trimmed) ? trimmed : null;
+};
+
 export const applySvgMutations = (svg: string, searchParams: URLSearchParams): string => {
 	let output = svg;
 	const title = searchParams.get('title');
-	const fill = searchParams.get('fill');
-	const fillSecondary = searchParams.get('fillSecondary');
-	const stroke = searchParams.get('stroke');
-	const strokeSecondary = searchParams.get('strokeSecondary');
-	const color = searchParams.get('color');
-	const opacity = searchParams.get('opacity');
-	const strokeWidth = searchParams.get('strokeWidth');
+	const fill = sanitizePaintValue(searchParams.get('fill'));
+	const fillSecondary = sanitizePaintValue(searchParams.get('fillSecondary'));
+	const stroke = sanitizePaintValue(searchParams.get('stroke'));
+	const strokeSecondary = sanitizePaintValue(searchParams.get('strokeSecondary'));
+	const color = sanitizePaintValue(searchParams.get('color'));
+	const opacity = sanitizeNumberValue(searchParams.get('opacity'));
+	const strokeWidth = sanitizeNumberValue(searchParams.get('strokeWidth'));
 
 	const normalizePaintValue = (value: string): string => value.trim().toLowerCase();
 
