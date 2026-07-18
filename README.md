@@ -4,47 +4,66 @@ Monorepo for open-icon SVG tooling.
 
 ## Packages
 
+Core:
+
 1. `open-icon`
-   The main Open Icon package with catalog helpers, runtime icon lookup, and tree-shakable icon exports.
+   The main Open Icon package with catalog helpers, runtime (lazy) icon lookup, a full static catalog, and per-icon tree-shakable exports.
 
 2. `open-icon-svg`
-   Raw SVG asset package that exposes `./icons/*` for direct imports.
+   Raw SVG asset package that exposes `./icons/*` for direct imports, plus a dependency-free catalog + name-resolution API (`resolveOpenIconName`, `getOpenIconImportPath`, alias maps) via its root and `./catalog` entrypoints.
 
 3. `open-icon-transform`
-   A framework-agnostic transformation engine that converts raw SVG content using the open-icon pipeline.
+   A framework-agnostic transformation engine (and CLI) that converts raw SVG content using the open-icon pipeline.
 
 4. `vite-plugin-open-icon`
-   A Vite plugin wrapper that applies `open-icon-transform` at import time for `*.svg` modules.
+   A Vite plugin that applies `open-icon-transform` at import time for `*.svg` modules.
+
+Framework wrappers (each ships a lazy runtime component and a full-catalog static component):
+
+5. `vue-open-icon`
+6. `react-open-icon`
+7. `wc-open-icon` (web component; also ships a zero-bundle CDN element)
+8. `ng-open-icon`
+
+Apps (not published):
+
+- `apps/open-icon-api` — Cloudflare Worker serving catalog metadata and on-the-fly SVG/PNG (`api.open-icon.org`).
+- `apps/open-icon-org` — the documentation site (`open-icon.org`).
 
 ## Pick The Right Package
 
-- `open-icon`: choose this when you want the main icon package with catalog helpers and SVG access.
-- `open-icon-svg`: choose this when you only need raw packaged SVG files.
-- `open-icon-transform`: choose this when you need direct programmatic SVG transformation outside Vite.
-- `vite-plugin-open-icon`: choose this when your app uses Vite and you want transform-at-import behavior.
+- `open-icon`: the main icon package with catalog helpers and SVG access.
+- `open-icon-svg`: raw packaged SVG files and/or dependency-free catalog + name resolution.
+- `open-icon-transform`: direct programmatic SVG transformation (or the CLI) outside Vite.
+- `vite-plugin-open-icon`: Vite apps that want transform-at-import behavior.
+- `vue-open-icon` / `react-open-icon` / `wc-open-icon` / `ng-open-icon`: drop-in components for your framework.
 
-Most projects combine packages:
+## Not Including All Icons
 
-- `open-icon` + `vite-plugin-open-icon` for app-facing icon selection plus Vite transforms.
-- `open-icon-svg` + `vite-plugin-open-icon` for direct file imports that still want transform-at-import behavior.
-- `vite-plugin-open-icon` alone if you only need transform behavior on local SVG imports.
+The catalog has 1,100+ icons; you rarely want them all in your bundle. There are three tree-shakeable paths:
+
+- **Per-icon named exports** — `import { IconUiSearchM } from 'open-icon/icons'`. Only the icons you import are bundled.
+- **Resolve a name to a single file import** — use `getOpenIconImportPath('search')` (from `open-icon-svg`) to get `open-icon-svg/icons/ui/search-m.svg`, then import that one file (optionally through `vite-plugin-open-icon` for transform-at-import).
+- **Lazy loading** — the framework wrappers' runtime component and `open-icon`'s `loadIcon()` dynamically import icons on demand, so unused icons become separate chunks that are never downloaded.
+
+Avoid `open-icon/static` / the `Static*` wrapper components unless you deliberately want the entire catalog inlined. See each package README for framework-specific examples.
 
 ## Monorepo Layout
 
 ```text
 packages/
-  open-icon-transform/
-    src/
-    test/
-  open-icon/
-    src/
-    test/
-  open-icon-svg/
-    icons/
-    test/
-  vite-plugin-open-icon/
-    src/
-    test/
+  open-icon-transform/   # SVG transform engine + CLI
+  open-icon-svg/         # raw SVG assets + catalog/name-resolution API
+  open-icon/             # main catalog + runtime/static/per-icon APIs
+  vite-plugin-open-icon/ # transform-at-import Vite plugin
+  vue-open-icon/         # Vue wrapper
+  react-open-icon/       # React wrapper
+  wc-open-icon/          # Web-component wrapper (+ CDN element)
+  ng-open-icon/          # Angular wrapper
+apps/
+  open-icon-api/         # Cloudflare Worker API
+  open-icon-org/         # documentation website
+icons-src/               # authoring source SVGs (transformed into open-icon-svg/icons)
 ```
 
 ## Why Split It This Way
@@ -68,10 +87,12 @@ npm run clean
 
 ## Test Coverage Strategy
 
-- `open-icon-transform` tests validate all transformation steps and combinations.
+- `open-icon-transform` tests validate all transformation steps and combinations, plus the CLI.
 - `open-icon` tests validate catalog generation, alias resolution, runtime SVG lookup, and named icon exports.
-- `open-icon-svg` tests validate raw asset packaging.
-- `vite-plugin-open-icon` tests validate loader behavior and transformer integration.
+- `open-icon-svg` tests validate raw asset packaging, catalog metadata, name/alias resolution, and single-icon import paths.
+- `vite-plugin-open-icon` tests validate loader behavior and include a real Vite build that asserts unused icons are excluded.
+- `vue-open-icon` / `react-open-icon` / `wc-open-icon` / `ng-open-icon` tests validate rendering, accessibility attributes, and runtime/static entrypoint separation.
+- `open-icon-api` tests validate resolution, search, pagination, SVG/PNG mutation, and paint-injection safety.
 
 ## Publishing
 
