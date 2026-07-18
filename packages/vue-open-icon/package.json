@@ -3,6 +3,7 @@
   "version": "0.1.9",
   "description": "Vue component package for rendering Open Icon assets with shared icon lookup helpers.",
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -10,6 +11,10 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./inline": {
+      "types": "./dist/InlineIcon.d.ts",
+      "import": "./dist/InlineIcon.js"
     },
     "./static": {
       "types": "./dist/static.d.ts",

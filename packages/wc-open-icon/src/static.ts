@@ -5,6 +5,7 @@ import {
 	type OpenIconKey,
 	type OpenIconName,
 } from 'open-icon/static';
+import { renderLightOpenIconMarkup } from './markup.js';
 
 export const resolveStaticWcOpenIconName = (value: string | null | undefined): OpenIconName | null => {
 	if (typeof value !== 'string') {
@@ -24,9 +25,6 @@ export const resolveStaticWcOpenIconName = (value: string | null | undefined): O
 	return resolveOpenIconName(normalized);
 };
 
-const escapeAttribute = (value: string): string =>
-	value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
 export const renderStaticOpenIconMarkup = (
 	name: string | null | undefined,
 	title: string | null | undefined,
@@ -42,12 +40,7 @@ export const renderStaticOpenIconMarkup = (
 		return '';
 	}
 
-	const accessibleLabel = title?.trim() || ariaLabel?.trim() || '';
-	const accessibilityAttributes = accessibleLabel
-		? ` role="img" aria-label="${escapeAttribute(accessibleLabel)}" title="${escapeAttribute(accessibleLabel)}"`
-		: ' aria-hidden="true"';
-
-	return `<span${accessibilityAttributes}>${svg}</span>`;
+	return renderLightOpenIconMarkup(svg, title, ariaLabel);
 };
 
 export * from 'open-icon/static';

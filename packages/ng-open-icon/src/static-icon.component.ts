@@ -4,6 +4,7 @@ import {
 	getIcon,
 	resolveOpenIconName,
 	type OpenIconKey,
+	type OpenIconName,
 } from 'open-icon/static';
 import {
 	DomSanitizer,
@@ -14,20 +15,35 @@ import {
 } from './icon.utils.js';
 import type { AngularOpenIconName } from './icon.model.js';
 
-const getStaticAngularOpenIconMarkup = (
-	name: string | null | undefined
-): string => {
-	if (typeof name !== 'string') {
-		return '';
+/**
+ * Resolves an icon name/key/alias to its canonical name for the static build.
+ * Defined here (the leaf module) and re-exported from ./static so there is a
+ * single implementation shared by the component and the public API.
+ */
+export const resolveStaticAngularOpenIconName = (
+	value: string | null | undefined
+): OpenIconName | null => {
+	if (typeof value !== 'string') {
+		return null;
 	}
 
-	const normalized = name.trim();
+	const normalized = value.trim();
 	if (!normalized) {
-		return '';
+		return null;
 	}
 
 	const keyMatch = Icons[normalized as OpenIconKey];
-	const iconName = keyMatch ?? resolveOpenIconName(normalized);
+	if (keyMatch) {
+		return keyMatch;
+	}
+
+	return resolveOpenIconName(normalized);
+};
+
+export const getStaticAngularOpenIconMarkup = (
+	name: string | null | undefined
+): string => {
+	const iconName = resolveStaticAngularOpenIconName(name);
 	if (!iconName) {
 		return '';
 	}
@@ -52,6 +68,7 @@ const getStaticAngularOpenIconMarkup = (
 export class StaticIconComponent {
 	private _name = '';
 	private _title = '';
+	private _ariaLabel = '';
 	protected svg: SafeHtml | '' = '';
 	protected accessibleLabel: string | null = null;
 
@@ -69,8 +86,14 @@ export class StaticIconComponent {
 		this.updateState();
 	}
 
+	@Input('aria-label')
+	set ariaLabel(value: string | null | undefined) {
+		this._ariaLabel = value ?? '';
+		this.updateState();
+	}
+
 	private updateState(): void {
-		this.accessibleLabel = getAngularOpenIconLabel(this._title, null);
+		this.accessibleLabel = getAngularOpenIconLabel(this._title, this._ariaLabel);
 		const svg = getStaticAngularOpenIconMarkup(this._name);
 		this.svg = svg ? this.sanitizer.bypassSecurityTrustHtml(svg) : '';
 	}

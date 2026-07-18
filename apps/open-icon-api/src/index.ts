@@ -153,12 +153,22 @@ const router = async (request: Request, env: Env): Promise<Response> => {
 	}
 
 	if (request.method === 'POST' && pathname === '/v1/icons/search') {
-		const body = (await request.json()) as {
+		let body: {
 			query?: string;
 			category?: string;
 			page?: number;
 			perPage?: number;
 		};
+
+		try {
+			body = (await request.json()) as typeof body;
+		} catch {
+			return createErrorResponse(400, 'Request body must be valid JSON.');
+		}
+
+		if (typeof body !== 'object' || body === null) {
+			return createErrorResponse(400, 'Request body must be a JSON object.');
+		}
 
 		return createSearchResponse(
 			baseUrl,

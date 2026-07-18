@@ -223,7 +223,10 @@ const collectSvgFiles = async (directoryPath: string): Promise<string[]> => {
 	return files.flat();
 };
 
-const parseArguments = (rawArguments: string[]): CliArguments | null => {
+/** Sentinel returned when the user explicitly requests usage help. */
+const HELP_REQUESTED = Symbol('help');
+
+const parseArguments = (rawArguments: string[]): CliArguments | typeof HELP_REQUESTED | null => {
 	let inputPath = '';
 	let outputPath = '';
 	let configPath = '';
@@ -243,7 +246,7 @@ const parseArguments = (rawArguments: string[]): CliArguments | null => {
 		const argument = rawArguments[index];
 
 		if (argument === '--help' || argument === '-h') {
-			return null;
+			return HELP_REQUESTED;
 		}
 
 		if (argument === '--output' || argument === '-o') {
@@ -413,8 +416,14 @@ const parseArguments = (rawArguments: string[]): CliArguments | null => {
 const run = async (): Promise<void> => {
 	const parsedArguments = parseArguments(process.argv.slice(2));
 
-	if (!parsedArguments) {
+	if (parsedArguments === HELP_REQUESTED) {
 		process.stdout.write(`${USAGE}\n`);
+		process.exitCode = 0;
+		return;
+	}
+
+	if (!parsedArguments) {
+		process.stderr.write(`${USAGE}\n`);
 		process.exitCode = 1;
 		return;
 	}

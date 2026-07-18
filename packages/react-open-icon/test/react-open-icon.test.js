@@ -76,3 +76,28 @@ test('built entrypoints keep runtime and static icon loading separate', async ()
 	assert.doesNotMatch(runtimeSource, /open-icon\/static/);
 	assert.match(staticSource, /open-icon\/static/);
 });
+
+test('InlineIcon renders a statically-imported glyph with no runtime lookup', async () => {
+	const { InlineIcon } = await import('../dist/index.js');
+	const glyph = '<svg viewBox="0 0 10 10"><path d="M1 2"/></svg>';
+
+	const withLabel = renderToStaticMarkup(
+		createElement(InlineIcon, { icon: glyph, title: 'Search' })
+	);
+	assert.match(withLabel, /^<span\b/i);
+	assert.match(withLabel, /role="img"/);
+	assert.match(withLabel, /aria-label="Search"/);
+	assert.match(withLabel, /<svg\b/i);
+
+	const noLabel = renderToStaticMarkup(createElement(InlineIcon, { icon: glyph }));
+	assert.match(noLabel, /aria-hidden="true"/);
+
+	const empty = renderToStaticMarkup(createElement(InlineIcon, { icon: '' }));
+	assert.equal(empty, '');
+});
+
+test('the inline entrypoint does not pull in the runtime catalog', async () => {
+	const inlineSource = await readFile(path.join(__dirname, '../dist/InlineIcon.js'), 'utf8');
+	assert.doesNotMatch(inlineSource, /from ['"]open-icon\/runtime/);
+	assert.doesNotMatch(inlineSource, /from ['"]open-icon\/static/);
+});

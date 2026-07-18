@@ -1,37 +1,15 @@
-import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { generatePackageIcons } from './generate-package-icons.mjs';
+import { walkSvgFiles } from './openIconCatalog.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const packageRoot = path.resolve(__dirname, '..');
 const iconsRoot = path.join(packageRoot, 'icons');
 
-const walkSvgFiles = async (directory, result = []) => {
-	const entries = await fs.readdir(directory, { withFileTypes: true });
-
-	for (const entry of entries) {
-		if (entry.name.startsWith('.')) {
-			continue;
-		}
-
-		const fullPath = path.join(directory, entry.name);
-		if (entry.isDirectory()) {
-			await walkSvgFiles(fullPath, result);
-			continue;
-		}
-
-		if (entry.isFile() && entry.name.toLowerCase().endsWith('.svg')) {
-			result.push(fullPath);
-		}
-	}
-
-	return result;
-};
-
-await generatePackageIcons();
-
+// Icon generation is handled by the `generate` step (generate-open-icon-catalog.mjs).
+// This script only verifies the generated asset tree is non-empty, reusing the
+// shared walkSvgFiles helper instead of a local copy.
 const files = await walkSvgFiles(iconsRoot);
 if (files.length === 0) {
 	throw new Error(`No SVG assets found in ${iconsRoot}`);

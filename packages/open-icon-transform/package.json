@@ -3,6 +3,7 @@
   "version": "0.1.9",
   "description": "Framework-agnostic SVG transformation pipeline used by open-icon.",
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",

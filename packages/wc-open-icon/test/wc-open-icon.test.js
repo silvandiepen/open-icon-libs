@@ -82,6 +82,17 @@ test('renderStaticOpenIconMarkup returns static inline svg markup', () => {
 	assert.match(markup, /<svg\b/i);
 });
 
+test('renderStaticOpenIconMarkup matches the runtime element: part hook + 1em sizing', () => {
+	const markup = renderStaticOpenIconMarkup(Icons.UI_SEARCH_M, null);
+
+	// Same `part="icon"` styling hook the runtime/CDN elements expose.
+	assert.match(markup, /part="icon"/);
+	// No shadow root here, so the svg is sized inline (1em) to visually match the
+	// runtime element instead of rendering at the viewBox default size.
+	assert.match(markup, /<svg\b[^>]*width="1em"[^>]*height="1em"/i);
+	assert.match(markup, /aria-hidden="true"/);
+});
+
 test('getCdnOpenIconSvgUrl returns the API svg route', () => {
 	assert.equal(
 		getCdnOpenIconSvgUrl('ui/search-m'),

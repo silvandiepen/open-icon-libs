@@ -26,6 +26,7 @@ import type { AngularOpenIconName } from './icon.model.js';
 export class IconComponent {
 	private _name = '';
 	private _title = '';
+	private _ariaLabel = '';
 	private _requestId = 0;
 	protected svg: SafeHtml | '' = '';
 	protected accessibleLabel: string | null = null;
@@ -44,9 +45,15 @@ export class IconComponent {
 		this.updateState();
 	}
 
+	@Input('aria-label')
+	set ariaLabel(value: string | null | undefined) {
+		this._ariaLabel = value ?? '';
+		this.updateState();
+	}
+
 	private updateState(): void {
 		const requestId = ++this._requestId;
-		this.accessibleLabel = getAngularOpenIconLabel(this._title, null);
+		this.accessibleLabel = getAngularOpenIconLabel(this._title, this._ariaLabel);
 		void loadAngularOpenIconMarkup(this._name).then((svg) => {
 			if (requestId !== this._requestId) {
 				return;
