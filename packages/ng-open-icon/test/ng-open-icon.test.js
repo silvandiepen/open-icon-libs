@@ -95,6 +95,25 @@ test('IconComponent renders its SSR shell and accessibility attributes', async (
 	assert.match(html, /aria-label="Search"/);
 });
 
+test('IconComponent honours an aria-label input when no title is set', async () => {
+	class TestAriaAppComponent {
+		constructor() {
+			this.Icons = Icons;
+		}
+	}
+	Component({
+		selector: 'test-aria-app',
+		standalone: true,
+		imports: [IconComponent],
+		template: `<open-icon [name]="Icons.UI_SEARCH_M" aria-label="Find"></open-icon>`,
+	})(TestAriaAppComponent);
+
+	const html = await renderAngularApplication(TestAriaAppComponent, 'test-aria-app');
+
+	assert.match(html, /role="img"/);
+	assert.match(html, /aria-label="Find"/);
+});
+
 test('StaticIconComponent renders inside a real Angular SSR app', async () => {
 	class TestStaticAppComponent {
 		constructor() {

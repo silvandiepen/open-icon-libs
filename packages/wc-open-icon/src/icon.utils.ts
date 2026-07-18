@@ -5,6 +5,7 @@ import {
 	type OpenIconKey,
 	type OpenIconName,
 } from 'open-icon/runtime';
+import { renderShadowOpenIconMarkup } from './markup.js';
 
 export const resolveWcOpenIconName = (value: string | null | undefined): OpenIconName | null => {
 	if (typeof value !== 'string') {
@@ -28,14 +29,7 @@ export const renderWcOpenIconMarkup = (
 	svg: string,
 	title: string | null | undefined,
 	ariaLabel?: string | null | undefined
-): string => {
-	const accessibleLabel = title?.trim() || ariaLabel?.trim() || '';
-	const accessibilityAttributes = accessibleLabel
-		? ` role="img" aria-label="${escapeAttribute(accessibleLabel)}" title="${escapeAttribute(accessibleLabel)}"`
-		: ' aria-hidden="true"';
-
-	return `<style>:host{display:inline-flex;line-height:0;vertical-align:middle}svg{display:block;width:1em;height:1em}</style><span part="icon"${accessibilityAttributes}>${svg}</span>`;
-};
+): string => renderShadowOpenIconMarkup(svg, title, ariaLabel);
 
 export const loadWcOpenIconMarkup = async (
 	name: string | null | undefined,
@@ -54,6 +48,3 @@ export const loadWcOpenIconMarkup = async (
 
 	return renderWcOpenIconMarkup(svg, title, ariaLabel);
 };
-
-const escapeAttribute = (value: string): string =>
-	value.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
